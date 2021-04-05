@@ -1,10 +1,64 @@
-svg {
-  width: 500px;
-  fill: none;
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Verdana";
 }
 
-svg path {
-  background-size: 50px;
-  stroke: cadetblue;
-  stroke-width: 4;
+h1 {
+  font-family: "Zilla Slab Highlight", "Trebuchet MS";
+}
+
+p {
+  font-family: Times New Roman;
+}
+
+#inicio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 700px;
+}
+
+#titulo {
+  font-size: 2em;
+  padding: 3% 20%;
+  font-weight: bold;
+}
+
+#cocha {
+  width: 300px;
+  fill: #00dbfc;
+}
+
+#cocha path {
+  stroke: none;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.arrow {
+  border: solid #00dbfc;
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  padding: 6px;
+  transform: rotate(45deg);
+  animation: 1s ease-in alternate infinite deslizar;
+}
+
+.continuar {
+  font-size: 1.5rem;
+}
+
+@keyframes deslizar {
+  from {
+    transform: rotate(45deg) translate(0, 0);
+  }
+  to {
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
 }
