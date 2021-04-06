@@ -22,7 +22,7 @@ const init = () => {
   // px
   const { top, height } = mapIntro.getBoundingClientRect();
 
-  const mapIntroPos = window.scrollY + top + Math.round(height / 2);
+  const mapIntroPos = window.scrollY + top + Math.round((height - windowY) / 2);
 
   return { yTitle, yCont, mapIntroPos };
 };
@@ -39,7 +39,8 @@ document.addEventListener("scroll", function (e) {
   };
 
   const mapIntroScroll = () => {
-    cochaSVG.style.transfor = "translate(0,0)";
+    console.log("wohoo");
+    cochaSVG.style.transform = "translate(0,0)";
     cochaSVG.style.position = "static";
   };
 
