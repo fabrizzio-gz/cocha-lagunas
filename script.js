@@ -1,4 +1,4 @@
-const svgInicio = document.getElementById("cocha");
+const cochaSVG = document.getElementById("cocha-svg");
 const windowY = document.documentElement.clientHeight;
 const titulo = document.getElementById("titulo");
 const continuar = document.getElementById("continuar");
@@ -33,12 +33,15 @@ document.addEventListener("scroll", function (e) {
   let yPos = window.scrollY;
 
   const introScroll = () => {
-    svgInicio.style.width = Math.min(yPos, 300) + "px";
+    cochaSVG.style.width = Math.min(yPos, 300) + "px";
     titulo.style.top = Math.round(((yTitle - yPos) / windowY) * 100) + "%";
     continuar.style.top = Math.round(((yCont + yPos) / windowY) * 100) + "%";
   };
 
-  const mapIntroScroll = () => {};
+  const mapIntroScroll = () => {
+    cochaSVG.style.transfor = "translate(0,0)";
+    cochaSVG.style.position = "static";
+  };
 
   window.requestAnimationFrame(() => {
     if (yPos < mapIntroPos) introScroll();

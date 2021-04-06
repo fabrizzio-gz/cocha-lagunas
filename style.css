@@ -87,11 +87,11 @@ body {
 }
 
 .cocha-container {
-  width: 300px;
+  width: 100%;
   height: 304.5px;
 }
 
-#cocha {
+#cocha-svg {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -99,11 +99,11 @@ body {
   width: 0;
 }
 
-#cocha rect {
+#cocha-svg rect {
   fill: none;
 }
 
-#cocha path {
+#cocha-svg path {
   fill: #00dbfc;
   stroke: none;
 }
@@ -115,6 +115,7 @@ body {
 .center {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .italic {
