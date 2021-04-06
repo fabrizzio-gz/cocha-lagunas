@@ -1,4 +1,4 @@
-const svg = document.getElementById("cocha");
+const svgInicio = document.getElementById("cocha");
 
 const titulo = document.getElementById("titulo");
 const continuar = document.getElementById("continuar");
@@ -27,6 +27,7 @@ document.addEventListener("scroll", function (e) {
   let yPos = window.scrollY;
 
   window.requestAnimationFrame(() => {
+    svgInicio.style.width = Math.min(yPos, 300) + "px";
     titulo.style.top = yTitle - yPos + "px";
     continuar.style.top = yCont + yPos + "px";
   });

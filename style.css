@@ -1,5 +1,4 @@
 :root {
-  --height-inicio: 150vh;
 }
 
 * {
@@ -16,18 +15,12 @@ body {
 }
 
 #inicio {
-  overflow: hidden;
-  height: 150vh;
-  /*calc(var(--height-inicio) * 1px); */
+  height: 100vh;
 }
+
 /*
-#inicio {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 700px;
-}*/
+ * Inicio
+*/
 
 #titulo {
   position: fixed;
@@ -38,27 +31,12 @@ body {
   font-weight: bold;
 }
 
-#continuar {
-  position: fixed;
+#cocha {
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 100%);
-  font-size: 1.5rem;
-}
-
-@keyframes deslizar {
-  from {
-    transform: rotate(45deg) translate(0, 0);
-  }
-  to {
-    transform: rotate(45deg) translate(-5px, -5px);
-  }
-}
-
-#cocha {
+  transform: translate(-50%, -50%);
   position: fixed;
-  fill: none;
-  width: 300px;
+  width: 0;
 }
 
 #cocha rect {
@@ -67,13 +45,15 @@ body {
 
 #cocha path {
   fill: #00dbfc;
-  fill: none;
   stroke: none;
 }
 
-.center {
-  display: flex;
-  justify-content: center;
+#continuar {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  font-size: 1.5rem;
 }
 
 .arrow {
@@ -85,8 +65,34 @@ body {
   animation: 1s ease-in alternate infinite deslizar;
 }
 
+@keyframes deslizar {
+  from {
+    transform: rotate(45deg) translate(0, 0);
+  }
+  to {
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
+}
+
+/*
+ * Intro Cocha
+ */
+
+#intro-cocha {
+  background: yellow;
+}
+
+/*
+ * General classes
+ */
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 #end {
-  background: black;
+  background: red;
   width: 100%;
   height: 500px;
 }
