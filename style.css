@@ -6,12 +6,18 @@
   margin: 0;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Zilla Slab Highlight", "Trebuchet MS";
 }
 
 body {
-  font-family: Times New Roman;
+  font-family: "Nunito Sans", "Times New Roman";
+  color: #3b4749;
 }
 
 #inicio {
@@ -90,6 +96,10 @@ body {
 .center {
   display: flex;
   justify-content: center;
+}
+
+.italic {
+  font-style: italic;
 }
 
 #end {
