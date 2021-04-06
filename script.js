@@ -1,2 +1,16 @@
 const svg = document.getElementById("cocha");
-// svg.setAttribute("viewBox", "100 100 200 200");
+
+document.addEventListener("scroll", function (e) {
+  console.log(window.scrollY);
+  /*
+  lastKnownScrollPosition = window.scrollY;
+
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      doSomething(lastKnownScrollPosition);
+      ticking = false;
+    });
+
+    ticking = true;
+  }*/
+});

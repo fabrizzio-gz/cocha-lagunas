@@ -1,5 +1,5 @@
 :root {
-  --height-inicio: 1200;
+  --height-inicio: 150vh;
 }
 
 * {
@@ -17,7 +17,8 @@ body {
 
 #inicio {
   overflow: hidden;
-  height: calc(var(--height-inicio) * 1px);
+  height: 150vh;
+  /*calc(var(--height-inicio) * 1px); */
 }
 /*
 #inicio {
