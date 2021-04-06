@@ -86,7 +86,7 @@ body {
   height: 100vh;
 }
 
-.cocha-container {
+#map-cocha {
   width: 100%;
   height: 304.5px;
 }
