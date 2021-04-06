@@ -2,6 +2,7 @@ const svgInicio = document.getElementById("cocha");
 const windowY = document.documentElement.clientHeight;
 const titulo = document.getElementById("titulo");
 const continuar = document.getElementById("continuar");
+const mapIntro = document.getElementById("map-cocha");
 
 const init = () => {
   // Move titulo and continuar to absolute positions
@@ -18,17 +19,29 @@ const init = () => {
   titulo.style.top = yTitle + "px";
   continuar.style.top = yCont + "px";
 
-  return { yTitle, yCont };
+  // px
+  const { top, height } = mapIntro.getBoundingClientRect();
+
+  const mapIntroPos = window.scrollY + top + Math.round(height / 2);
+
+  return { yTitle, yCont, mapIntroPos };
 };
 
-const { yTitle, yCont } = init();
+const { yTitle, yCont, mapIntroPos } = init();
 
 document.addEventListener("scroll", function (e) {
   let yPos = window.scrollY;
 
-  window.requestAnimationFrame(() => {
+  const introScroll = () => {
     svgInicio.style.width = Math.min(yPos, 300) + "px";
     titulo.style.top = Math.round(((yTitle - yPos) / windowY) * 100) + "%";
     continuar.style.top = Math.round(((yCont + yPos) / windowY) * 100) + "%";
+  };
+
+  const mapIntroScroll = () => {};
+
+  window.requestAnimationFrame(() => {
+    if (yPos < mapIntroPos) introScroll();
+    else mapIntroScroll();
   });
 });
