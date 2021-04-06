@@ -42,6 +42,11 @@ document.addEventListener("scroll", function (e) {
     console.log("wohoo");
     cochaSVG.style.transform = "translate(0,0)";
     cochaSVG.style.position = "static";
+
+    const tituloIntro = document.getElementById("titulo-intro");
+    tituloIntro.style.animation = "1.5s ease-in forwards appear";
+    const mensajeIntro = document.getElementById("mensaje-intro");
+    mensajeIntro.style.animation = "0.5s ease-in 1.5s forwards appear";
   };
 
   window.requestAnimationFrame(() => {

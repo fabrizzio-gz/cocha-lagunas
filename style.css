@@ -86,6 +86,23 @@ body {
   height: 100vh;
 }
 
+#titulo-intro {
+  opacity: 0;
+}
+
+#mensaje-intro {
+  opacity: 0;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 #map-cocha {
   width: 100%;
   height: 304.5px;
