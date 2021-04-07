@@ -52,3 +52,13 @@ document.addEventListener("scroll", function (e) {
     // else mapIntroScroll();
   });
 });
+
+anime({
+  targets: map,
+  scale: 1.05,
+  //  rotate: "45deg",
+  delay: () => 500,
+  direction: "alternate",
+  loop: true,
+  easing: "linear",
+});
