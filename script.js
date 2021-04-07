@@ -1,8 +1,8 @@
-const cochaSVG = document.getElementById("cocha-svg");
+const map = document.getElementById("cocha-svg");
 const windowY = document.documentElement.clientHeight;
 const titulo = document.getElementById("titulo");
 const continuar = document.getElementById("continuar");
-const mapIntro = document.getElementById("map-cocha");
+const mapIntro = document.getElementById("map-container");
 
 const init = () => {
   // Move titulo and continuar to absolute positions
