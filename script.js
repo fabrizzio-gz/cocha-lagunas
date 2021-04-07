@@ -33,7 +33,7 @@ document.addEventListener("scroll", function (e) {
   let yPos = window.scrollY;
 
   const introScroll = () => {
-    cochaSVG.style.width = Math.min(yPos, 300) + "px";
+    // cochaSVG.style.width = Math.min(yPos, 300) + "px";
     titulo.style.top = Math.round(((yTitle - yPos) / windowY) * 100) + "%";
     continuar.style.top = Math.round(((yCont + yPos) / windowY) * 100) + "%";
   };
@@ -51,6 +51,6 @@ document.addEventListener("scroll", function (e) {
 
   window.requestAnimationFrame(() => {
     if (yPos < mapIntroPos) introScroll();
-    else mapIntroScroll();
+    // else mapIntroScroll();
   });
 });
