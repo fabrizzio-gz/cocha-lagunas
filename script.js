@@ -5,8 +5,6 @@ const continuar = document.getElementById("continuar");
 const mapIntro = document.getElementById("map-container");
 
 const init = () => {
-  // Move titulo and continuar to absolute positions
-  // with no transform
   const posTitle = titulo.getBoundingClientRect();
   const yTitle = posTitle.y;
   const heightTitle = posTitle.height;
@@ -53,7 +51,7 @@ document.addEventListener("scroll", function (e) {
   });
 });
 
-anime({
+const intro = anime({
   targets: map,
   scale: 1.05,
   //  rotate: "45deg",
@@ -62,3 +60,14 @@ anime({
   loop: true,
   easing: "linear",
 });
+
+const section1 = anime({
+  targets: map,
+  duration: 500,
+  scale: 0.5,
+  translateX: "-50%",
+  easing: "linear",
+  autoplay: false,
+});
+
+intro.pause();
