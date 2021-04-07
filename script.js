@@ -23,7 +23,7 @@ const init = () => {
   const { top, height } = mapIntro.getBoundingClientRect();
 
   const mapIntroPos = window.scrollY + top + Math.round((height - windowY) / 2);
-
+  console.log(mapIntroPos);
   return { yTitle, yCont, mapIntroPos };
 };
 
@@ -34,6 +34,7 @@ document.addEventListener("scroll", function (e) {
 
   const introScroll = () => {
     // cochaSVG.style.width = Math.min(yPos, 300) + "px";
+    console.log("here");
     titulo.style.top = Math.round(((yTitle - yPos) / windowY) * 100) + "%";
     continuar.style.top = Math.round(((yCont + yPos) / windowY) * 100) + "%";
   };
@@ -50,7 +51,7 @@ document.addEventListener("scroll", function (e) {
   };
 
   window.requestAnimationFrame(() => {
-    if (yPos < mapIntroPos) introScroll();
+    if (yPos < windowY) introScroll();
     // else mapIntroScroll();
   });
 });
