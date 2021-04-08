@@ -46,6 +46,7 @@ const intro = anime({
   direction: "alternate",
   loop: true,
   easing: "linear",
+  autoplay: false,
 });
 
 const introTransition = anime

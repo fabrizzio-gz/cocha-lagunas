@@ -30,16 +30,18 @@ body {
  * Inicio
  */
 
+/* debug */
+#cocha-map-container {
+  position: static;
+}
+
 #inicio {
   height: 100vh;
+  background: lightyellow;
 }
 
 #cocha-svg {
   width: 100vh;
-}
-
-#cocha-svg rect {
-  fill: none;
 }
 
 #cocha-svg path {
@@ -95,6 +97,11 @@ body {
  * Section 1
  */
 
+#cercado-map-container {
+  position: static;
+  background: yellow;
+}
+
 /*
  * General classes
  */
@@ -102,7 +109,11 @@ body {
 .map-container {
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+}
+
+.map-container rect {
+  fill: none;
 }
 
 .center {
