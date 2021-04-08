@@ -1,0 +1,19 @@
+/* Get lakes */
+(relation
+  [natural=water][water=lake]
+  ({{bbox}});
+ );
+/*added by auto repair*/
+(._;>;);
+/*end of auto repair*/
+out;
+
+/* Get boundaries */
+(relation
+  [boundary=administrative][name=Cochabamba]
+  ({{bbox}});
+ );
+/*added by auto repair*/
+(._;>;);
+/*end of auto repair*/
+out;
