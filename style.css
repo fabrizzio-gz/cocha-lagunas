@@ -1,5 +1,6 @@
-:root {
-}
+/*
+ * Setup formatting
+ */
 
 * {
   padding: 0;
@@ -25,13 +26,26 @@ body {
   color: #3b4749;
 }
 
+/*
+ * Inicio
+ */
+
 #inicio {
   height: 100vh;
 }
 
-/*
- * Inicio
-*/
+#cocha-svg {
+  width: 100vh;
+}
+
+#cocha-svg rect {
+  fill: none;
+}
+
+#cocha-svg path {
+  fill: #00dbfc;
+  stroke: none;
+}
 
 #titulo {
   position: fixed;
@@ -78,58 +92,18 @@ body {
 }
 
 /*
- * Intro Cocha
+ * Section 1
  */
 
-#intro-cocha {
-  background: yellow;
-  height: 100vh;
-}
-
-#titulo-intro {
-  opacity: 0;
-}
-
-#mensaje-intro {
-  opacity: 0;
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+/*
+ * General classes
+ */
 
 .map-container {
   position: fixed;
   width: 100%;
   height: 100%;
 }
-
-#cocha-svg {
-  top: 0;
-  left: 0;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  width: 100vh;
-}
-
-#cocha-svg rect {
-  fill: none;
-}
-
-#cocha-svg path {
-  fill: #00dbfc;
-  stroke: none;
-}
-
-/*
- * General classes
- */
 
 .center {
   display: flex;
