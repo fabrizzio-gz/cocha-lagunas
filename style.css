@@ -99,7 +99,12 @@ body {
 
 #cercado-map-container {
   position: static;
-  background: yellow;
+  background: lightyellow;
+}
+
+#cercado-map-container path {
+  stroke: #3b4749;
+  stroke-width: 3;
 }
 
 /*
