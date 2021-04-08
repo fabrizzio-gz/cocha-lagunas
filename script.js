@@ -30,36 +30,37 @@ document.addEventListener("scroll", function (e) {
   let yPos = window.scrollY;
 
   const introScroll = () => {
-    // cochaSVG.style.width = Math.min(yPos, 300) + "px";
     titulo.style.top = Math.round(((yTitle - yPos) / windowY) * 100) + "%";
     continuar.style.top = Math.round(((yCont + yPos) / windowY) * 100) + "%";
   };
 
-  const mapIntroScroll = () => {
-    cochaSVG.style.transform = "translate(0,0)";
-    cochaSVG.style.position = "static";
-
-    const tituloIntro = document.getElementById("titulo-intro");
-    tituloIntro.style.animation = "1.5s ease-in forwards appear";
-    const mensajeIntro = document.getElementById("mensaje-intro");
-    mensajeIntro.style.animation = "0.5s ease-in 1.5s forwards appear";
-  };
-
   window.requestAnimationFrame(() => {
     if (yPos < windowY) introScroll();
-    // else mapIntroScroll();
   });
 });
 
 const intro = anime({
   targets: mapCocha,
   scale: 1.05,
-  //  rotate: "45deg",
   delay: () => 500,
   direction: "alternate",
   loop: true,
   easing: "linear",
 });
+
+const introTransition = anime
+  .timeline({
+    targets: mapCocha,
+    easing: "linear",
+    autoplay: false,
+  })
+  .add({
+    scale: 5,
+    translateX: "10%",
+    translateY: "5%",
+    opacity: 0,
+    duration: 2000,
+  });
 
 const section1 = anime({
   targets: mapCocha,
@@ -69,5 +70,3 @@ const section1 = anime({
   easing: "linear",
   autoplay: false,
 });
-
-intro.pause();
