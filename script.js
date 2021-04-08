@@ -1,8 +1,8 @@
-const map = document.getElementById("cocha-svg");
+const mapCocha = document.getElementById("cocha-svg");
 const windowY = document.documentElement.clientHeight;
 const titulo = document.getElementById("titulo");
 const continuar = document.getElementById("continuar");
-const mapIntro = document.getElementById("map-container");
+const mapIntro = document.getElementById("cocha-map-container");
 
 const init = () => {
   const posTitle = titulo.getBoundingClientRect();
@@ -52,7 +52,7 @@ document.addEventListener("scroll", function (e) {
 });
 
 const intro = anime({
-  targets: map,
+  targets: mapCocha,
   scale: 1.05,
   //  rotate: "45deg",
   delay: () => 500,
@@ -62,7 +62,7 @@ const intro = anime({
 });
 
 const section1 = anime({
-  targets: map,
+  targets: mapCocha,
   duration: 500,
   scale: 0.5,
   translateX: "-50%",
