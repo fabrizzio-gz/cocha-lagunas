@@ -61,14 +61,8 @@
     </div>
 
     <div id="cercado-map-container" class="map-container center">
-      <svg
-        width="300"
-        height="300"
-        viewBox="0 0 300 300"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g id="cercado-svg">
+      <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="cercado-svg" clip-path="url(#clip1)">
           <rect width="300" height="300" fill="white" />
           <g id="cercado-map">
             <g id="lagunas">
@@ -145,6 +139,11 @@
             </g>
           </g>
         </g>
+        <defs>
+          <clipPath id="clip1">
+            <rect width="300" height="300" />
+          </clipPath>
+        </defs>
       </svg>
     </div>
 

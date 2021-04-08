@@ -103,14 +103,24 @@ body {
  * Section 1
  */
 
-#cercado-map-container {
+/*#cercado-map-container {
   position: static;
-  background: lightyellow;
+  width: 500px;
+  height: 500px;
+  background: red;
+}*/
+
+#cercado-map-container svg {
+  width: 100vh;
 }
 
 #cercado-map-container path {
   stroke: #3b4749;
   stroke-width: 3;
+}
+
+#cercado-map-container path {
+  fill: #00dbfc;
 }
 
 /*
@@ -119,6 +129,8 @@ body {
 
 .map-container {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
 }

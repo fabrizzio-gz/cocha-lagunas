@@ -38,7 +38,8 @@ document.addEventListener("scroll", function (e) {
   window.requestAnimationFrame(() => {
     if (yPos < windowY) introScroll();
   });
-});*/
+  });
+*/
 
 const intro = anime({
   targets: mapCocha,
