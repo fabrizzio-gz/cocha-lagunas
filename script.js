@@ -4,6 +4,7 @@ const titulo = document.getElementById("titulo");
 const continuar = document.getElementById("continuar");
 const mapIntro = document.getElementById("cocha-map-container");
 
+/*
 const init = () => {
   const posTitle = titulo.getBoundingClientRect();
   const yTitle = posTitle.y;
@@ -37,7 +38,7 @@ document.addEventListener("scroll", function (e) {
   window.requestAnimationFrame(() => {
     if (yPos < windowY) introScroll();
   });
-});
+});*/
 
 const intro = anime({
   targets: mapCocha,
