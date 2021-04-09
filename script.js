@@ -69,13 +69,21 @@ document.addEventListener("scroll", function (e) {
     };
 
     const section = Math.ceil((positionMid - inicioSize) / sectionSize);
-    console.log(yPos, positionMid, section);
     switch (section) {
       case 2:
         callAnimation(2, sec2Anim);
         break;
       case 3:
         callAnimation(3, sec3Anim);
+        break;
+      case 5:
+        callAnimation(5, sec5Anim);
+        break;
+      case 6:
+        callAnimation(6, sec6Anim);
+        break;
+      case 7:
+        callAnimation(7, conclusionAnim);
         break;
     }
   });
@@ -115,12 +123,10 @@ const sec3Anim = anime({
   autoplay: false,
 });
 
-/*
-
-const section5 = anime
+const sec5Anim = anime
   .timeline({
     easing: "linear",
-    autoplay: true,
+    autoplay: false,
   })
   .add({
     targets: mapCercado,
@@ -141,18 +147,17 @@ const section5 = anime
     stroke: lightblue,
     strokeWidth: "1",
     easing: "linear",
-    autoplay: false,
   });
 
-const section6 = anime({
+const sec6Anim = anime({
   targets: "#lag-cuellar path",
   fill: invisible,
   opacity: 0.5,
   easing: "linear",
-  // autoplay: false, //debug, uncomment
+  autoplay: false,
 });
 
-const conclusion = anime({
+const conclusionAnim = anime({
   targets: [
     "#lag-cuellar path",
     "#lag-cona-cona path",
@@ -166,8 +171,6 @@ const conclusion = anime({
   duration: 1000,
   autoplay: false,
 });
-
-*/
 
 const { yTitle, yCont, mapIntroPos } = init();
 const { inicioSize, sectionSize } = getSectionSizes();
