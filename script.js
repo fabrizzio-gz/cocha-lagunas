@@ -56,7 +56,7 @@ const section2 = anime
   .timeline({
     targets: [mapCocha, mapCercado],
     easing: "linear",
-    autoplay: false,
+    autoplay: true, // debug: should be "false"
   })
   .add({
     scale: 5,
@@ -67,3 +67,10 @@ const section2 = anime
     },
     duration: 2000,
   });
+
+const section3 = anime({
+  targets: "#cercado path",
+  fill: "#3b4749",
+  easing: "linear",
+  autoplay: false,
+});
