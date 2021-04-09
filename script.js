@@ -10,7 +10,6 @@ const lightblue = "#00dbfc";
 const grey = "#3b4749";
 const invisible = "rgba(0,0,0,0)";
 
-/*
 const init = () => {
   const posTitle = titulo.getBoundingClientRect();
   const yTitle = posTitle.y;
@@ -33,29 +32,17 @@ const init = () => {
 
 const { yTitle, yCont, mapIntroPos } = init();
 
-document.addEventListener("scroll", function (e) {
-  let yPos = window.scrollY;
-
-  const introScroll = () => {
-    titulo.style.top = Math.round(((yTitle - yPos) / windowY) * 100) + "%";
-    continuar.style.top = Math.round(((yCont + yPos) / windowY) * 100) + "%";
-  };
-
-  window.requestAnimationFrame(() => {
-    if (yPos < windowY) introScroll();
-  });
-  });
-*/
-
-const intro = anime({
+const introAnim = anime({
   targets: mapCocha,
   scale: 1.05,
   delay: () => 500,
   direction: "alternate",
   loop: true,
   easing: "linear",
-  autoplay: false,
+  autoplay: true,
 });
+
+/*
 
 const section2 = anime
   .timeline({
@@ -129,4 +116,20 @@ const conclusion = anime({
   },
   duration: 1000,
   autoplay: false,
+});
+
+*/
+
+document.addEventListener("scroll", function (e) {
+  introAnim.pause();
+  let yPos = window.scrollY;
+
+  const introScroll = () => {
+    titulo.style.top = Math.round(((yTitle - yPos) / windowY) * 100) + "%";
+    continuar.style.top = Math.round(((yCont + yPos) / windowY) * 100) + "%";
+  };
+
+  window.requestAnimationFrame(() => {
+    if (yPos < windowY) introScroll();
+  });
 });
