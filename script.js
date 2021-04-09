@@ -30,12 +30,30 @@ const init = () => {
   return { yTitle, yCont, mapIntroPos };
 };
 
-const { yTitle, yCont, mapIntroPos } = init();
+document.addEventListener("scroll", function (e) {
+  const yPos = window.scrollY;
+  const positionMid = yPos + Math.round(windowY / 2);
+  console.log(positionMid);
+
+  if (yPos == 0) introAnim.play();
+  else introAnim.pause();
+
+  const introScroll = () => {
+    titulo.style.top = Math.round(((yTitle - yPos) / windowY) * 100) + "%";
+    continuar.style.top = Math.round(((yCont + yPos) / windowY) * 100) + "%";
+  };
+
+  window.requestAnimationFrame(() => {
+    if (yPos < windowY) introScroll();
+
+    // Play animation based on position
+  });
+});
 
 const introAnim = anime({
   targets: mapCocha,
   scale: 1.05,
-  delay: () => 500,
+  delay: 250,
   direction: "alternate",
   loop: true,
   easing: "linear",
@@ -120,16 +138,4 @@ const conclusion = anime({
 
 */
 
-document.addEventListener("scroll", function (e) {
-  introAnim.pause();
-  let yPos = window.scrollY;
-
-  const introScroll = () => {
-    titulo.style.top = Math.round(((yTitle - yPos) / windowY) * 100) + "%";
-    continuar.style.top = Math.round(((yCont + yPos) / windowY) * 100) + "%";
-  };
-
-  window.requestAnimationFrame(() => {
-    if (yPos < windowY) introScroll();
-  });
-});
+const { yTitle, yCont, mapIntroPos } = init();
