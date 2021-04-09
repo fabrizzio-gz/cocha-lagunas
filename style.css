@@ -1,4 +1,12 @@
 /*
+ * Global vars
+ */
+
+:root {
+  --inicio-size: 1; /* Fraction of vh*/
+  --section-size: 1.2; /* Fraction of vh */
+}
+/*
  * Setup formatting
  */
 
@@ -36,7 +44,7 @@ body {
 }
 
 #inicio {
-  height: 100vh;
+  height: calc(var(--inicio-size) * 100vh);
   background: lightyellow;
 }
 
@@ -172,7 +180,7 @@ section {
   border-top: solid 3px black;
   border-bottom: solid 3px black;
   background: lightyellow;
-  height: 120vh;
+  height: calc(var(--section-size) * 100vh);
   grid-template-columns: 60% 20% 20%;
   grid-template-rows: auto 25vh auto 25vh auto;
   grid-template-areas:
