@@ -112,23 +112,28 @@ body {
   width: 100vh;
 }
 
+/*
 #cercado-map-container path {
   stroke: #3b4749;
-  stroke-width: 3;
-}
+  stroke-width: 2;
+}*/
 
 #cercado path {
   fill: #00dbfc;
 }
 
 #lagunas path,
-#rio-rocha path {
+.no-show-river path {
   stroke: none;
 }
 
 /*
- * Section 1
+ * Section 5
  */
+
+.show-river path {
+  stroke: #00dbfc;
+}
 
 /*
  * General classes

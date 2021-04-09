@@ -4,6 +4,10 @@ const windowY = document.documentElement.clientHeight;
 const titulo = document.getElementById("titulo");
 const continuar = document.getElementById("continuar");
 const mapIntro = document.getElementById("cocha-map-container");
+const rioRocha = document.getElementById("rio-rocha");
+
+const lightblue = "#00dbfc";
+const grey = "#3b4749";
 
 /*
 const init = () => {
@@ -59,9 +63,9 @@ const section2 = anime
     autoplay: true, // debug: should be "false"
   })
   .add({
-    scale: 5,
+    scale: 12,
     translateX: "10%",
-    translateY: "5%",
+    translateY: "0%",
     opacity: (el, i) => {
       return i;
     },
@@ -70,7 +74,36 @@ const section2 = anime
 
 const section3 = anime({
   targets: "#cercado path",
-  fill: "#3b4749",
+  fill: grey,
+  opacity: 0.5,
   easing: "linear",
-  autoplay: false,
+  // autoplay: false, //debug, should be true
 });
+
+const section5 = anime
+  .timeline({
+    easing: "linear",
+    autoplay: true,
+  })
+  .add({
+    targets: mapCercado,
+    scale: 30,
+    duration: 1000,
+  })
+  .add({
+    targets: "#lag-cuellar path",
+    fill: lightblue,
+    opacity: 1,
+    duration: 1000,
+    complete: function (anim) {
+      console.log(rioRocha);
+      rioRocha.classList.remove("no-show-river");
+    },
+  })
+  .add({
+    targets: "#rio-rocha path",
+    stroke: lightblue,
+    strokeWidth: "1",
+    easing: "linear",
+    autoplay: false,
+  });
