@@ -62,7 +62,9 @@ const introTransition = anime
     scale: 5,
     translateX: "10%",
     translateY: "5%",
-    opacity: 0,
+    opacity: (el, i) => {
+      return i;
+    },
     duration: 2000,
   });
 
