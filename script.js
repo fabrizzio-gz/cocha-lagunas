@@ -1,4 +1,5 @@
 const mapCocha = document.getElementById("cocha-svg");
+const mapCercado = document.getElementById("cercado-svg");
 const windowY = document.documentElement.clientHeight;
 const titulo = document.getElementById("titulo");
 const continuar = document.getElementById("continuar");
@@ -53,7 +54,7 @@ const intro = anime({
 
 const introTransition = anime
   .timeline({
-    targets: mapCocha,
+    targets: [mapCocha, mapCercado],
     easing: "linear",
     autoplay: false,
   })

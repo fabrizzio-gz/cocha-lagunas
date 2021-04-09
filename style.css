@@ -32,7 +32,7 @@ body {
 
 /* debug */
 #cocha-map-container {
-  position: static;
+  position: fixed;
 }
 
 #inicio {
@@ -100,7 +100,7 @@ body {
 }
 
 /*
- * Section 1
+ * Cercado map
  */
 
 #cercado-map-container {
@@ -116,6 +116,15 @@ body {
   stroke: #3b4749;
   stroke-width: 3;
 }
+
+#lagunas path,
+#rio-rocha path {
+  stroke: none;
+}
+
+/*
+ * Section 1
+ */
 
 /*
  * General classes
