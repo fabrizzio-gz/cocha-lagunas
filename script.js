@@ -77,7 +77,7 @@ const section3 = anime({
   fill: grey,
   opacity: 0.5,
   easing: "linear",
-  // autoplay: false, //debug, should be true
+  // autoplay: false,
 });
 
 const section5 = anime
@@ -93,7 +93,6 @@ const section5 = anime
   .add({
     targets: "#lag-cuellar path",
     fill: lightblue,
-    opacity: 1,
     duration: 1000,
     complete: function (anim) {
       console.log(rioRocha);
@@ -107,3 +106,11 @@ const section5 = anime
     easing: "linear",
     autoplay: false,
   });
+
+const section6 = anime({
+  targets: "#lag-cuellar path",
+  fill: grey,
+  opacity: 0.5,
+  easing: "linear",
+  // autoplay: false, //debug, should be true
+});
