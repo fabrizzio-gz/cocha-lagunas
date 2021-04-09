@@ -117,6 +117,10 @@ body {
   stroke-width: 3;
 }
 
+#cercado path {
+  fill: #00dbfc;
+}
+
 #lagunas path,
 #rio-rocha path {
   stroke: none;

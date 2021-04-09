@@ -52,7 +52,7 @@ const intro = anime({
   autoplay: false,
 });
 
-const introTransition = anime
+const section2 = anime
   .timeline({
     targets: [mapCocha, mapCercado],
     easing: "linear",
@@ -67,12 +67,3 @@ const introTransition = anime
     },
     duration: 2000,
   });
-
-const section1 = anime({
-  targets: mapCocha,
-  duration: 500,
-  scale: 0.5,
-  translateX: "-50%",
-  easing: "linear",
-  autoplay: false,
-});
