@@ -8,6 +8,7 @@ const rioRocha = document.getElementById("rio-rocha");
 
 const lightblue = "#00dbfc";
 const grey = "#3b4749";
+const invisible = "rgba(0,0,0,0)";
 
 /*
 const init = () => {
@@ -109,8 +110,23 @@ const section5 = anime
 
 const section6 = anime({
   targets: "#lag-cuellar path",
-  fill: grey,
+  fill: invisible,
   opacity: 0.5,
   easing: "linear",
-  // autoplay: false, //debug, should be true
+  // autoplay: false, //debug, uncomment
+});
+
+const conclusion = anime({
+  targets: [
+    "#lag-cuellar path",
+    "#lag-cona-cona path",
+    "#lag-alalay path",
+    "#lag-albarrancho path",
+  ],
+  fill: (el, i) => {
+    if (i != 0) return lightblue;
+    else return invisible;
+  },
+  duration: 1000,
+  autoplay: false,
 });
