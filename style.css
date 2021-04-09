@@ -103,12 +103,10 @@ body {
  * Section 1
  */
 
-/*#cercado-map-container {
-  position: static;
-  width: 500px;
-  height: 500px;
-  background: red;
-}*/
+#cercado-map-container {
+  /* Move to position in cbb map */
+  transform: translate(-13%, 7%) scale(0.08);
+}
 
 #cercado-map-container svg {
   width: 100vh;
@@ -117,10 +115,6 @@ body {
 #cercado-map-container path {
   stroke: #3b4749;
   stroke-width: 3;
-}
-
-#cercado-map-container path {
-  fill: #00dbfc;
 }
 
 /*
