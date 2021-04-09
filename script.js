@@ -27,13 +27,30 @@ const init = () => {
   const { top, height } = mapIntro.getBoundingClientRect();
 
   const mapIntroPos = window.scrollY + top + Math.round((height - windowY) / 2);
+
   return { yTitle, yCont, mapIntroPos };
 };
 
+const getSectionSizes = () => {
+  const inicioSize = Math.round(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      "--inicio-size"
+    ) * windowY
+  );
+  const sectionSize = Math.round(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      "--section-size"
+    ) * windowY
+  );
+
+  return { inicioSize, sectionSize };
+};
+
+let currentSection = -1;
+
 document.addEventListener("scroll", function (e) {
-  const yPos = window.scrollY;
+  const yPos = Math.round(window.scrollY);
   const positionMid = yPos + Math.round(windowY / 2);
-  console.log(positionMid);
 
   if (yPos == 0) introAnim.play();
   else introAnim.pause();
@@ -46,7 +63,13 @@ document.addEventListener("scroll", function (e) {
   window.requestAnimationFrame(() => {
     if (yPos < windowY) introScroll();
 
-    // Play animation based on position
+    const section = Math.ceil((positionMid - inicioSize) / sectionSize);
+    switch (section) {
+      case 2:
+        if (currentSection != 2) sec2Anim.play();
+        currentSection = 2;
+        break;
+    }
   });
 });
 
@@ -60,13 +83,11 @@ const introAnim = anime({
   autoplay: true,
 });
 
-/*
-
-const section2 = anime
+const sec2Anim = anime
   .timeline({
     targets: [mapCocha, mapCercado],
     easing: "linear",
-    autoplay: true, // debug: should be "false"
+    autoplay: false,
   })
   .add({
     scale: 12,
@@ -77,6 +98,8 @@ const section2 = anime
     },
     duration: 2000,
   });
+
+/*
 
 const section3 = anime({
   targets: "#cercado path",
@@ -139,3 +162,4 @@ const conclusion = anime({
 */
 
 const { yTitle, yCont, mapIntroPos } = init();
+const { inicioSize, sectionSize } = getSectionSizes();
