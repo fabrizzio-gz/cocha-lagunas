@@ -63,11 +63,19 @@ document.addEventListener("scroll", function (e) {
   window.requestAnimationFrame(() => {
     if (yPos < windowY) introScroll();
 
+    const callAnimation = (index, animation) => {
+      if (currentSection != index) animation.play();
+      currentSection = index;
+    };
+
     const section = Math.ceil((positionMid - inicioSize) / sectionSize);
+    console.log(yPos, positionMid, section);
     switch (section) {
       case 2:
-        if (currentSection != 2) sec2Anim.play();
-        currentSection = 2;
+        callAnimation(2, sec2Anim);
+        break;
+      case 3:
+        callAnimation(3, sec3Anim);
         break;
     }
   });
@@ -99,15 +107,15 @@ const sec2Anim = anime
     duration: 2000,
   });
 
-/*
-
-const section3 = anime({
+const sec3Anim = anime({
   targets: "#cercado path",
   fill: grey,
   opacity: 0.5,
   easing: "linear",
-  // autoplay: false,
+  autoplay: false,
 });
+
+/*
 
 const section5 = anime
   .timeline({
