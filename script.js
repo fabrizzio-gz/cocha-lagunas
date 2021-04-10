@@ -106,7 +106,7 @@ const introAnim = anime({
 
 const sec1Anim = [
   anime({
-    targets: "#cocha-svg-cocha",
+    targets: ["#cocha-svg-cocha", "#cocha-svg-cercado"],
     fill: lightgrey,
     stroke: grey,
     strokeWidth: 1,

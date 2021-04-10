@@ -149,7 +149,7 @@ body {
   fill: none;
 }
 
-.no-stroke {
+.no-stroke svg path {
   stroke: none;
 }
 .caption {
