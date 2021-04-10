@@ -152,9 +152,21 @@ body {
 .no-stroke path {
   stroke: none;
 }
-.caption-svg {
+
+/*.caption-svg {
   stroke: none;
   fill: none;
+}*/
+
+.caption {
+  position: fixed;
+  margin: 1em 0.5em;
+  transform: translate(-50%, -120%);
+  font-family: "Zilla Slab Highlight", "Trebuchet MS";
+  font-size: 1.2em;
+}
+
+.title {
 }
 
 .center {

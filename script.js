@@ -197,11 +197,34 @@ const { yTitle, yCont, mapIntroPos } = init();
 const { inicioSize, sectionSize } = getSectionSizes();
 
 class Caption {
-  constructor(text, posX, posY) {
-    this.text = "";
-    this.posX = 0;
-    this.posY = 0;
+  constructor(text = "", captionId = "") {
+    this.text = text;
+    if (captionId) {
+      const element = document.getElementById(captionId);
+      const { x, y } = element.getBoundingClientRect();
+      this.posX = x;
+      this.posY = y;
+    } else {
+      this.posX = 0;
+      this.posY = 0;
+    }
+
     this.div = document.createElement("div");
+    this.div.classList.add("caption");
+    this.div.style.left = this.posX + "px";
+    this.div.style.top = this.posY + "px";
     this.div.appendChild(document.createTextNode(text));
+    this.add();
+  }
+
+  setPosition(posX, posY) {
+    this.posX = posX;
+    this.posY = posY;
+    this.div.style.left = this.posX + "px";
+    this.div.style.top = this.posY + "px";
+  }
+
+  add() {
+    document.body.appendChild(this.div);
   }
 }
