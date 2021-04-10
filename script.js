@@ -175,14 +175,6 @@ const sec4Anim = anime({
   duration: 2000,
 });
 
-const sec3AnimAlt2 = anime({
-  targets: "#cercado path",
-  fill: grey,
-  opacity: 0.5,
-  easing: "linear",
-  autoplay: false,
-});
-
 const sec5Anim = anime
   .timeline({
     easing: "linear",
@@ -190,7 +182,8 @@ const sec5Anim = anime
   })
   .add({
     targets: mapCercado,
-    scale: 30,
+    scale: [12, 30],
+    translateX: ["10%", "0%"],
     duration: 1000,
   })
   .add({
@@ -229,6 +222,14 @@ const conclusionAnim = anime({
     else return invisible;
   },
   duration: 1000,
+  autoplay: false,
+});
+
+const sec3AnimAlt2 = anime({
+  targets: "#cercado path",
+  fill: grey,
+  opacity: 0.5,
+  easing: "linear",
   autoplay: false,
 });
 
