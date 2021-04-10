@@ -117,6 +117,9 @@ const sec2Anim = anime({
   stroke: grey,
   strokeWidth: 1,
   easing: "linear",
+  complete: (anim) => {
+    new Caption("Cercado", "cocha-svg-caption");
+  },
   autoplay: false,
 });
 
