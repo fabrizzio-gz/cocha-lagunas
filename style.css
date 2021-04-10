@@ -149,8 +149,12 @@ body {
   fill: none;
 }
 
+.no-stroke {
+  stroke: none;
+}
 .caption {
   stroke: none;
+  fill: none;
 }
 
 .center {
