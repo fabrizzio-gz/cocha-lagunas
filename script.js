@@ -195,3 +195,13 @@ const conclusionAnim = anime({
 
 const { yTitle, yCont, mapIntroPos } = init();
 const { inicioSize, sectionSize } = getSectionSizes();
+
+class Caption {
+  constructor(text, posX, posY) {
+    this.text = "";
+    this.posX = 0;
+    this.posY = 0;
+    this.div = document.createElement("div");
+    this.div.appendChild(document.createTextNode(text));
+  }
+}
