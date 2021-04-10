@@ -43,7 +43,7 @@ body {
   background: lightyellow;
 }
 
-#cocha-svg path {
+#cocha-svg-cocha {
   fill: #00dbfc;
   stroke: none;
 }
@@ -147,6 +147,10 @@ body {
 
 .map-container rect {
   fill: none;
+}
+
+.caption {
+  stroke: none;
 }
 
 .center {
