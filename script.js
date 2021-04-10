@@ -200,8 +200,31 @@ const sec5Anim = anime
     },
     strokeWidth: ["0", "1"],
     easing: "linear",
+    /*complete: () => {
+      new Caption("Río Rocha", "cercado-svg-caption-rocha");
+      new Caption("La Tamborada", "cercado-svg-caption-tamborada");
+      new Caption("Laguna Cuellar", "cercado-svg-caption-cuellar");
+    },*/
+  })
+  .add({
+    targets: ["#p-recoleta, #p-quillacollo"],
+    begin: () => {
+      anime.set(["#p-recoleta, #p-quillacollo"], {
+        fill: invisible,
+      });
+    },
+    fill: grey,
+    easing: "linear",
     complete: () => {
-      Caption("Río Rocha", "cercado-svg-caption");
+      new Caption("Río Rocha", "cercado-svg-caption-rocha");
+      new Caption("La Tamborada", "cercado-svg-caption-tamborada");
+      new Caption("Laguna Cuellar", "cercado-svg-caption-cuellar");
+      const quilla = new Caption(
+        "Puente Quillacollo",
+        "cercado-svg-caption-quillacollo"
+      );
+      quilla.div.style.transform = "translate(-50%, -50%)";
+      new Caption("Recoleta", "cercado-svg-caption-recoleta");
     },
   });
 
