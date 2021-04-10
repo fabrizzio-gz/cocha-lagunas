@@ -107,6 +107,10 @@ body {
     scale(0.08);
 }
 
+#cercado-svg-captions path {
+  stroke: rgba(0, 0, 0, 0);
+}
+
 /*
 #cercado-map-container path {
   stroke: #3b4749;
