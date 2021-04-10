@@ -47,8 +47,11 @@ body {
   fill: #00dbfc;
 }
 
+#cocha-svg-caption {
+}
+
 #titulo {
-  position: fixed;
+  position: absolute; /* fixed; debug only */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -100%);
@@ -62,7 +65,7 @@ body {
 }
 
 #continuar {
-  position: fixed;
+  position: absolute; /* debug only */
   top: 50%;
   left: 50%;
   transform: translate(-50%, 100%);
@@ -97,11 +100,11 @@ body {
 
 #cercado-map-container {
   /* Move to position in cbb map */
-  transform: translate(-13%, 7%) scale(0.08);
-}
-
-#cercado-map-container svg {
-  width: 100vh;
+  transform: translate(
+      calc(min(100vw, 100vh) * -0.14),
+      calc(min(100vw, 100vh) * 0.058)
+    )
+    scale(0.08);
 }
 
 /*
@@ -110,7 +113,7 @@ body {
   stroke-width: 2;
 }*/
 
-#cercado path {
+#cercado-svg-cercado {
   fill: #00dbfc;
 }
 
