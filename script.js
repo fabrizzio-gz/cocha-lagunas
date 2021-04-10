@@ -84,6 +84,9 @@ document.addEventListener("scroll", function (e) {
       case 3:
         callAnimation(3, sec3Anim);
         break;
+      case 4:
+        callAnimation(4, sec4Anim);
+        break;
       case 5:
         callAnimation(5, sec5Anim);
         break;
@@ -139,9 +142,8 @@ const sec3Anim = anime({
   duration: 2000,
 });
 
-const sec3AnimAlt1 = anime({
+const sec4Anim = anime({
   targets: [mapCocha, mapCercado],
-
   begin: () => {
     anime.set("#cocha-svg-cercado", {
       stroke: invisible,
@@ -150,7 +152,6 @@ const sec3AnimAlt1 = anime({
     anime.set("#cercado-svg-cercado", {
       strokeWidth: 1,
       stroke: grey,
-      fill: lightblue,
     });
   },
   scale: 12,
