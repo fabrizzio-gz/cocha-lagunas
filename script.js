@@ -111,8 +111,8 @@ const sec2Anim = anime({
   },
 
   fill: (el, i) => {
-    if (i == 0) return lightgrey;
-    return orange;
+    if (i == 0) return invisible;
+    return lightblue;
   },
   stroke: grey,
   strokeWidth: 1,
