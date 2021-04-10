@@ -109,6 +109,7 @@ body {
 
 #cercado-svg-captions path {
   stroke: rgba(0, 0, 0, 0);
+  fill: none;
 }
 
 /*
