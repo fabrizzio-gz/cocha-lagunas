@@ -118,7 +118,8 @@ const sec2Anim = anime({
   strokeWidth: 1,
   easing: "linear",
   complete: (anim) => {
-    new Caption("Cercado", "cocha-svg-caption");
+    const caption = new Caption("Cercado", "cocha-svg-caption");
+    caption.div.style.transform = "translate(-30%,-180%)";
   },
   autoplay: false,
 });
