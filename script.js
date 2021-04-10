@@ -72,9 +72,9 @@ document.addEventListener("scroll", function (e) {
 
     const section = Math.ceil((positionMid - inicioSize) / sectionSize);
     switch (section) {
-      case 1:
+      /*case 1:
         callAnimation(1, sec1Anim);
-        break;
+        break;*/
       case 2:
         callAnimation(2, sec2Anim);
         break;
@@ -104,7 +104,7 @@ const introAnim = anime({
   autoplay: true,
 });
 
-const sec1Anim = anime({
+const sec2Anim = anime({
   targets: ["#cocha-svg-cocha", "#cocha-svg-cercado"],
   begin: (anim) => {
     mapCocha.classList.toggle("no-stroke");
@@ -120,7 +120,7 @@ const sec1Anim = anime({
   autoplay: false,
 });
 
-const sec2Anim = anime
+const sec2AnimAlt = anime
   .timeline({
     targets: [mapCocha, mapCercado],
     easing: "linear",
