@@ -218,7 +218,11 @@ const sec5Anim = anime
     complete: () => {
       new Caption("Río Rocha", "cercado-svg-caption-rocha");
       new Caption("La Tamborada", "cercado-svg-caption-tamborada");
-      new Caption("Laguna Cuellar", "cercado-svg-caption-cuellar");
+      const cuellar = new Caption(
+        "Laguna Cuellar",
+        "cercado-svg-caption-cuellar"
+      );
+      cuellar.div.style.transform = "translate(-50%, +50%)";
       const quilla = new Caption(
         "Puente Quillacollo",
         "cercado-svg-caption-quillacollo"
