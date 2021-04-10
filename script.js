@@ -192,11 +192,17 @@ const sec5Anim = anime
     duration: 1000,
   })
   .add({
-    targets: "#rio-rocha",
-    begin: () => {},
-    stroke: lightblue,
-    strokeWidth: "1",
+    targets: "#cercado-svg-rios path",
+    begin: () => {
+      anime.set("#cercado-svg-rios path", {
+        stroke: lightblue,
+      });
+    },
+    strokeWidth: ["0", "1"],
     easing: "linear",
+    complete: () => {
+      Caption("Río Rocha", "cercado-svg-caption");
+    },
   });
 
 const sec6Anim = anime({
