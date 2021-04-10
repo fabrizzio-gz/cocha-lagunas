@@ -8,6 +8,7 @@ const rioRocha = document.getElementById("rio-rocha");
 
 const lightblue = "#00dbfc";
 const grey = "#3b4749";
+const lightgrey = "#f9fafa";
 const invisible = "rgba(0,0,0,0)";
 
 const init = () => {
@@ -63,13 +64,17 @@ document.addEventListener("scroll", function (e) {
   window.requestAnimationFrame(() => {
     if (yPos < windowY) introScroll();
 
-    const callAnimation = (index, animation) => {
-      if (currentSection != index) animation.play();
+    const callAnimation = (index, animations) => {
+      if (currentSection != index)
+        animations.forEach((animation) => animation.play());
       currentSection = index;
     };
 
     const section = Math.ceil((positionMid - inicioSize) / sectionSize);
     switch (section) {
+      case 1:
+        callAnimation(1, sec1Anim);
+        break;
       case 2:
         callAnimation(2, sec2Anim);
         break;
@@ -98,6 +103,17 @@ const introAnim = anime({
   easing: "linear",
   autoplay: true,
 });
+
+const sec1Anim = [
+  anime({
+    targets: "#cocha-svg-cocha",
+    fill: lightgrey,
+    stroke: grey,
+    strokeWidth: 1,
+    easing: "linear",
+    autoplay: false,
+  }),
+];
 
 const sec2Anim = anime
   .timeline({

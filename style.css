@@ -45,7 +45,6 @@ body {
 
 #cocha-svg-cocha {
   fill: #00dbfc;
-  stroke: none;
 }
 
 #titulo {
@@ -143,6 +142,7 @@ body {
 .map-container svg {
   height: 100vh;
   width: 100%;
+  stroke: none;
 }
 
 .map-container rect {
