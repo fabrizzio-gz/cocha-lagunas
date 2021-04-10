@@ -66,7 +66,10 @@ document.addEventListener("scroll", function (e) {
     if (yPos < windowY) introScroll();
 
     const callAnimation = (index, animation) => {
-      if (currentSection != index) animation.play();
+      if (currentSection != index) {
+        animation.play();
+        Caption.purge();
+      }
       currentSection = index;
     };
 
@@ -201,6 +204,8 @@ const { yTitle, yCont, mapIntroPos } = init();
 const { inicioSize, sectionSize } = getSectionSizes();
 
 class Caption {
+  static list = [];
+
   constructor(text = "", captionId = "") {
     this.text = text;
     if (captionId) {
@@ -219,6 +224,7 @@ class Caption {
     this.div.style.top = this.posY + "px";
     this.div.appendChild(document.createTextNode(text));
     this.add();
+    Caption.list.push(this.div);
   }
 
   setPosition(posX, posY) {
@@ -230,5 +236,10 @@ class Caption {
 
   add() {
     document.body.appendChild(this.div);
+  }
+
+  static purge() {
+    Caption.list.forEach((div) => div.remove());
+    Caption.list = [];
   }
 }
