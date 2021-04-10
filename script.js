@@ -153,6 +153,16 @@ const sec4Anim = anime({
       strokeWidth: 1,
       stroke: grey,
     });
+    anime.set(
+      [
+        "#cercado-svg-lagunas path",
+        "#cercado-svg-puentes path",
+        "#cercado-svg-rios path",
+      ],
+      {
+        stroke: invisible,
+      }
+    );
   },
   scale: 12,
   translateX: "10%",
