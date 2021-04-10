@@ -127,23 +127,32 @@ const sec2Anim = anime({
   autoplay: false,
 });
 
-const sec2AnimAlt = anime
-  .timeline({
-    targets: [mapCocha, mapCercado],
-    easing: "linear",
-    autoplay: false,
-  })
-  .add({
-    scale: 12,
-    translateX: "10%",
-    translateY: "0%",
-    opacity: (el, i) => {
-      return i;
-    },
-    duration: 2000,
-  });
-
 const sec3Anim = anime({
+  targets: [mapCocha, mapCercado],
+
+  begin: () => {
+    anime.set("#cocha-svg-cercado", {
+      stroke: invisible,
+      fill: invisible,
+    });
+    anime.set("#cercado-svg-cercado", {
+      strokeWidth: 1,
+      stroke: grey,
+      fill: lightblue,
+    });
+  },
+  scale: 12,
+  translateX: "10%",
+  translateY: "0%",
+  opacity: (el, i) => {
+    return i;
+  },
+  easing: "easeInQuart",
+  autoplay: false,
+  duration: 2000,
+});
+
+const sec3AnimAlt = anime({
   targets: "#cercado path",
   fill: grey,
   opacity: 0.5,

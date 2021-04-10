@@ -113,9 +113,9 @@ body {
   stroke-width: 2;
 }*/
 
-#cercado-svg-cercado {
+/*#cercado-svg-cercado {
   fill: #00dbfc;
-}
+}*/
 
 #lagunas path,
 .no-show-river path {
@@ -167,9 +167,6 @@ body {
   transform: translate(-50%, -120%);
   font-family: "Zilla Slab Highlight", "Trebuchet MS";
   font-size: 1.2em;
-}
-
-.title {
 }
 
 .center {
