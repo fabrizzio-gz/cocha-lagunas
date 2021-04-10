@@ -190,13 +190,10 @@ const sec5Anim = anime
     targets: "#lag-cuellar",
     fill: lightblue,
     duration: 1000,
-    complete: function (anim) {
-      console.log(rioRocha);
-      rioRocha.classList.remove("no-show-river");
-    },
   })
   .add({
-    targets: "#rio-rocha path",
+    targets: "#rio-rocha",
+    begin: () => {},
     stroke: lightblue,
     strokeWidth: "1",
     easing: "linear",

@@ -122,11 +122,6 @@ body {
   fill: #00dbfc;
 }*/
 
-#lagunas path,
-.no-show-river path {
-  stroke: none;
-}
-
 /*
  * Section 5
  */
