@@ -187,7 +187,7 @@ const sec5Anim = anime
     duration: 1000,
   })
   .add({
-    targets: "#lag-cuellar path",
+    targets: "#lag-cuellar",
     fill: lightblue,
     duration: 1000,
     complete: function (anim) {
