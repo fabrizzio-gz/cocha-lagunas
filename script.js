@@ -7,6 +7,7 @@ const mapIntro = document.getElementById("cocha-map-container");
 const rioRocha = document.getElementById("rio-rocha");
 
 const lightblue = "#00dbfc";
+const orange = "#ff7a00";
 const grey = "#3b4749";
 const lightgrey = "#f9fafa";
 const invisible = "rgba(0,0,0,0)";
@@ -64,9 +65,8 @@ document.addEventListener("scroll", function (e) {
   window.requestAnimationFrame(() => {
     if (yPos < windowY) introScroll();
 
-    const callAnimation = (index, animations) => {
-      if (currentSection != index)
-        animations.forEach((animation) => animation.play());
+    const callAnimation = (index, animation) => {
+      if (currentSection != index) animation.play();
       currentSection = index;
     };
 
@@ -104,16 +104,21 @@ const introAnim = anime({
   autoplay: true,
 });
 
-const sec1Anim = [
-  anime({
-    targets: ["#cocha-svg-cocha", "#cocha-svg-cercado"],
-    fill: lightgrey,
-    stroke: grey,
-    strokeWidth: 1,
-    easing: "linear",
-    autoplay: false,
-  }),
-];
+const sec1Anim = anime({
+  targets: ["#cocha-svg-cocha", "#cocha-svg-cercado"],
+  begin: (anim) => {
+    mapCocha.classList.toggle("no-stroke");
+  },
+
+  fill: (el, i) => {
+    if (i == 0) return lightgrey;
+    return orange;
+  },
+  stroke: grey,
+  strokeWidth: 1,
+  easing: "linear",
+  autoplay: false,
+});
 
 const sec2Anim = anime
   .timeline({
