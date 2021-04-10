@@ -128,6 +128,18 @@ const sec2Anim = anime({
 });
 
 const sec3Anim = anime({
+  targets: "#cocha-svg-cercado",
+  begin: (anim) => {
+    const caption = new Caption("Cercado", "cocha-svg-caption");
+    caption.div.style.transform = "translate(-30%,-180%)";
+  },
+  fill: [lightblue, grey],
+  easing: "linear",
+  autoplay: false,
+  duration: 2000,
+});
+
+const sec3AnimAlt1 = anime({
   targets: [mapCocha, mapCercado],
 
   begin: () => {
@@ -152,7 +164,7 @@ const sec3Anim = anime({
   duration: 2000,
 });
 
-const sec3AnimAlt = anime({
+const sec3AnimAlt2 = anime({
   targets: "#cercado path",
   fill: grey,
   opacity: 0.5,
