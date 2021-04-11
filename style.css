@@ -51,7 +51,7 @@ body {
 }
 
 #titulo {
-  position: absolute; /* fixed; debug only */
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -100%);
@@ -65,7 +65,7 @@ body {
 }
 
 #continuar {
-  position: absolute; /* debug only */
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, 100%);
