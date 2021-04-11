@@ -290,6 +290,11 @@ const conclusionAnim = anime({
   opacity: 1,
   duration: 1000,
   ease: "linear",
+  complete: () => {
+    new Caption("Laguna Coña Coña", "lag-cona-cona");
+    new Caption("Laguna Alalay", "lag-alalay");
+    new Caption("Laguna Albarrancho", "lag-albarrancho");
+  },
   autoplay: false,
 });
 
