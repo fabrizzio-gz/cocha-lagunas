@@ -30,6 +30,11 @@ const init = () => {
 
   const mapIntroPos = window.scrollY + top + Math.round((height - windowY) / 2);
 
+  anime.set("#cercado-map-container path", {
+    stroke: invisible,
+    fill: invisible,
+  });
+
   return { yTitle, yCont, mapIntroPos };
 };
 
@@ -283,7 +288,7 @@ const conclusionAnim = anime({
     });
   },
   opacity: 1,
-  duration: 10000,
+  duration: 1000,
   ease: "linear",
   autoplay: false,
 });
