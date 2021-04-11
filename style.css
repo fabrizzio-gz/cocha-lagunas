@@ -139,6 +139,7 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
+  z-index: -2;
 }
 
 .map-container svg {
@@ -166,6 +167,7 @@ body {
   transform: translate(-50%, -120%);
   font-family: "Zilla Slab Highlight", "Trebuchet MS";
   font-size: 1.2em;
+  z-index: -1;
 }
 
 .center {
