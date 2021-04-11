@@ -266,25 +266,25 @@ const sec6Anim = anime({
 });
 
 const conclusionAnim = anime({
-  targets: [
-    "#lag-cuellar path",
-    "#lag-cona-cona path",
-    "#lag-alalay path",
-    "#lag-albarrancho path",
-  ],
-  fill: (el, i) => {
-    if (i != 0) return lightblue;
-    else return invisible;
+  targets: ["#lag-cona-cona", "#lag-alalay", "#lag-albarrancho"],
+  begin: () => {
+    const rocha = new Caption("Río Rocha", "cercado-svg-caption-rocha");
+    rocha.div.style.transform = "translate(30%, -80%)";
+    new Caption("La Tamborada", "cercado-svg-caption-tamborada");
+    const quilla = new Caption(
+      "Puente Quillacollo",
+      "cercado-svg-caption-quillacollo"
+    );
+    quilla.div.style.transform = "translate(-50%, -50%)";
+    new Caption("Recoleta", "cercado-svg-caption-recoleta");
+    anime.set(["#lag-cona-cona", "#lag-alalay", "#lag-albarrancho"], {
+      fill: lightblue,
+      opacity: 0,
+    });
   },
-  duration: 1000,
-  autoplay: false,
-});
-
-const sec3AnimAlt2 = anime({
-  targets: "#cercado path",
-  fill: grey,
-  opacity: 0.5,
-  easing: "linear",
+  opacity: 1,
+  duration: 10000,
+  ease: "linear",
   autoplay: false,
 });
 
