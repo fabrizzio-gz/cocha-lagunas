@@ -301,6 +301,10 @@ const conclusionAnim = anime({
 const { yTitle, yCont, mapIntroPos } = init();
 const { inicioSize, sectionSize } = getSectionSizes();
 
+window.onbeforeunload = () => {
+  window.scrollTo(0, 0);
+};
+
 class Caption {
   static list = [];
 
