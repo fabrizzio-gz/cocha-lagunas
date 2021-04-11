@@ -194,7 +194,13 @@ section {
     ". . .";
 }
 
-section p {
+section div {
   position: relative;
   grid-area: p;
+}
+
+section p {
+  padding: 1em 0.8em;
+  border: solid 2px #3b4749;
+  background: #f9fafa;
 }
