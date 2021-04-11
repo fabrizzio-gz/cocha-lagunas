@@ -200,11 +200,6 @@ const sec5Anim = anime
     },
     strokeWidth: ["0", "1"],
     easing: "linear",
-    /*complete: () => {
-      new Caption("Río Rocha", "cercado-svg-caption-rocha");
-      new Caption("La Tamborada", "cercado-svg-caption-tamborada");
-      new Caption("Laguna Cuellar", "cercado-svg-caption-cuellar");
-    },*/
   })
   .add({
     targets: ["#p-recoleta, #p-quillacollo"],
@@ -216,13 +211,14 @@ const sec5Anim = anime
     fill: grey,
     easing: "linear",
     complete: () => {
-      new Caption("Río Rocha", "cercado-svg-caption-rocha");
+      const rocha = new Caption("Río Rocha", "cercado-svg-caption-rocha");
+      rocha.div.style.transform = "translate(30%, -80%)";
       new Caption("La Tamborada", "cercado-svg-caption-tamborada");
       const cuellar = new Caption(
         "Laguna Cuellar",
         "cercado-svg-caption-cuellar"
       );
-      cuellar.div.style.transform = "translate(-50%, +50%)";
+      cuellar.div.style.transform = "translate(-50%, -240%)";
       const quilla = new Caption(
         "Puente Quillacollo",
         "cercado-svg-caption-quillacollo"
@@ -233,10 +229,39 @@ const sec5Anim = anime
   });
 
 const sec6Anim = anime({
-  targets: "#lag-cuellar path",
-  fill: invisible,
-  opacity: 0.5,
-  easing: "linear",
+  targets: "#lag-cuellar",
+  begin: () => {
+    const rocha = new Caption("Río Rocha", "cercado-svg-caption-rocha");
+    rocha.div.style.transform = "translate(30%, -80%)";
+    new Caption("La Tamborada", "cercado-svg-caption-tamborada");
+    const cuellar = new Caption(
+      "Laguna Cuellar",
+      "cercado-svg-caption-cuellar"
+    );
+    cuellar.div.style.transform = "translate(-50%, -240%)";
+    const quilla = new Caption(
+      "Puente Quillacollo",
+      "cercado-svg-caption-quillacollo"
+    );
+    quilla.div.style.transform = "translate(-50%, -50%)";
+    new Caption("Recoleta", "cercado-svg-caption-recoleta");
+  },
+  fill: [lightblue, grey],
+  opacity: [1, 0],
+  easing: "easeInOutCubic",
+  duration: 5000,
+  complete: () => {
+    Caption.purge();
+    const rocha = new Caption("Río Rocha", "cercado-svg-caption-rocha");
+    rocha.div.style.transform = "translate(30%, -80%)";
+    new Caption("La Tamborada", "cercado-svg-caption-tamborada");
+    const quilla = new Caption(
+      "Puente Quillacollo",
+      "cercado-svg-caption-quillacollo"
+    );
+    quilla.div.style.transform = "translate(-50%, -50%)";
+    new Caption("Recoleta", "cercado-svg-caption-recoleta");
+  },
   autoplay: false,
 });
 
