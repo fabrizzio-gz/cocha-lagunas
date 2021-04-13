@@ -17,6 +17,7 @@ class Caption {
 
   constructor(text = "", captionId = "") {
     this.text = text;
+    this.captionId = captionId;
     if (captionId) {
       const element = document.getElementById(captionId);
       const { x, y } = element.getBoundingClientRect();
@@ -37,7 +38,7 @@ class Caption {
     this.div.style.top = this.posY + "px";
     this.div.appendChild(document.createTextNode(text));
     this.add();
-    Caption.list.push(this.div);
+    Caption.list.push(this);
   }
 
   setPosition(posX, posY) {
@@ -52,9 +53,13 @@ class Caption {
   }
 
   static purge() {
-    Caption.list.forEach((div) => div.remove());
+    Caption.list.forEach((caption) => caption.div.remove());
     Caption.list = [];
   }
+
+  /*static updatePosition() {
+    Caption.list.forEach((div) => div.moveTo())
+  }*/
 
   static init() {
     Caption.purge();
