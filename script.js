@@ -292,6 +292,11 @@ const sec5Anim = anime
   })
   .add({
     targets: "#lag-cuellar",
+    begin: () => {
+      anime.set("#lag-cuellar", {
+        opacity: 1,
+      });
+    },
     fill: lightblue,
     duration: 1000,
   })
