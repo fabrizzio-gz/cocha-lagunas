@@ -151,8 +151,6 @@ const getSectionSizes = () => {
 const { yTitle, yCont, mapIntroPos } = init();
 const { inicioSize, sectionSize } = getSectionSizes();
 
-let currentSection = -1;
-
 const introAnim = anime({
   targets: mapCocha,
   scale: 1.05,
@@ -315,6 +313,8 @@ const conclusionAnim = anime({
   autoplay: false,
 });
 
+let currentSection = -1;
+
 document.addEventListener("scroll", function (e) {
   const yPos = Math.round(window.scrollY);
   const positionMid = yPos + Math.round(windowY / 2);
@@ -365,3 +365,7 @@ document.addEventListener("scroll", function (e) {
 window.onbeforeunload = () => {
   window.scrollTo(0, 0);
 };
+
+anime.set("#cercado-svg-caption-cuellar", {
+  opacity: 0, // Fix due to opacity starting at 1
+});
