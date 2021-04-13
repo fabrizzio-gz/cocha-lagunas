@@ -271,6 +271,7 @@ const sec5Anim = anime
       anime.set(["#p-recoleta, #p-quillacollo"], {
         fill: invisible,
       });
+      Caption.updateAllPositions();
     },
     fill: grey,
     easing: "linear",
