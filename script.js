@@ -250,7 +250,13 @@ const sec5Anim = anime
     easing: "linear",
   })
   .add({
-    targets: ["#p-recoleta, #p-quillacollo"],
+    targets: [
+      "#p-recoleta, #p-quillacollo",
+      "#cercado-svg-caption-recoleta",
+      "#cercado-svg-caption-quillacollo",
+      "#cercado-svg-caption-cuellar",
+      "#cercado-svg-caption-rocha",
+    ],
     begin: () => {
       anime.set(["#p-recoleta, #p-quillacollo"], {
         fill: invisible,
@@ -258,22 +264,7 @@ const sec5Anim = anime
     },
     fill: grey,
     easing: "linear",
-    complete: () => {
-      const rocha = new Caption("Río Rocha", "cercado-svg-caption-rocha");
-      rocha.div.style.transform = "translate(30%, -80%)";
-      new Caption("La Tamborada", "cercado-svg-caption-tamborada");
-      const cuellar = new Caption(
-        "Laguna Cuellar",
-        "cercado-svg-caption-cuellar"
-      );
-      cuellar.div.style.transform = "translate(-50%, -240%)";
-      const quilla = new Caption(
-        "Puente Quillacollo",
-        "cercado-svg-caption-quillacollo"
-      );
-      quilla.div.style.transform = "translate(-50%, -50%)";
-      new Caption("Recoleta", "cercado-svg-caption-recoleta");
-    },
+    opacity: 1,
   });
 
 const sec6Anim = anime({
