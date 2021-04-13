@@ -246,6 +246,19 @@ const sec4Anim = anime({
       ],
       {
         stroke: invisible,
+        fill: invisible,
+      }
+    );
+
+    anime.set(
+      [
+        "#cercado-svg-caption-recoleta",
+        "#cercado-svg-caption-quillacollo",
+        "#cercado-svg-caption-cuellar",
+        "#cercado-svg-caption-rocha",
+      ],
+      {
+        opacity: 0,
       }
     );
     anime.set("#cocha-svg-caption-cercado", {
