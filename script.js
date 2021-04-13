@@ -12,6 +12,137 @@ const grey = "#3b4749";
 const lightgrey = "#f9fafa";
 const invisible = "rgba(0,0,0,0)";
 
+class Caption {
+  static list = [];
+
+  constructor(text = "", captionId = "") {
+    this.text = text;
+    if (captionId) {
+      const element = document.getElementById(captionId);
+      const { x, y } = element.getBoundingClientRect();
+      this.posX = x;
+      this.posY = y;
+    } else {
+      this.posX = 0;
+      this.posY = 0;
+    }
+
+    this.div = document.createElement("div");
+    if (captionId.includes("cercado-svg-caption"))
+      captionId.replace("cercado-svg-", "");
+    else captionId = "cocha-svg-caption-cercado";
+    this.div.setAttribute("id", captionId);
+    this.div.classList.add("caption");
+    this.div.style.left = this.posX + "px";
+    this.div.style.top = this.posY + "px";
+    this.div.appendChild(document.createTextNode(text));
+    this.add();
+    Caption.list.push(this.div);
+  }
+
+  setPosition(posX, posY) {
+    this.posX = posX;
+    this.posY = posY;
+    this.div.style.left = this.posX + "px";
+    this.div.style.top = this.posY + "px";
+  }
+
+  add() {
+    document.body.appendChild(this.div);
+  }
+
+  static purge() {
+    Caption.list.forEach((div) => div.remove());
+    Caption.list = [];
+  }
+
+  static init() {
+    Caption.purge();
+    const captionCochaSvg = [
+      {
+        id: "cocha-svg-caption",
+        text: "Cercado",
+        translate: "translate(-30%,-180%)",
+      },
+    ];
+    const captionCercadoSvg = [
+      { id: "rocha", text: "Río Rocha", translate: "translate(30%, -80%)" },
+      { id: "tamborada", text: "La Tamborada" },
+      {
+        id: "cuellar",
+        text: "Laguna Cuellar",
+        translate: "translate(-50%, -240%)",
+      },
+      { id: "albarrancho", text: "Laguna Albarrancho" },
+      { id: "alalay", text: "Laguna Alalay" },
+      { id: "cona-cona", text: "Laguna Coña Coña" },
+      {
+        id: "quillacollo",
+        text: "Puente Quillacollo",
+        translate: "translate(-50%, -50%)",
+      },
+      { id: "recoleta", text: "Recoleta" },
+    ];
+
+    captionCochaSvg.forEach(({ id, text, translate = "" }) => {
+      const caption = new Caption(text, "cocha-svg-caption");
+      if (translate) caption.div.style.transform = translate;
+    });
+    captionCercadoSvg.forEach(({ id, text, translate = "" }) => {
+      const caption = new Caption(text, "cercado-svg-caption-" + id);
+      if (translate) caption.div.style.transform = translate;
+    });
+  }
+}
+
+const init = () => {
+  const posTitle = titulo.getBoundingClientRect();
+  const yTitle = posTitle.y;
+  const heightTitle = posTitle.height;
+  const posCont = continuar.getBoundingClientRect();
+  const yCont = posCont.y;
+  const heightCont = posCont.height;
+  titulo.style.transform = "translate(-50%,0)";
+  continuar.style.transform = "translate(-50%,0)";
+
+  titulo.style.top = yTitle + "px";
+  continuar.style.top = yCont + "px";
+
+  // px
+  const { top, height } = mapIntro.getBoundingClientRect();
+
+  const mapIntroPos = window.scrollY + top + Math.round((height - windowY) / 2);
+
+  anime.set("#cercado-map-container path", {
+    stroke: invisible,
+    fill: invisible,
+  });
+
+  Caption.init();
+
+  return { yTitle, yCont, mapIntroPos };
+};
+
+const getSectionSizes = () => {
+  const inicioSize = Math.round(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      "--inicio-size"
+    ) * windowY
+  );
+  const sectionSize = Math.round(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      "--section-size"
+    ) * windowY
+  );
+
+  return { inicioSize, sectionSize };
+};
+
+const { yTitle, yCont, mapIntroPos } = init();
+const { inicioSize, sectionSize } = getSectionSizes();
+
+let currentSection = -1;
+
 const introAnim = anime({
   targets: mapCocha,
   scale: 1.05,
@@ -22,25 +153,31 @@ const introAnim = anime({
   autoplay: true,
 });
 
-const sec2Anim = anime({
-  targets: ["#cocha-svg-cocha", "#cocha-svg-cercado"],
-  begin: (anim) => {
-    mapCocha.classList.toggle("no-stroke");
-  },
+const sec2Anim = anime
+  .timeline({
+    targets: ["#cocha-svg-cocha", "#cocha-svg-cercado"],
+    begin: (anim) => {
+      mapCocha.classList.remove("no-stroke");
+      anime.set("#lag-cuellar", {
+        fill: invisible, // Due to weird bug?!
+      });
+    },
 
-  fill: (el, i) => {
-    if (i == 0) return invisible;
-    return lightblue;
-  },
-  stroke: grey,
-  strokeWidth: 1,
-  easing: "linear",
-  complete: (anim) => {
-    const caption = new Caption("Cercado", "cocha-svg-caption");
-    caption.div.style.transform = "translate(-30%,-180%)";
-  },
-  autoplay: false,
-});
+    fill: (el, i) => {
+      if (i == 0) return invisible;
+      return lightblue;
+    },
+    stroke: grey,
+    strokeWidth: 1,
+    easing: "linear",
+    autoplay: false,
+  })
+  .add({
+    targets: "#cocha-svg-caption-cercado",
+    opacity: [0, 1],
+    easing: "easeInCubic",
+    autoplay: false,
+  });
 
 const sec3Anim = anime({
   targets: "#cocha-svg-cercado",
@@ -205,137 +342,6 @@ const conclusionAnim = anime({
   autoplay: false,
 });
 
-class Caption {
-  static list = [];
-
-  constructor(text = "", captionId = "") {
-    this.text = text;
-    if (captionId) {
-      const element = document.getElementById(captionId);
-      const { x, y } = element.getBoundingClientRect();
-      this.posX = x;
-      this.posY = y;
-    } else {
-      this.posX = 0;
-      this.posY = 0;
-    }
-
-    this.div = document.createElement("div");
-    if (captionId.includes("cercado-svg-caption"))
-      captionId.replace("cercado-svg-", "");
-    else captionId = "cocha-svg-caption-cercado";
-    this.div.setAttribute("id", captionId);
-    this.div.classList.add("caption");
-    this.div.style.left = this.posX + "px";
-    this.div.style.top = this.posY + "px";
-    this.div.appendChild(document.createTextNode(text));
-    this.add();
-    Caption.list.push(this.div);
-  }
-
-  setPosition(posX, posY) {
-    this.posX = posX;
-    this.posY = posY;
-    this.div.style.left = this.posX + "px";
-    this.div.style.top = this.posY + "px";
-  }
-
-  add() {
-    document.body.appendChild(this.div);
-  }
-
-  static purge() {
-    Caption.list.forEach((div) => div.remove());
-    Caption.list = [];
-  }
-
-  static init() {
-    Caption.purge();
-    const captionCochaSvg = [
-      {
-        id: "cocha-svg-caption",
-        text: "Cercado",
-        translate: "translate(-30%,-180%)",
-      },
-    ];
-    const captionCercadoSvg = [
-      { id: "rocha", text: "Río Rocha", translate: "translate(30%, -80%)" },
-      { id: "tamborada", text: "La Tamborada" },
-      {
-        id: "cuellar",
-        text: "Laguna Cuellar",
-        translate: "translate(-50%, -240%)",
-      },
-      { id: "albarrancho", text: "Laguna Albarrancho" },
-      { id: "alalay", text: "Laguna Alalay" },
-      { id: "cona-cona", text: "Laguna Coña Coña" },
-      {
-        id: "quillacollo",
-        text: "Puente Quillacollo",
-        translate: "translate(-50%, -50%)",
-      },
-      { id: "recoleta", text: "Recoleta" },
-    ];
-
-    captionCochaSvg.forEach(({ id, text, translate = "" }) => {
-      const caption = new Caption(text, "cocha-svg-caption");
-      if (translate) caption.div.style.transform = translate;
-    });
-    captionCercadoSvg.forEach(({ id, text, translate = "" }) => {
-      const caption = new Caption(text, "cercado-svg-caption-" + id);
-      if (translate) caption.div.style.transform = translate;
-    });
-  }
-}
-
-const init = () => {
-  const posTitle = titulo.getBoundingClientRect();
-  const yTitle = posTitle.y;
-  const heightTitle = posTitle.height;
-  const posCont = continuar.getBoundingClientRect();
-  const yCont = posCont.y;
-  const heightCont = posCont.height;
-  titulo.style.transform = "translate(-50%,0)";
-  continuar.style.transform = "translate(-50%,0)";
-
-  titulo.style.top = yTitle + "px";
-  continuar.style.top = yCont + "px";
-
-  // px
-  const { top, height } = mapIntro.getBoundingClientRect();
-
-  const mapIntroPos = window.scrollY + top + Math.round((height - windowY) / 2);
-
-  anime.set("#cercado-map-container path", {
-    stroke: invisible,
-    fill: invisible,
-  });
-
-  Caption.init();
-
-  return { yTitle, yCont, mapIntroPos };
-};
-
-const getSectionSizes = () => {
-  const inicioSize = Math.round(
-    getComputedStyle(document.documentElement).getPropertyValue(
-      "--inicio-size"
-    ) * windowY
-  );
-  const sectionSize = Math.round(
-    getComputedStyle(document.documentElement).getPropertyValue(
-      "--section-size"
-    ) * windowY
-  );
-
-  return { inicioSize, sectionSize };
-};
-
-const { yTitle, yCont, mapIntroPos } = init();
-const { inicioSize, sectionSize } = getSectionSizes();
-
-let currentSection = -1;
-
 document.addEventListener("scroll", function (e) {
   const yPos = Math.round(window.scrollY);
   const positionMid = yPos + Math.round(windowY / 2);
@@ -352,10 +358,7 @@ document.addEventListener("scroll", function (e) {
     if (yPos < windowY) introScroll();
 
     const callAnimation = (index, animation) => {
-      if (currentSection != index) {
-        animation.play();
-        Caption.purge();
-      }
+      if (currentSection != index) animation.play();
       currentSection = index;
     };
 
