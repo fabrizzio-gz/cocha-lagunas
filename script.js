@@ -188,6 +188,7 @@ const sec2Anim = anime
       anime.set("#lag-cuellar", {
         fill: invisible, // Due to weird bug?!
       });
+      Caption.updateAllPositions();
     },
 
     fill: (el, i) => {
@@ -219,6 +220,7 @@ const sec3Anim = anime({
     anime.set(mapCercado, {
       opacity: 0,
     });
+    Caption.updateAllPositions();
   },
   fill: [lightblue, grey],
   easing: "linear",
@@ -264,6 +266,7 @@ const sec4Anim = anime({
     anime.set("#cocha-svg-caption-cercado", {
       opacity: 0,
     });
+    Caption.updateAllPositions();
   },
   scale: 12,
   translateX: "10%",
