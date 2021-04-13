@@ -208,6 +208,18 @@ const sec2Anim = anime
 
 const sec3Anim = anime({
   targets: "#cocha-svg-cercado",
+  begin: () => {
+    anime.set([mapCocha, "#cocha-svg-caption-cercado"], {
+      fill: invisible,
+      scale: 1,
+      translateX: "0%",
+      translateY: "0%",
+      opacity: 1,
+    });
+    anime.set(mapCercado, {
+      opacity: 0,
+    });
+  },
   fill: [lightblue, grey],
   easing: "linear",
   autoplay: false,
@@ -222,6 +234,7 @@ const sec4Anim = anime({
       fill: invisible,
     });
     anime.set("#cercado-svg-cercado", {
+      opacity: 1,
       strokeWidth: 1,
       stroke: grey,
     });
