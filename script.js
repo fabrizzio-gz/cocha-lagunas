@@ -331,6 +331,22 @@ const sec5Anim = anime
 
 const sec6Anim = anime({
   targets: ["#lag-cuellar", "#cercado-svg-caption-cuellar"],
+  begin: () => {
+    anime.set(
+      [
+        "#cercado-svg-caption-alalay",
+        "#lag-alalay",
+        "#cercado-svg-caption-albarrancho",
+        "#lag-albarrancho",
+        "#cercado-svg-caption-cona-cona",
+        "#lag-cona-cona",
+      ],
+      {
+        opacity: 0,
+        fill: lightblue,
+      }
+    );
+  },
   fill: [lightblue, grey],
   opacity: [1, 0],
   easing: "easeInOutCubic",
