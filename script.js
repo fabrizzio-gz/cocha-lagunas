@@ -18,14 +18,13 @@ class Caption {
   constructor(text = "", captionId = "") {
     this.text = text;
     this.captionId = captionId;
+    let x, y;
     if (captionId) {
       const element = document.getElementById(captionId);
-      const { x, y } = element.getBoundingClientRect();
-      this.posX = x;
-      this.posY = y;
+      ({ x, y } = element.getBoundingClientRect());
     } else {
-      this.posX = 0;
-      this.posY = 0;
+      x = 0;
+      y = 0;
     }
 
     this.div = document.createElement("div");
@@ -34,12 +33,21 @@ class Caption {
     else captionId = "cocha-svg-caption-cercado";
     this.div.setAttribute("id", captionId);
     this.div.classList.add("caption");
-    this.div.style.left = this.posX + "px";
-    this.div.style.top = this.posY + "px";
+    this.setPosition(x, y);
     this.div.appendChild(document.createTextNode(text));
     this.add();
     Caption.list.push(this);
   }
+
+  /*
+  updatePosition() {
+    const element = document.getElementById(this.captionId);
+    const { x, y } = element.getBoundingClientRect();
+    this.posX = x;
+    this.posY = y;
+    this.div.style.left = this.posX + "px";
+    this.div.style.top = this.posY + "px";
+  }*/
 
   setPosition(posX, posY) {
     this.posX = posX;
@@ -57,8 +65,9 @@ class Caption {
     Caption.list = [];
   }
 
-  /*static updatePosition() {
-    Caption.list.forEach((div) => div.moveTo())
+  /*
+  static updateAllPositions() {
+    Caption.list.forEach((caption) => caption.updatePosition());
   }*/
 
   static init() {
