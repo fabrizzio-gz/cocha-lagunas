@@ -208,6 +208,9 @@ const sec4Anim = anime({
         stroke: invisible,
       }
     );
+    anime.set("#cocha-svg-caption-cercado", {
+      opacity: 0,
+    });
   },
   scale: 12,
   translateX: "10%",
