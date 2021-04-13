@@ -59,10 +59,12 @@ class Caption {
     Caption.list = [];
   }
 
-  /*
   static updateAllPositions() {
-    Caption.list.forEach((caption) => caption.updatePosition());
-  }*/
+    Caption.list.forEach((caption) => {
+      const { x, y } = caption.getElementPosition(caption.captionId);
+      caption.setPosition(x, y);
+    });
+  }
 
   static init() {
     Caption.purge();
