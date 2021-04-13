@@ -161,6 +161,25 @@ const introAnim = anime({
   autoplay: true,
 });
 
+const sec1Anim = anime
+  .timeline({
+    targets: "#cocha-svg-caption-cercado",
+    begin: () => {
+      mapCocha.classList.add("no-stroke");
+    },
+    opacity: 0,
+    autoplay: false,
+  })
+  .add({
+    targets: "#cocha-svg-cercado",
+    stroke: invisible,
+  })
+  .add({
+    targets: "#cocha-svg-cocha",
+
+    fill: lightblue,
+  });
+
 const sec2Anim = anime
   .timeline({
     targets: ["#cocha-svg-cocha", "#cocha-svg-cercado"],
@@ -343,9 +362,9 @@ document.addEventListener("scroll", function (e) {
 
     const section = Math.ceil((positionMid - inicioSize) / sectionSize);
     switch (section) {
-      /*case 1:
+      case 1:
         callAnimation(1, sec1Anim);
-        break;*/
+        break;
       case 2:
         callAnimation(2, sec2Anim);
         break;
