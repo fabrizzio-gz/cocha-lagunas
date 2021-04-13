@@ -285,33 +285,39 @@ const sec6Anim = anime({
   autoplay: false,
 });
 
-const conclusionAnim = anime({
-  targets: ["#lag-cona-cona", "#lag-alalay", "#lag-albarrancho"],
-  begin: () => {
-    const rocha = new Caption("Río Rocha", "cercado-svg-caption-rocha");
-    rocha.div.style.transform = "translate(30%, -80%)";
-    new Caption("La Tamborada", "cercado-svg-caption-tamborada");
-    const quilla = new Caption(
-      "Puente Quillacollo",
-      "cercado-svg-caption-quillacollo"
-    );
-    quilla.div.style.transform = "translate(-50%, -50%)";
-    new Caption("Recoleta", "cercado-svg-caption-recoleta");
-    anime.set(["#lag-cona-cona", "#lag-alalay", "#lag-albarrancho"], {
-      fill: lightblue,
-      opacity: 0,
-    });
-  },
-  opacity: 1,
-  duration: 1000,
-  ease: "linear",
-  complete: () => {
-    new Caption("Laguna Coña Coña", "lag-cona-cona");
-    new Caption("Laguna Alalay", "lag-alalay");
-    new Caption("Laguna Albarrancho", "lag-albarrancho");
-  },
-  autoplay: false,
-});
+const conclusionAnim = anime
+  .timeline({
+    targets: "#cercado-svg-caption-alalay",
+    fill: lightblue,
+    opacity: [0, 1],
+    duration: 2000,
+    ease: "easeInCubic",
+    autoplay: false,
+  })
+  .add({
+    targets: "#lag-alalay",
+    fill: lightblue,
+    opacity: [0, 1],
+    duration: 2000,
+    ease: "easeInCubic",
+    autoplay: false,
+  })
+  .add({
+    targets: ["#lag-albarrancho", "#cercado-svg-caption-albarrancho"],
+    fill: lightblue,
+    opacity: [0, 1],
+    duration: 2000,
+    ease: "easeInCubic",
+    autoplay: false,
+  })
+  .add({
+    targets: ["#lag-cona-cona", "#cercado-svg-caption-cona-cona"],
+    fill: lightblue,
+    opacity: [0, 1],
+    duration: 2000,
+    ease: "easeInCubic",
+    autoplay: false,
+  });
 
 let currentSection = -1;
 
