@@ -181,10 +181,6 @@ const sec2Anim = anime
 
 const sec3Anim = anime({
   targets: "#cocha-svg-cercado",
-  begin: (anim) => {
-    const caption = new Caption("Cercado", "cocha-svg-caption");
-    caption.div.style.transform = "translate(-30%,-180%)";
-  },
   fill: [lightblue, grey],
   easing: "linear",
   autoplay: false,
