@@ -19,10 +19,8 @@ class Caption {
     this.text = text;
     this.captionId = captionId;
     let x, y;
-    if (captionId) {
-      const element = document.getElementById(captionId);
-      ({ x, y } = element.getBoundingClientRect());
-    } else {
+    if (captionId) ({ x, y } = this.getElementPosition(this.captionId));
+    else {
       x = 0;
       y = 0;
     }
@@ -39,15 +37,11 @@ class Caption {
     Caption.list.push(this);
   }
 
-  /*
-  updatePosition() {
-    const element = document.getElementById(this.captionId);
+  getElementPosition(elementId) {
+    const element = document.getElementById(elementId);
     const { x, y } = element.getBoundingClientRect();
-    this.posX = x;
-    this.posY = y;
-    this.div.style.left = this.posX + "px";
-    this.div.style.top = this.posY + "px";
-  }*/
+    return { x, y };
+  }
 
   setPosition(posX, posY) {
     this.posX = posX;
