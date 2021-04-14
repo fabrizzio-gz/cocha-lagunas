@@ -502,6 +502,8 @@ window.onbeforeunload = () => {
   window.scrollTo(0, 0);
 };
 
+window.onresize = Caption.updateAllPositions;
+
 anime.set("#cercado-svg-caption-cuellar", {
   opacity: 0, // Fix due to opacity starting at 1
 });
