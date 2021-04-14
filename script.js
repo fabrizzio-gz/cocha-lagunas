@@ -162,6 +162,8 @@ const introAnim = anime({
         "#cercado-svg-caption-recoleta",
         "#cercado-svg-caption-quillacollo",
         "#cercado-svg-caption-cona-cona",
+        "#lag-sarco",
+        "#lag-cuadras",
       ],
       {
         opacity: 0,
@@ -278,9 +280,10 @@ const sec4Anim = anime({
         opacity: 0,
       }
     );
-    anime.set("#cocha-svg-caption-cercado", {
+    anime.set(["#cocha-svg-caption-cercado", "#lag-sarco"], {
       opacity: 0,
     });
+
     Caption.updateAllPositions();
   },
   scale: 12,
@@ -363,6 +366,31 @@ const sec6Anim = anime({
   duration: 3000,
   autoplay: false,
 });
+
+const sec7Anim = anime
+  .timeline({
+    targets: mapCercado,
+    begin: () => {
+      anime.set(
+        [
+          "#cercado-svg-caption-recoleta",
+          "#cercado-svg-caption-quillacollo",
+          "#cercado-svg-caption-cuellar",
+          "#cercado-svg-caption-rocha",
+        ],
+        {
+          opacity: 0,
+        }
+      );
+    },
+    scale: [30, 50],
+    translateY: ["0%", "10%"],
+    translateX: "0%",
+  })
+  .add({
+    targets: "#lag-sarco",
+    opacity: 1,
+  });
 
 const conclusionAnim = anime
   .timeline({
@@ -484,7 +512,7 @@ document.addEventListener("scroll", function (e) {
         callAnimation(6, sec6Anim);
         break;
       case 7:
-        callAnimation(7, conclusionAnim);
+        callAnimation(7, sec7Anim);
         break;
       case 8:
         callAnimation(8, endAnim);
@@ -502,6 +530,6 @@ window.onresize = Caption.updateAllPositions;
 anime.set("#cercado-svg-caption-cuellar", {
   opacity: 0, // Fix due to opacity starting at 1
 });
-anime.set("#cercado-svg-lagunas circle", {
+anime.set(["#cercado-svg-lagunas circle", mapCercado], {
   opacity: 0, // Init lakes to invisible
 });
