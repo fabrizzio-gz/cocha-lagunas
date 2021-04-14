@@ -305,16 +305,7 @@ const sec5Anim = anime
     translateX: ["10%", "0%"],
     duration: 1000,
   })
-  .add({
-    targets: "#lag-cuellar",
-    begin: () => {
-      anime.set("#lag-cuellar", {
-        opacity: 1,
-      });
-    },
-    fill: lightblue,
-    duration: 1000,
-  })
+
   .add({
     targets: "#cercado-svg-rios path",
     begin: () => {
@@ -324,6 +315,11 @@ const sec5Anim = anime
     },
     strokeWidth: ["0", "1"],
     easing: "linear",
+  })
+  .add({
+    targets: "#lag-cuellar",
+    opacity: 1,
+    duration: 1000,
   })
   .add({
     targets: [
@@ -362,7 +358,6 @@ const sec6Anim = anime({
       }
     );
   },
-  fill: [lightblue, grey],
   opacity: [1, 0],
   easing: "easeInOutCubic",
   duration: 3000,
