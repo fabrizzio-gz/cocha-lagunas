@@ -5,6 +5,10 @@
 :root {
   --inicio-size: 1; /* Fraction of vh*/
   --section-size: 1.2; /* Fraction of vh */
+  --color-lightblue: #00dbfc;
+  --color-grey: #3b4749;
+  --color-orange: #ff7a00;
+  --color-lightgrey: #f9fafa;
 }
 /*
  * Setup formatting
@@ -31,7 +35,7 @@ p {
 
 body {
   font-family: "Nunito Sans", "Times New Roman";
-  color: #3b4749;
+  color: var(--color-grey);
 }
 
 /*
@@ -43,7 +47,7 @@ body {
 }
 
 #cocha-svg-cocha {
-  fill: #00dbfc;
+  fill: var(--color-lightblue);
 }
 
 #cocha-svg-caption {
@@ -76,7 +80,7 @@ body {
 }
 
 .arrow {
-  border: solid #3b4749;
+  border: solid var(--color-grey);
   border-width: 0 6px 6px 0;
   display: inline-block;
   padding: 6px;
@@ -113,12 +117,12 @@ body {
 
 /*
 #cercado-map-container path {
-  stroke: #3b4749;
+  stroke: var(--color-grey);
   stroke-width: 2;
 }*/
 
 /*#cercado-svg-cercado {
-  fill: #00dbfc;
+  fill: var(--color-lightblue);
 }*/
 
 /*
@@ -126,7 +130,7 @@ body {
  */
 
 .show-river path {
-  stroke: #00dbfc;
+  stroke: var(--color-lightblue);
 }
 
 /*
@@ -204,8 +208,8 @@ section > div {
 
 section p {
   padding: 1em 0.8em;
-  border: solid 2px #3b4749;
-  background: #f9fafa;
+  border: solid 2px var(--color-grey);
+  background: var(--color-lightgrey);
 }
 
 #end-div {
