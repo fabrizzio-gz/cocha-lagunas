@@ -507,3 +507,6 @@ window.onresize = Caption.updateAllPositions;
 anime.set("#cercado-svg-caption-cuellar", {
   opacity: 0, // Fix due to opacity starting at 1
 });
+anime.set("#cercado-svg-lagunas circle", {
+  opacity: 0, // Init lakes to invisible
+});
