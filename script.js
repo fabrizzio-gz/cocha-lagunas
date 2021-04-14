@@ -372,6 +372,19 @@ const sec6Anim = anime({
 const conclusionAnim = anime
   .timeline({
     targets: "#cercado-svg-caption-alalay",
+    begin: () => {
+      anime.set(
+        [
+          mapCercado,
+          "#cercado-svg-caption-rocha",
+          "#cercado-svg-caption-recoleta",
+          "#cercado-svg-caption-quillacollo",
+        ],
+        { opacity: 1 }
+      );
+      anime.set("#cocha-svg", { opacity: 0 });
+      Caption.updateAllPositions();
+    },
     fill: lightblue,
     opacity: [0, 1],
     duration: 2000,
@@ -414,6 +427,11 @@ const endAnim = anime
       "#cercado-svg-caption-quillacollo",
       "#cercado-svg-caption-cona-cona",
     ],
+    begin: () => {
+      anime.set(mapCercado, {
+        opacity: 0,
+      });
+    },
     opacity: [1, 0],
     duration: 2000,
     autoplay: false,
