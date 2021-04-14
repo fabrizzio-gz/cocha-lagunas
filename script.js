@@ -92,6 +92,16 @@ class Caption {
         translate: "translate(-50%, -50%)",
       },
       { id: "recoleta", text: "Recoleta" },
+      {
+        id: "cuadras",
+        text: "Laguna Cuadras",
+        translate: "translate(-100%,-200%)",
+      },
+      {
+        id: "sarco",
+        text: "Laguna Sarco",
+        translate: "translate(-50%, -200%)",
+      },
     ];
 
     captionCochaSvg.forEach(({ id, text, translate = "" }) => {
