@@ -365,7 +365,7 @@ const sec6Anim = anime({
   fill: [lightblue, grey],
   opacity: [1, 0],
   easing: "easeInOutCubic",
-  duration: 5000,
+  duration: 3000,
   autoplay: false,
 });
 
