@@ -172,6 +172,7 @@ const introAnim = anime({
         "#cercado-svg-caption-recoleta",
         "#cercado-svg-caption-quillacollo",
         "#cercado-svg-caption-cona-cona",
+        "#cercado-svg-caption-sarco",
         "#lag-sarco",
         "#lag-cuadras",
       ],
@@ -396,10 +397,14 @@ const sec7Anim = anime
     scale: [30, 50],
     translateY: ["0%", "10%"],
     translateX: "0%",
+    autoplay: false,
   })
   .add({
-    targets: "#lag-sarco",
-    opacity: 1,
+    targets: ["#lag-sarco", "#cercado-svg-caption-sarco"],
+    begin: () => {
+      Caption.updateAllPositions();
+    },
+    opacity: [0, 1],
   });
 
 const conclusionAnim = anime
