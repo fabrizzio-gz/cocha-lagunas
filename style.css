@@ -210,7 +210,7 @@ section p {
 
 #end-div {
   width: 100%;
-  height: calc(var(--section-size) * 100vh);
+  height: 100vh;
   bottom: 0;
   right: 0;
 }

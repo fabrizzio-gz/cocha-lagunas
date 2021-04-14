@@ -403,6 +403,31 @@ const conclusionAnim = anime
     autoplay: false,
   });
 
+const endAnim = anime
+  .timeline({
+    targets: [
+      mapCercado,
+      "#cercado-svg-caption-alalay",
+      "#cercado-svg-caption-albarrancho",
+      "#cercado-svg-caption-rocha",
+      "#cercado-svg-caption-recoleta",
+      "#cercado-svg-caption-quillacollo",
+      "#cercado-svg-caption-cona-cona",
+    ],
+    opacity: [1, 0],
+    duration: 2000,
+    autoplay: false,
+  })
+  .add({
+    targets: "#cocha-svg",
+    duration: 2000,
+    scale: [12, 1],
+    translateX: ["10%", "0%"],
+    opacity: 1,
+    autoplay: false,
+  })
+  .add({});
+
 let currentSection = -1;
 
 document.addEventListener("scroll", function (e) {
@@ -447,6 +472,9 @@ document.addEventListener("scroll", function (e) {
         break;
       case 7:
         callAnimation(7, conclusionAnim);
+        break;
+      case 8:
+        callAnimation(8, endAnim);
         break;
     }
   });
