@@ -115,6 +115,11 @@ body {
   fill: none;
 }
 
+#cercado-svg-lagunas circle {
+  stroke-dasharray: 2, 2;
+  stroke: var(--color-orange);
+}
+
 /*
 #cercado-map-container path {
   stroke: var(--color-grey);
