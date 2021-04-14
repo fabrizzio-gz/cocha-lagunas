@@ -207,3 +207,10 @@ section p {
   border: solid 2px #3b4749;
   background: #f9fafa;
 }
+
+#end-div {
+  width: 100%;
+  height: calc(var(--section-size) * 100vh);
+  bottom: 0;
+  right: 0;
+}

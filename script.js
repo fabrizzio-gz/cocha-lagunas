@@ -153,6 +153,21 @@ const { inicioSize, sectionSize } = getSectionSizes();
 
 const introAnim = anime({
   targets: mapCocha,
+  begin: () => {
+    anime.set(
+      [
+        "#cercado-svg-caption-alalay",
+        "#cercado-svg-caption-albarrancho",
+        "#cercado-svg-caption-rocha",
+        "#cercado-svg-caption-recoleta",
+        "#cercado-svg-caption-quillacollo",
+        "#cercado-svg-caption-cona-cona",
+      ],
+      {
+        opacity: 0,
+      }
+    );
+  },
   scale: 1.05,
   delay: 250,
   direction: "alternate",
