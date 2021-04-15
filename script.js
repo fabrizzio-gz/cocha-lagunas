@@ -357,20 +357,26 @@ const sec5Anim = anime
 const sec6Anim = anime({
   targets: ["#lag-cuellar", "#cercado-svg-caption-cuellar"],
   begin: () => {
+    anime.set(["#cercado-svg-caption-sarco", "#lag-sarco"], {
+      opacity: 0,
+    });
+    anime.set(mapCercado, {
+      scale: 30,
+      translateY: "0%",
+      translateX: "0%",
+    });
     anime.set(
       [
-        "#cercado-svg-caption-alalay",
-        "#lag-alalay",
-        "#cercado-svg-caption-albarrancho",
-        "#lag-albarrancho",
-        "#cercado-svg-caption-cona-cona",
-        "#lag-cona-cona",
+        "#cercado-svg-caption-recoleta",
+        "#cercado-svg-caption-quillacollo",
+        "#cercado-svg-caption-cuellar",
+        "#cercado-svg-caption-rocha",
       ],
       {
-        opacity: 0,
-        fill: lightblue,
+        opacity: 1,
       }
     );
+    Caption.updateAllPositions();
   },
   opacity: [1, 0],
   easing: "easeInOutCubic",
