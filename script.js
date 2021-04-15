@@ -173,6 +173,7 @@ const introAnim = anime({
         "#cercado-svg-caption-quillacollo",
         "#cercado-svg-caption-cona-cona",
         "#cercado-svg-caption-sarco",
+        "#cercado-svg-caption-cuadras",
         "#lag-sarco",
         "#lag-cuadras",
       ],
@@ -460,6 +461,12 @@ const sec9Anim = anime
     autoplay: false,
   });
 
+const sec10Anim = anime({
+  targets: ["#lag-cuadras", "#cercado-svg-caption-cuadras"],
+  opacity: [1, 0],
+  autoplay: false,
+});
+
 const conclusionAnim = anime
   .timeline({
     targets: "#cercado-svg-caption-alalay",
@@ -587,6 +594,9 @@ document.addEventListener("scroll", function (e) {
         break;
       case 9:
         callAnimation(9, sec9Anim);
+        break;
+      case 10:
+        callAnimation(10, sec10Anim);
         break;
     }
   });
