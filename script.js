@@ -414,6 +414,20 @@ const sec7Anim = anime
     autoplay: false,
   });
 
+const sec8Anim = anime
+  .timeline({
+    /* dummy animation to have the next one not run instantly */ target: "none",
+    opacity: 0,
+    delay: 1000,
+    autoplay: false,
+  })
+  .add({
+    targets: ["#lag-sarco", "#cercado-svg-caption-sarco"],
+    opacity: [1, 0],
+    delay: 3000,
+    autoplay: false,
+  });
+
 const conclusionAnim = anime
   .timeline({
     targets: "#cercado-svg-caption-alalay",
@@ -537,7 +551,7 @@ document.addEventListener("scroll", function (e) {
         callAnimation(7, sec7Anim);
         break;
       case 8:
-        callAnimation(8, endAnim);
+        callAnimation(8, sec8Anim);
         break;
     }
   });
