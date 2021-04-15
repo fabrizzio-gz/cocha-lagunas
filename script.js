@@ -474,6 +474,16 @@ const sec10Anim = anime({
 
 const conclusionAnim = anime
   .timeline({
+    targets: mapCercado,
+    complete: () => {
+      Caption.updateAllPositions();
+    },
+    scale: [50, 30],
+    translateX: "0%",
+    translateY: "0%",
+    autoplay: false,
+  })
+  .add({
     targets: "#cercado-svg-caption-alalay",
     begin: () => {
       anime.set(
@@ -602,6 +612,9 @@ document.addEventListener("scroll", function (e) {
         break;
       case 10:
         callAnimation(10, sec10Anim);
+        break;
+      case 11:
+        callAnimation(11, conclusionAnim);
         break;
     }
   });
