@@ -397,14 +397,15 @@ const sec7Anim = anime
     scale: [30, 50],
     translateY: ["0%", "10%"],
     translateX: "0%",
+    complete: () => {
+      Caption.updateAllPositions();
+    },
     autoplay: false,
   })
   .add({
     targets: ["#lag-sarco", "#cercado-svg-caption-sarco"],
-    begin: () => {
-      Caption.updateAllPositions();
-    },
     opacity: [0, 1],
+    autoplay: false,
   });
 
 const conclusionAnim = anime
