@@ -442,6 +442,11 @@ const sec8Anim = anime
 const sec9Anim = anime
   .timeline({
     targets: mapCercado,
+    begin: () => {
+      anime.set(["#lag-cuadras", "#cercado-svg-caption-cuadras"], {
+        opacity: 0,
+      });
+    },
     keyframes: [
       { scale: [50, 30], translateX: "0%", translateY: "0%" },
       {
