@@ -230,9 +230,17 @@ section p {
   background: var(--color-lightgrey);
 }
 
-section blockquote {
+section blockquote,
+section figure {
   position: relative;
   grid-area: q;
+}
+
+section figure {
+  margin-left: 5%;
+}
+
+section blockquote {
   margin-left: 20%;
   font-size: 1.5rem;
   line-height: 1.5;
@@ -240,6 +248,24 @@ section blockquote {
   font-family: serif;
   font-style: italic;
 }
+
+section img {
+  max-width: 450px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.box {
+  background-color: rgba(#000, 0.5);
+  padding: 5px;
+  border: 2px solid var(--color-grey);
+}
+
+/*.box-inner {
+  position: relative;
+  border: 2px solid $color-alpha;
+  padding: 40px;
+}*/
 
 blockquote:before {
   content: "“";
