@@ -9,6 +9,7 @@
   --color-grey: #3b4749;
   --color-orange: #ff7a00;
   --color-lightgrey: #f7f6f3; /* #f9fafa;*/
+  --color-background: #f7f6f3;
   --color-strong: #eb1000;
 }
 /*
@@ -16,7 +17,7 @@
  */
 
 body {
-  background-color: var(--color-lightgrey);
+  background-color: var(--color-background);
 }
 
 * {
