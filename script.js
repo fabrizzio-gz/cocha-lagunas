@@ -468,6 +468,28 @@ const sec9Anim = anime
 
 const sec10Anim = anime({
   targets: ["#lag-cuadras", "#cercado-svg-caption-cuadras"],
+  begin: () => {
+    anime.set(
+      [
+        "#cercado-svg-caption-rocha",
+        "#cercado-svg-caption-recoleta",
+        "#cercado-svg-caption-quillacollo",
+        "#lag-cona-cona",
+        "#cercado-svg-caption-cona-cona",
+        "#lag-alalay",
+        "#cercado-svg-caption-alalay",
+        "#lag-albarrancho",
+        "#cercado-svg-caption-albarrancho",
+      ],
+      {
+        opacity: 0,
+      }
+    );
+    anime.set(mapCercado, {
+      scale: 50,
+      translateX: "-5%",
+    });
+  },
   opacity: [1, 0],
   autoplay: false,
 });
