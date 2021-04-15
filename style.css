@@ -206,6 +206,19 @@ section {
     ". . .";
 }
 
+@media (max-width: 768px) {
+  section {
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: auto 25vh auto 25vh auto;
+    grid-template-areas:
+      ". . ."
+      ". . ."
+      ". p ."
+      ". . ."
+      ". . .";
+  }
+}
+
 section > div {
   position: relative;
   grid-area: p;
