@@ -8,11 +8,15 @@
   --color-lightblue: #00dbfc;
   --color-grey: #3b4749;
   --color-orange: #ff7a00;
-  --color-lightgrey: #f9fafa;
+  --color-lightgrey: #f7f6f3; /* #f9fafa;*/
 }
 /*
  * Setup formatting
  */
+
+body {
+  background-color: var(--color-lightgrey);
+}
 
 * {
   padding: 0;
@@ -227,7 +231,7 @@ section > div {
 section p {
   padding: 1em 0.8em;
   border: solid 2px var(--color-grey);
-  background: var(--color-lightgrey);
+  background: #fff;
 }
 
 section blockquote,

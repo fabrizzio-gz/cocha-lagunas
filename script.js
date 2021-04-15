@@ -11,6 +11,7 @@ const orange = "#ff7a00";
 const grey = "#3b4749";
 const lightgrey = "#f9fafa";
 const invisible = "rgba(0,0,0,0)";
+const white = "#fff";
 
 class Caption {
   static list = [];
@@ -221,7 +222,7 @@ const sec2Anim = anime
     },
 
     fill: (el, i) => {
-      if (i == 0) return invisible;
+      if (i == 0) return white;
       return lightblue;
     },
     stroke: grey,
@@ -268,6 +269,7 @@ const sec4Anim = anime({
       opacity: 1,
       strokeWidth: 1,
       stroke: grey,
+      fill: white,
     });
     anime.set(
       [
