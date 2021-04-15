@@ -428,6 +428,28 @@ const sec8Anim = anime
     autoplay: false,
   });
 
+const sec9Anim = anime
+  .timeline({
+    targets: mapCercado,
+    keyframes: [
+      { scale: [50, 30], translateX: "0%", translateY: "0%" },
+      {
+        scale: [30, 50],
+        translateX: ["0%", "-5%"],
+      },
+    ],
+    duration: 3000,
+    autoplay: false,
+  })
+  .add({
+    targets: ["#lag-cuadras", "#cercado-svg-caption-cuadras"],
+    complete: () => {
+      Caption.updateAllPositions();
+    },
+    opacity: [0, 1],
+    autoplay: false,
+  });
+
 const conclusionAnim = anime
   .timeline({
     targets: "#cercado-svg-caption-alalay",
@@ -552,6 +574,9 @@ document.addEventListener("scroll", function (e) {
         break;
       case 8:
         callAnimation(8, sec8Anim);
+        break;
+      case 9:
+        callAnimation(9, sec9Anim);
         break;
     }
   });
