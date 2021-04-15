@@ -638,6 +638,9 @@ document.addEventListener("scroll", function (e) {
       case 11:
         callAnimation(11, conclusionAnim);
         break;
+      case 12:
+        callAnimation(12, endAnim);
+        break;
     }
   });
 });
