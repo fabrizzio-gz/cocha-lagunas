@@ -417,6 +417,16 @@ const sec7Anim = anime
 const sec8Anim = anime
   .timeline({
     /* dummy animation to have the next one not run instantly */ target: "none",
+    begin: () => {
+      anime.set(mapCercado, {
+        translateY: "10%",
+        translateX: "0%",
+      });
+      anime.set(["#lag-cuadras", "#cercado-svg-caption-cuadras"], {
+        opacity: 0,
+      });
+      Caption.updateAllPositions();
+    },
     opacity: 0,
     delay: 1000,
     autoplay: false,
