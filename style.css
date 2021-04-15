@@ -202,7 +202,7 @@ section {
     ". . ."
     ". . ."
     ". p ."
-    ". . ."
+    "q . ."
     ". . .";
 }
 
@@ -214,7 +214,7 @@ section {
       ". . ."
       ". . ."
       ". p ."
-      ". . ."
+      ". q ."
       ". . .";
   }
 }
@@ -228,6 +228,29 @@ section p {
   padding: 1em 0.8em;
   border: solid 2px var(--color-grey);
   background: var(--color-lightgrey);
+}
+
+section blockquote {
+  position: relative;
+  grid-area: q;
+  margin-left: 20%;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 700;
+  font-family: serif;
+  font-style: italic;
+}
+
+blockquote:before {
+  content: "“";
+}
+
+blockquote:after {
+  content: "”";
+}
+
+blockquote figcaption {
+  display: none;
 }
 
 #end-div {
