@@ -16,11 +16,13 @@ const white = "#fff";
 class Caption {
   static list = [];
 
-  constructor(text = "", captionId = "") {
+  constructor(text = "", captionId = "", isAvenida = false) {
     this.text = text;
     this.captionId = captionId;
+    this.isAvenida = isAvenida;
     let x, y;
-    if (captionId) ({ x, y } = this.getElementPosition(this.captionId));
+    if (captionId)
+      ({ x, y } = this.getElementPosition(this.captionId, this.isAvenida));
     else {
       x = 0;
       y = 0;
@@ -32,15 +34,17 @@ class Caption {
     else captionId = "cocha-svg-caption-cercado";
     this.div.setAttribute("id", captionId);
     this.div.classList.add("caption");
+    if (this.isAvenida) this.div.classList.add("avenida");
     this.setPosition(x, y);
     this.div.appendChild(document.createTextNode(text));
     this.add();
     Caption.list.push(this);
   }
 
-  getElementPosition(elementId) {
+  getElementPosition(elementId, isAvenida) {
     const element = document.getElementById(elementId);
-    const { x, y } = element.getBoundingClientRect();
+    const { x, y, right, bottom } = element.getBoundingClientRect();
+    if (isAvenida) return { right, bottom };
     return { x, y };
   }
 
@@ -101,18 +105,39 @@ class Caption {
       {
         id: "sarco",
         text: "Laguna Sarco",
-        translate: "translate(-50%, -200%)",
+        translate: "translate(-70%, -200%)",
+      },
+      {
+        id: "america",
+        text: "Av. América",
+        translate: "translate(120%, 0%)",
+        isAvenida: true,
+      },
+      {
+        id: "melchor-perez",
+        text: "Av. Melchor Pérez",
+        translate: "translate(-65%, 650%) rotate(-90deg)",
+
+        isAvenida: true,
       },
     ];
 
-    captionCochaSvg.forEach(({ id, text, translate = "" }) => {
-      const caption = new Caption(text, "cocha-svg-caption");
-      if (translate) caption.div.style.transform = translate;
-    });
-    captionCercadoSvg.forEach(({ id, text, translate = "" }) => {
-      const caption = new Caption(text, "cercado-svg-caption-" + id);
-      if (translate) caption.div.style.transform = translate;
-    });
+    captionCochaSvg.forEach(
+      ({ id, text, translate = "", isAvenida = false }) => {
+        const caption = new Caption(text, "cocha-svg-caption");
+        if (translate) caption.div.style.transform = translate;
+      }
+    );
+    captionCercadoSvg.forEach(
+      ({ id, text, translate = "", isAvenida = false }) => {
+        const caption = new Caption(
+          text,
+          "cercado-svg-caption-" + id,
+          isAvenida
+        );
+        if (translate) caption.div.style.transform = translate;
+      }
+    );
   }
 }
 
@@ -411,6 +436,16 @@ const sec7Anim = anime
     },
     autoplay: false,
   })
+  .add({
+    targets: [
+      "#cercado-svg-caption-melchor-perez",
+      "#cercado-svg-caption-america",
+    ],
+    stroke: grey,
+    strokeWidth: [0, 0.75],
+    opacity: 1,
+  })
+
   .add({
     targets: ["#lag-sarco", "#cercado-svg-caption-sarco"],
     opacity: [0, 1],

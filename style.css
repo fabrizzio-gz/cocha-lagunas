@@ -186,6 +186,12 @@ body {
   opacity: 0;
 }
 
+.avenida {
+  font-family: "Nunito Sans", "Times New Roman";
+  font-size: 1em;
+  color: var(--color-strong);
+}
+
 .center {
   display: flex;
   justify-content: center;
