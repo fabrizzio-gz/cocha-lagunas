@@ -133,6 +133,12 @@ class Caption {
         translate: "translate(10%, 350%) rotate(65deg)",
         isAvenida: true,
       },
+      {
+        id: "campus-umss",
+        text: "UMSS",
+        translate: "translate(20%, -30%) rotate(-10deg)",
+        isAvenida: true,
+      },
     ];
 
     captionCochaSvg.forEach(
@@ -517,6 +523,14 @@ const sec9Anim = anime
   })
   .add({
     targets: ["#cercado-svg-caption-heroinas", "#cercado-svg-caption-belzu"],
+    complete: () => {
+      anime.set("#cercado-svg-caption-campus-umss", {
+        stroke: grey,
+        strokeWidth: 0.3,
+        strokeDasharray: "1 1",
+        opacity: 1,
+      });
+    },
     stroke: grey,
     strokeWidth: [0, 0.75],
     opacity: 1,
