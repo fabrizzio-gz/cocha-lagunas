@@ -495,9 +495,32 @@ const sec8Anim = anime
         translateY: "10%",
         translateX: "0%",
       });
-      anime.set(["#lag-cuadras", "#caption-cuadras"], {
-        opacity: 0,
-      });
+      anime.set(
+        [
+          "#lag-cuadras",
+          "#caption-cuadras",
+          "#heroinas",
+          "#caption-heroinas",
+          "#belzu",
+          "#caption-belzu",
+          "#campus-umss",
+          "#caption-campus-umss",
+        ],
+        {
+          opacity: 0,
+        }
+      );
+      anime.set(
+        [
+          "#america",
+          "#caption-america",
+          "#melchor-perez",
+          "#caption-melchor-perez",
+        ],
+        {
+          opacity: 1,
+        }
+      );
       Caption.updateAllPositions();
     },
     opacity: 0,
@@ -515,9 +538,20 @@ const sec9Anim = anime
   .timeline({
     targets: mapCercado,
     begin: () => {
-      anime.set(["#lag-cuadras", "#caption-cuadras"], {
-        opacity: 0,
-      });
+      anime.set(
+        [
+          "#lag-sarco",
+          "#lag-cuadras",
+          "#caption-cuadras",
+          "#melchor-perez",
+          "#caption-melchor-perez",
+          "#america",
+          "#caption-america",
+        ],
+        {
+          opacity: 0,
+        }
+      );
     },
     keyframes: [
       { scale: [50, 30], translateX: "0%", translateY: "0%" },
@@ -538,7 +572,13 @@ const sec9Anim = anime
     autoplay: false,
   })
   .add({
-    targets: ["#caption-heroinas", "#caption-belzu", "#heroinas", "#belzu"],
+    targets: [
+      "#caption-heroinas",
+      "#caption-belzu",
+      "#heroinas",
+      "#belzu",
+      "#caption-quillacollo",
+    ],
     complete: () => {
       anime.set(["#caption-campus-umss", "#campus-umss"], {
         stroke: grey,
