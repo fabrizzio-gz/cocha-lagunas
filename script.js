@@ -70,7 +70,7 @@ class Caption {
 
   static updateAllPositions() {
     Caption.list.forEach((caption) => {
-      const { x, y } = caption.getElementPosition(caption.captionId);
+      const { x, y } = caption.getElementPosition(caption.elementId);
       caption.setPosition(x, y);
     });
   }
@@ -279,7 +279,7 @@ const sec2Anim = anime
     autoplay: false,
   })
   .add({
-    targets: "#cocha-svg-caption-cercado",
+    targets: "#caption-cercado",
     opacity: [0, 1],
     easing: "easeInCubic",
     autoplay: false,
