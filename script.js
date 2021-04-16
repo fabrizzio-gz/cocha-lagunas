@@ -215,14 +215,14 @@ const introAnim = anime({
   begin: () => {
     anime.set(
       [
-        "#cercado-svg-caption-alalay",
-        "#cercado-svg-caption-albarrancho",
-        "#cercado-svg-caption-rocha",
-        "#cercado-svg-caption-recoleta",
-        "#cercado-svg-caption-quillacollo",
-        "#cercado-svg-caption-cona-cona",
-        "#cercado-svg-caption-sarco",
-        "#cercado-svg-caption-cuadras",
+        "#caption-alalay",
+        "#caption-albarrancho",
+        "#caption-rocha",
+        "#caption-recoleta",
+        "#caption-quillacollo",
+        "#caption-cona-cona",
+        "#caption-sarco",
+        "#caption-cuadras",
         "#lag-sarco",
         "#lag-cuadras",
       ],
@@ -288,7 +288,7 @@ const sec2Anim = anime
 const sec3Anim = anime({
   targets: "#cocha-svg-cercado",
   begin: () => {
-    anime.set([mapCocha, "#cocha-svg-caption-cercado"], {
+    anime.set([mapCocha, "#caption-cercado"], {
       fill: invisible,
       scale: 1,
       translateX: "0%",
@@ -333,16 +333,16 @@ const sec4Anim = anime({
 
     anime.set(
       [
-        "#cercado-svg-caption-recoleta",
-        "#cercado-svg-caption-quillacollo",
-        "#cercado-svg-caption-cuellar",
-        "#cercado-svg-caption-rocha",
+        "#caption-recoleta",
+        "#caption-quillacollo",
+        "#caption-cuellar",
+        "#caption-rocha",
       ],
       {
         opacity: 0,
       }
     );
-    anime.set(["#cocha-svg-caption-cercado", "#lag-sarco"], {
+    anime.set(["#caption-cercado", "#lag-sarco"], {
       opacity: 0,
     });
 
@@ -389,10 +389,10 @@ const sec5Anim = anime
   .add({
     targets: [
       "#p-recoleta, #p-quillacollo",
-      "#cercado-svg-caption-recoleta",
-      "#cercado-svg-caption-quillacollo",
-      "#cercado-svg-caption-cuellar",
-      "#cercado-svg-caption-rocha",
+      "#caption-recoleta",
+      "#caption-quillacollo",
+      "#caption-cuellar",
+      "#caption-rocha",
     ],
     begin: () => {
       anime.set(["#p-recoleta, #p-quillacollo"], {
@@ -406,9 +406,9 @@ const sec5Anim = anime
   });
 
 const sec6Anim = anime({
-  targets: ["#lag-cuellar", "#cercado-svg-caption-cuellar"],
+  targets: ["#lag-cuellar", "#caption-cuellar"],
   begin: () => {
-    anime.set(["#cercado-svg-caption-sarco", "#lag-sarco"], {
+    anime.set(["#caption-sarco", "#lag-sarco"], {
       opacity: 0,
     });
     anime.set(mapCercado, {
@@ -418,10 +418,10 @@ const sec6Anim = anime({
     });
     anime.set(
       [
-        "#cercado-svg-caption-recoleta",
-        "#cercado-svg-caption-quillacollo",
-        "#cercado-svg-caption-cuellar",
-        "#cercado-svg-caption-rocha",
+        "#caption-recoleta",
+        "#caption-quillacollo",
+        "#caption-cuellar",
+        "#caption-rocha",
       ],
       {
         opacity: 1,
@@ -441,10 +441,10 @@ const sec7Anim = anime
     begin: () => {
       anime.set(
         [
-          "#cercado-svg-caption-recoleta",
-          "#cercado-svg-caption-quillacollo",
-          "#cercado-svg-caption-cuellar",
-          "#cercado-svg-caption-rocha",
+          "#caption-recoleta",
+          "#caption-quillacollo",
+          "#caption-cuellar",
+          "#caption-rocha",
         ],
         {
           opacity: 0,
@@ -461,8 +461,10 @@ const sec7Anim = anime
   })
   .add({
     targets: [
-      "#cercado-svg-caption-melchor-perez",
-      "#cercado-svg-caption-america",
+      "#melchor-perez",
+      "#america",
+      "#caption-melchor-perez",
+      "#caption-america",
     ],
     stroke: grey,
     strokeWidth: [0, 0.75],
@@ -470,7 +472,7 @@ const sec7Anim = anime
   })
 
   .add({
-    targets: ["#lag-sarco", "#cercado-svg-caption-sarco"],
+    targets: ["#lag-sarco", "#caption-sarco"],
     opacity: [0, 1],
     autoplay: false,
   });
@@ -483,7 +485,7 @@ const sec8Anim = anime
         translateY: "10%",
         translateX: "0%",
       });
-      anime.set(["#lag-cuadras", "#cercado-svg-caption-cuadras"], {
+      anime.set(["#lag-cuadras", "#caption-cuadras"], {
         opacity: 0,
       });
       Caption.updateAllPositions();
@@ -493,7 +495,7 @@ const sec8Anim = anime
     autoplay: false,
   })
   .add({
-    targets: ["#lag-sarco", "#cercado-svg-caption-sarco"],
+    targets: ["#lag-sarco", "#caption-sarco"],
     opacity: [1, 0],
     delay: 3000,
     autoplay: false,
@@ -503,7 +505,7 @@ const sec9Anim = anime
   .timeline({
     targets: mapCercado,
     begin: () => {
-      anime.set(["#lag-cuadras", "#cercado-svg-caption-cuadras"], {
+      anime.set(["#lag-cuadras", "#caption-cuadras"], {
         opacity: 0,
       });
     },
@@ -518,7 +520,7 @@ const sec9Anim = anime
     autoplay: false,
   })
   .add({
-    targets: ["#lag-cuadras", "#cercado-svg-caption-cuadras"],
+    targets: ["#lag-cuadras", "#caption-cuadras"],
     complete: () => {
       Caption.updateAllPositions();
     },
@@ -526,9 +528,9 @@ const sec9Anim = anime
     autoplay: false,
   })
   .add({
-    targets: ["#cercado-svg-caption-heroinas", "#cercado-svg-caption-belzu"],
+    targets: ["#caption-heroinas", "#caption-belzu", "#heroinas", "#belzu"],
     complete: () => {
-      anime.set("#cercado-svg-caption-campus-umss", {
+      anime.set(["#caption-campus-umss", "#campus-umss"], {
         stroke: grey,
         strokeWidth: 0.3,
         strokeDasharray: "1 1",
@@ -541,19 +543,19 @@ const sec9Anim = anime
   });
 
 const sec10Anim = anime({
-  targets: ["#lag-cuadras", "#cercado-svg-caption-cuadras"],
+  targets: ["#lag-cuadras", "#caption-cuadras"],
   begin: () => {
     anime.set(
       [
-        "#cercado-svg-caption-rocha",
-        "#cercado-svg-caption-recoleta",
-        "#cercado-svg-caption-quillacollo",
+        "#caption-rocha",
+        "#caption-recoleta",
+        "#caption-quillacollo",
         "#lag-cona-cona",
-        "#cercado-svg-caption-cona-cona",
+        "#caption-cona-cona",
         "#lag-alalay",
-        "#cercado-svg-caption-alalay",
+        "#caption-alalay",
         "#lag-albarrancho",
-        "#cercado-svg-caption-albarrancho",
+        "#caption-albarrancho",
       ],
       {
         opacity: 0,
@@ -580,14 +582,14 @@ const conclusionAnim = anime
     autoplay: false,
   })
   .add({
-    targets: "#cercado-svg-caption-alalay",
+    targets: "#caption-alalay",
     begin: () => {
       anime.set(
         [
           mapCercado,
-          "#cercado-svg-caption-rocha",
-          "#cercado-svg-caption-recoleta",
-          "#cercado-svg-caption-quillacollo",
+          "#caption-rocha",
+          "#caption-recoleta",
+          "#caption-quillacollo",
         ],
         { opacity: 1 }
       );
@@ -609,7 +611,7 @@ const conclusionAnim = anime
     autoplay: false,
   })
   .add({
-    targets: ["#lag-albarrancho", "#cercado-svg-caption-albarrancho"],
+    targets: ["#lag-albarrancho", "#caption-albarrancho"],
     fill: lightblue,
     opacity: [0, 1],
     duration: 2000,
@@ -617,7 +619,7 @@ const conclusionAnim = anime
     autoplay: false,
   })
   .add({
-    targets: ["#lag-cona-cona", "#cercado-svg-caption-cona-cona"],
+    targets: ["#lag-cona-cona", "#caption-cona-cona"],
     fill: lightblue,
     opacity: [0, 1],
     duration: 2000,
@@ -629,12 +631,12 @@ const endAnim = anime
   .timeline({
     targets: [
       mapCercado,
-      "#cercado-svg-caption-alalay",
-      "#cercado-svg-caption-albarrancho",
-      "#cercado-svg-caption-rocha",
-      "#cercado-svg-caption-recoleta",
-      "#cercado-svg-caption-quillacollo",
-      "#cercado-svg-caption-cona-cona",
+      "#caption-alalay",
+      "#caption-albarrancho",
+      "#caption-rocha",
+      "#caption-recoleta",
+      "#caption-quillacollo",
+      "#caption-cona-cona",
     ],
     begin: () => {
       anime.set(mapCercado, {
@@ -725,7 +727,7 @@ window.onbeforeunload = () => {
 
 window.onresize = Caption.updateAllPositions;
 
-anime.set("#cercado-svg-caption-cuellar", {
+anime.set("#caption-cuellar", {
   opacity: 0, // Fix due to opacity starting at 1
 });
 anime.set(["#cercado-svg-lagunas circle", mapCercado], {
