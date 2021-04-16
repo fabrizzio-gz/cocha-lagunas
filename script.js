@@ -16,23 +16,27 @@ const white = "#fff";
 class Caption {
   static list = [];
 
-  constructor(text = "", captionId = "", isAvenida = false) {
+  constructor(text = "", elementId = "", isAvenida = false) {
     this.text = text;
-    this.captionId = captionId;
+    this.elementId = elementId;
     this.isAvenida = isAvenida;
     let x, y;
-    if (captionId)
-      ({ x, y } = this.getElementPosition(this.captionId, this.isAvenida));
+    if (elementId)
+      ({ x, y } = this.getElementPosition(elementId, this.isAvenida));
     else {
       x = 0;
       y = 0;
     }
 
     this.div = document.createElement("div");
-    if (captionId.includes("cercado-svg-caption"))
-      captionId.replace("cercado-svg-", "");
-    else captionId = "cocha-svg-caption-cercado";
-    this.div.setAttribute("id", captionId);
+
+    this.captionId = this.elementId;
+    if (this.captionId.includes("cercado-svg-caption"))
+      this.captionId = this.captionId.replace("cercado-svg-", "");
+    else if (this.captionId.includes("cocha-svg-caption"))
+      this.captionId = this.captionId.replace("cocha-svg-", "");
+    else this.captionId = "caption-" + this.captionId;
+    this.div.setAttribute("id", this.captionId);
     this.div.classList.add("caption");
     if (this.isAvenida) this.div.classList.add("avenida");
     this.setPosition(x, y);
@@ -75,35 +79,39 @@ class Caption {
     Caption.purge();
     const captionCochaSvg = [
       {
-        id: "cocha-svg-caption",
+        id: "cocha-svg-caption-cercado",
         text: "Cercado",
         translate: "translate(-30%,-180%)",
       },
     ];
     const captionCercadoSvg = [
-      { id: "rocha", text: "Río Rocha", translate: "translate(30%, -80%)" },
-      { id: "tamborada", text: "La Tamborada" },
       {
-        id: "cuellar",
+        id: "cercado-svg-caption-rocha",
+        text: "Río Rocha",
+        translate: "translate(30%, -80%)",
+      },
+      { id: "cercado-svg-caption-tamborada", text: "La Tamborada" },
+      {
+        id: "cercado-svg-caption-cuellar",
         text: "Laguna Cuellar",
         translate: "translate(-50%, -240%)",
       },
-      { id: "albarrancho", text: "Laguna Albarrancho" },
-      { id: "alalay", text: "Laguna Alalay" },
-      { id: "cona-cona", text: "Laguna Coña Coña" },
+      { id: "cercado-svg-caption-albarrancho", text: "Laguna Albarrancho" },
+      { id: "cercado-svg-caption-alalay", text: "Laguna Alalay" },
+      { id: "cercado-svg-caption-cona-cona", text: "Laguna Coña Coña" },
       {
-        id: "quillacollo",
+        id: "cercado-svg-caption-quillacollo",
         text: "Puente Quillacollo",
         translate: "translate(-50%, -50%)",
       },
-      { id: "recoleta", text: "Recoleta" },
+      { id: "cercado-svg-caption-recoleta", text: "Recoleta" },
       {
-        id: "cuadras",
+        id: "cercado-svg-caption-cuadras",
         text: "Laguna Cuadras",
         translate: "translate(-100%,-200%)",
       },
       {
-        id: "sarco",
+        id: "cercado-svg-caption-sarco",
         text: "Laguna Sarco",
         translate: "translate(-70%, -200%)",
       },
@@ -143,17 +151,13 @@ class Caption {
 
     captionCochaSvg.forEach(
       ({ id, text, translate = "", isAvenida = false }) => {
-        const caption = new Caption(text, "cocha-svg-caption");
+        const caption = new Caption(text, id);
         if (translate) caption.div.style.transform = translate;
       }
     );
     captionCercadoSvg.forEach(
       ({ id, text, translate = "", isAvenida = false }) => {
-        const caption = new Caption(
-          text,
-          "cercado-svg-caption-" + id,
-          isAvenida
-        );
+        const caption = new Caption(text, id, isAvenida);
         if (translate) caption.div.style.transform = translate;
       }
     );
