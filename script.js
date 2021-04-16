@@ -408,9 +408,19 @@ const sec5Anim = anime
 const sec6Anim = anime({
   targets: ["#lag-cuellar", "#caption-cuellar"],
   begin: () => {
-    anime.set(["#caption-sarco", "#lag-sarco"], {
-      opacity: 0,
-    });
+    anime.set(
+      [
+        "#caption-sarco",
+        "#lag-sarco",
+        "#melchor-perez",
+        "#america",
+        "#caption-america",
+        "#caption-melchor-perez",
+      ],
+      {
+        opacity: 0,
+      }
+    );
     anime.set(mapCercado, {
       scale: 30,
       translateY: "0%",
