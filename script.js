@@ -120,6 +120,19 @@ class Caption {
 
         isAvenida: true,
       },
+      {
+        id: "heroinas",
+        text: "Av. Heroínas",
+        translate: "translate(70%, -60%) rotate(-10deg)",
+
+        isAvenida: true,
+      },
+      {
+        id: "belzu",
+        text: "Av. Belzu",
+        translate: "translate(10%, 350%) rotate(65deg)",
+        isAvenida: true,
+      },
     ];
 
     captionCochaSvg.forEach(
@@ -501,6 +514,12 @@ const sec9Anim = anime
     },
     opacity: [0, 1],
     autoplay: false,
+  })
+  .add({
+    targets: ["#cercado-svg-caption-heroinas", "#cercado-svg-caption-belzu"],
+    stroke: grey,
+    strokeWidth: [0, 0.75],
+    opacity: 1,
   });
 
 const sec10Anim = anime({
