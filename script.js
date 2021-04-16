@@ -110,13 +110,13 @@ class Caption {
       {
         id: "america",
         text: "Av. América",
-        translate: "translate(120%, 0%)",
+        translate: "translate(120%, 0%) rotate(3deg)",
         isAvenida: true,
       },
       {
         id: "melchor-perez",
         text: "Av. Melchor Pérez",
-        translate: "translate(-65%, 650%) rotate(-90deg)",
+        translate: "translate(-65%, 650%) rotate(-85deg)",
 
         isAvenida: true,
       },
