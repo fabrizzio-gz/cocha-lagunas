@@ -455,6 +455,8 @@ const sec7Anim = anime
           "#caption-quillacollo",
           "#caption-cuellar",
           "#caption-rocha",
+          "#lag-sarco",
+          "#caption-sarco",
         ],
         {
           opacity: 0,
@@ -467,24 +469,25 @@ const sec7Anim = anime
     complete: () => {
       Caption.updateAllPositions();
     },
+    easing: "easeInCubic",
+    duration: 1500,
     autoplay: false,
   })
   .add({
-    targets: [
-      "#melchor-perez",
-      "#america",
-      "#caption-melchor-perez",
-      "#caption-america",
-    ],
-    stroke: grey,
-    strokeWidth: [0, 0.75],
-    opacity: 1,
-  })
-
-  .add({
-    targets: ["#lag-sarco", "#caption-sarco"],
+    targets: "#lag-sarco",
     opacity: [0, 1],
-    autoplay: false,
+  })
+  .add({
+    targets: ["#melchor-perez", "#america"],
+    stroke: grey,
+    complete: () => {
+      anime.set(
+        ["#caption-sarco", "#caption-america", "#caption-melchor-perez"],
+        { opacity: 1 }
+      );
+    },
+    strokeWidth: [0, 0.75],
+    opacity: [0, 1],
   });
 
 const sec8Anim = anime
