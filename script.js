@@ -453,11 +453,14 @@ const sec6Prep = () => {
       "#caption-quillacollo",
       "#caption-cuellar",
       "#caption-rocha",
+      "#p-quillacollo",
+      "#p-recoleta",
     ],
     {
       opacity: 1,
     }
   );
+  anime.set(["#cercado-svg-rios path"], { strokeWidth: 1 });
   Caption.updateAllPositions();
 };
 
