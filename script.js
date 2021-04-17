@@ -542,6 +542,7 @@ const sec8Prep = () => {
       "#caption-belzu",
       "#campus-umss",
       "#caption-campus-umss",
+      "#caption-quillacollo",
     ],
     {
       opacity: 0,
@@ -580,6 +581,7 @@ const sec9Prep = () => {
       "#lag-sarco",
       "#lag-cuadras",
       "#caption-cuadras",
+      "#caption-sarco",
       "#melchor-perez",
       "#caption-melchor-perez",
       "#america",
