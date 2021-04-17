@@ -223,6 +223,7 @@ const introAnim = anime({
         "#caption-cona-cona",
         "#caption-sarco",
         "#caption-cuadras",
+        "#caption-tamborada",
         "#lag-sarco",
         "#lag-cuadras",
       ],
@@ -676,6 +677,7 @@ const conclusionAnim = anime
           "#caption-cona-cona",
           "#caption-albarrancho",
           "#caption-quillacollo",
+          "#caption-tamborada",
           "#cocha-svg",
         ],
         {
@@ -746,6 +748,7 @@ const endAnim = anime
       "#caption-recoleta",
       "#caption-quillacollo",
       "#caption-cona-cona",
+      "#caption-tamborada",
     ],
     begin: () => {
       anime.set(mapCercado, {
@@ -754,6 +757,7 @@ const endAnim = anime
     },
     opacity: [1, 0],
     duration: 2000,
+    easing: "easeInCubic",
     autoplay: false,
   })
   .add({
@@ -763,8 +767,7 @@ const endAnim = anime
     translateX: ["10%", "0%"],
     opacity: 1,
     autoplay: false,
-  })
-  .add({});
+  });
 
 let currentSection = -1;
 
