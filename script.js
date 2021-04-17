@@ -733,7 +733,10 @@ const sec11Prep = () => {
       opacity: 0,
     }
   );
-  anime.set(mapCercado, { opacity: 1 });
+  anime.set([mapCercado, "#p-quillacollo", "#p-recoleta"], {
+    opacity: 1,
+    fill: grey,
+  });
   anime.set(["#lag-cona-cona", "#lag-alalay", "#lag-albarrancho"], {
     fill: lightblue,
   });
@@ -883,10 +886,10 @@ document.addEventListener("scroll", function (e) {
         callAnimation(10, sec10Anim, sec10Prep);
         break;
       case 11:
-        callAnimation(11, sec11Anim);
+        callAnimation(11, sec11Anim, sec11Prep);
         break;
       case 12:
-        callAnimation(12, sec12Anim);
+        callAnimation(12, sec12Anim, sec12Prep);
         break;
     }
   });
