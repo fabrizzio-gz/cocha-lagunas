@@ -252,6 +252,7 @@ const introAnim = anime({
         opacity: 0,
       }
     );
+    anime.set(mapCocha, { opacity: 1 });
   },
   scale: 1.05,
   delay: 250,
@@ -386,6 +387,7 @@ const sec5Prep = () => {
   });
   anime.set(mapCocha, { opacity: 0 });
   anime.set(mapCercado, { opacity: 1 });
+  anime.set("#lag-cuellar", { fill: invisible });
 };
 
 const sec5Anim = anime
@@ -461,6 +463,7 @@ const sec6Prep = () => {
     }
   );
   anime.set(["#cercado-svg-rios path"], { strokeWidth: 1 });
+  anime.set("#lag-cuellar", { fill: invisible });
   Caption.updateAllPositions();
 };
 
@@ -491,6 +494,7 @@ const sec7Prep = () => {
       opacity: 0,
     }
   );
+  anime.set("#lag-sarco", { fill: invisible });
   anime.set(mapCercado, {
     translateX: "0%",
   });
@@ -564,6 +568,7 @@ const sec8Prep = () => {
       stroke: grey,
     }
   );
+  anime.set("#lag-sarco", { fill: invisible });
   Caption.updateAllPositions();
 };
 
@@ -686,6 +691,7 @@ const sec10Prep = () => {
       opacity: 1,
     }
   );
+  anime.set("#lag-cuadras", { fill: invisible });
   anime.set(mapCercado, {
     scale: 50,
     translateX: "-5%",
@@ -727,6 +733,7 @@ const sec11Prep = () => {
       "#caption-albarrancho",
       "#caption-quillacollo",
       "#caption-tamborada",
+      "#caption-rocha",
       "#cocha-svg",
     ],
     {
@@ -795,9 +802,18 @@ const sec11Anim = anime
   });
 
 const sec12Prep = () => {
-  anime.set([mapCercado, "#cocha-svg-cercado"], {
+  anime.set([mapCocha, "#cocha-svg-cercado"], {
     opacity: 0,
   });
+  anime.set(["#lag-cona-cona", "#lag-alalay", "#lag-albarrancho"], {
+    opacity: 1,
+  });
+  anime.set(mapCercado, {
+    scale: 30,
+    translateX: "0%",
+    translateY: "0%",
+  });
+  Caption.updateAllPositions();
 };
 
 const sec12Anim = anime
@@ -822,7 +838,7 @@ const sec12Anim = anime
     duration: 2000,
     scale: [12, 1],
     translateX: ["10%", "0%"],
-    opacity: 1,
+    opacity: [0, 1],
     autoplay: false,
   });
 
