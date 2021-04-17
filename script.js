@@ -457,6 +457,10 @@ const sec7Anim = anime
           "#caption-rocha",
           "#lag-sarco",
           "#caption-sarco",
+          "#america",
+          "#caption-america",
+          "#melchor-perez",
+          "#caption-melchor-perez",
         ],
         {
           opacity: 0,
