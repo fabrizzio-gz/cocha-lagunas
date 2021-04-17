@@ -636,6 +636,7 @@ const sec10Anim = anime({
         "#caption-belzu",
         "#campus-umss",
         "#caption-campus-umss",
+        "#caption-quillacollo",
       ],
       {
         opacity: 1,
