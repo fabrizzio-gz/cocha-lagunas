@@ -462,10 +462,13 @@ const sec7Anim = anime
           opacity: 0,
         }
       );
+      anime.set(mapCercado, {
+        translateX: "0%",
+      });
     },
     scale: [30, 50],
     translateY: ["0%", "10%"],
-    translateX: "0%",
+    translateX: ["0%", "0%"],
     complete: () => {
       Caption.updateAllPositions();
     },
