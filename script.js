@@ -406,7 +406,7 @@ const sec5Anim = anime
   })
   .add({
     targets: "#lag-cuellar",
-    opacity: 1,
+    opacity: [0, 1],
     duration: 1000,
   })
   .add({
