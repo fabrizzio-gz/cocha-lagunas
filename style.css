@@ -196,6 +196,8 @@ body {
   font-size: 1.1em;
   font-style: bold;
   color: var(--color-strong);
+  text-align: center;
+  vertical-align: middle;
 }
 
 .center {

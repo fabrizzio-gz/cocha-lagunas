@@ -20,9 +20,12 @@ class Caption {
     this.text = text;
     this.elementId = elementId;
     this.isAvenida = isAvenida;
-    let x, y;
+    let x, y, width, height;
     if (elementId)
-      ({ x, y } = this.getElementPosition(elementId, this.isAvenida));
+      ({ x, y, width, height } = this.getElementPosition(
+        elementId,
+        this.isAvenida
+      ));
     else {
       x = 0;
       y = 0;
@@ -39,7 +42,7 @@ class Caption {
     this.div.setAttribute("id", this.captionId);
     this.div.classList.add("caption");
     if (this.isAvenida) this.div.classList.add("avenida");
-    this.setPosition(x, y);
+    this.setPosition(x, y, width, height, this.isAvenida);
     this.div.appendChild(document.createTextNode(text));
     this.add();
     Caption.list.push(this);
@@ -47,14 +50,24 @@ class Caption {
 
   getElementPosition(elementId, isAvenida) {
     const element = document.getElementById(elementId);
-    const { x, y, right, bottom } = element.getBoundingClientRect();
-    if (isAvenida) return { right, bottom };
-    return { x, y };
+    let x,
+      y,
+      right,
+      bottom,
+      width = 0,
+      height = 0;
+    ({ x, y, right, bottom, width, height } = element.getBoundingClientRect());
+    if (isAvenida) return { right, bottom, width, height };
+    return { x, y, width, height };
   }
 
-  setPosition(posX, posY) {
+  setPosition(posX, posY, width = 0, height = 0, isAvenida) {
     this.posX = posX;
     this.posY = posY;
+    if (isAvenida) {
+      this.div.style.width = width;
+      this.div.style.height = height;
+    }
     this.div.style.left = this.posX + "px";
     this.div.style.top = this.posY + "px";
   }
@@ -118,20 +131,22 @@ class Caption {
       {
         id: "america",
         text: "Av. América",
-        translate: "translate(120%, 0%) rotate(3deg)",
+        translate:
+          "translate(100%, -30%)  rotate(3deg)" /*"translate(120%, 0%) rotate(3deg)",*/,
         isAvenida: true,
       },
       {
         id: "melchor-perez",
         text: "Av. Melchor Pérez",
-        translate: "translate(-65%, 650%) rotate(-85deg)",
+        translate:
+          "translate(-65%, 500%) rotate(-85deg)" /*"translate(-65%, 650%) rotate(-85deg)",*/,
 
         isAvenida: true,
       },
       {
         id: "heroinas",
         text: "Av. Heroínas",
-        translate: "translate(70%, -60%) rotate(-10deg)",
+        translate: "translate(20%, -70%) rotate(-10deg)",
 
         isAvenida: true,
       },
@@ -144,7 +159,8 @@ class Caption {
       {
         id: "campus-umss",
         text: "UMSS",
-        translate: "translate(20%, -30%) rotate(-10deg)",
+        translate:
+          "translate(0%, -60%) rotate(-10deg)" /*"translate(20%, -30%) rotate(-10deg)",*/,
         isAvenida: true,
       },
     ];
