@@ -203,6 +203,8 @@ const init = () => {
     fill: invisible,
   });
 
+  sec0Prep();
+
   Caption.init();
 
   return { yTitle, yCont, mapIntroPos };
@@ -228,32 +230,8 @@ const getSectionSizes = () => {
   return { inicioSize, sectionSize };
 };
 
-const { yTitle, yCont, mapIntroPos } = init();
-const { inicioSize, sectionSize } = getSectionSizes();
-
 const introAnim = anime({
   targets: mapCocha,
-  begin: () => {
-    anime.set(
-      [
-        "#caption-alalay",
-        "#caption-albarrancho",
-        "#caption-rocha",
-        "#caption-recoleta",
-        "#caption-quillacollo",
-        "#caption-cona-cona",
-        "#caption-sarco",
-        "#caption-cuadras",
-        "#caption-tamborada",
-        "#lag-sarco",
-        "#lag-cuadras",
-      ],
-      {
-        opacity: 0,
-      }
-    );
-    anime.set(mapCocha, { opacity: 1 });
-  },
   scale: 1.05,
   delay: 250,
   direction: "alternate",
@@ -261,6 +239,39 @@ const introAnim = anime({
   easing: "linear",
   autoplay: true,
 });
+
+const sec0Prep = () => {
+  anime.set(
+    [
+      "#caption-alalay",
+      "#caption-albarrancho",
+      "#caption-rocha",
+      "#caption-recoleta",
+      "#caption-quillacollo",
+      "#caption-cona-cona",
+      "#caption-sarco",
+      "#caption-cuadras",
+      "#caption-tamborada",
+      "#america",
+      "#melchor-perez",
+      "#heorinas",
+      "#belzu",
+      "#campus-umss",
+      "#lag-sarco",
+      "#lag-cuadras",
+      "#cercado-svg",
+    ],
+    {
+      opacity: 0,
+    }
+  );
+  anime.set(mapCocha, { opacity: 1 });
+};
+
+const sec0Anim = {
+  play: () => {},
+  restart: () => {},
+};
 
 const sec1Prep = () => {
   mapCocha.classList.add("no-stroke");
@@ -805,6 +816,7 @@ const sec12Prep = () => {
   anime.set([mapCocha, "#cocha-svg-cercado"], {
     opacity: 0,
   });
+  anime.set("#cocha-svg-cocha", { fill: white });
   anime.set(["#lag-cona-cona", "#lag-alalay", "#lag-albarrancho"], {
     opacity: 1,
   });
@@ -844,6 +856,8 @@ const sec12Anim = anime
   });
 
 let currentSection = -1;
+const { yTitle, yCont, mapIntroPos } = init();
+const { inicioSize, sectionSize } = getSectionSizes();
 
 document.addEventListener("scroll", function (e) {
   const yPos = Math.round(window.scrollY);
@@ -872,6 +886,8 @@ document.addEventListener("scroll", function (e) {
 
     const section = Math.ceil((positionMid - inicioSize) / sectionSize);
     switch (section) {
+      case 0:
+        callAnimation(0, sec0Anim, sec0Prep);
       case 1:
         callAnimation(1, sec1Anim, sec1Prep);
         break;
