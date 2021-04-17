@@ -493,52 +493,46 @@ const sec7Anim = anime
     opacity: [0, 1],
   });
 
-const sec8Anim = anime
-  .timeline({
-    /* dummy animation to have the next one not run instantly */ target: "none",
-    begin: () => {
-      anime.set(mapCercado, {
-        translateY: "10%",
-        translateX: "0%",
-      });
-      anime.set(
-        [
-          "#lag-cuadras",
-          "#caption-cuadras",
-          "#heroinas",
-          "#caption-heroinas",
-          "#belzu",
-          "#caption-belzu",
-          "#campus-umss",
-          "#caption-campus-umss",
-        ],
-        {
-          opacity: 0,
-        }
-      );
-      anime.set(
-        [
-          "#america",
-          "#caption-america",
-          "#melchor-perez",
-          "#caption-melchor-perez",
-        ],
-        {
-          opacity: 1,
-        }
-      );
-      Caption.updateAllPositions();
-    },
-    opacity: 0,
-    delay: 1000,
-    autoplay: false,
-  })
-  .add({
-    targets: ["#lag-sarco", "#caption-sarco"],
-    opacity: [1, 0],
-    delay: 3000,
-    autoplay: false,
-  });
+const sec8Anim = anime({
+  targets: ["#lag-sarco", "#caption-sarco"],
+  begin: () => {
+    anime.set(mapCercado, {
+      translateY: "10%",
+      translateX: "0%",
+    });
+    anime.set(
+      [
+        "#lag-cuadras",
+        "#caption-cuadras",
+        "#heroinas",
+        "#caption-heroinas",
+        "#belzu",
+        "#caption-belzu",
+        "#campus-umss",
+        "#caption-campus-umss",
+      ],
+      {
+        opacity: 0,
+      }
+    );
+    anime.set(
+      [
+        "#america",
+        "#caption-america",
+        "#melchor-perez",
+        "#caption-melchor-perez",
+      ],
+      {
+        opacity: 1,
+      }
+    );
+    Caption.updateAllPositions();
+  },
+  opacity: [1, 0],
+  duration: 2000,
+  easing: "easeInCubic",
+  autoplay: false,
+});
 
 const sec9Anim = anime
   .timeline({
