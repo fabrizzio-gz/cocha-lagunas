@@ -245,6 +245,7 @@ const sec1Anim = anime
     targets: "#cocha-svg-caption-cercado",
     begin: () => {
       mapCocha.classList.add("no-stroke");
+      anime.set("#caption-cercado", { opacity: 0 });
     },
     opacity: 0,
     autoplay: false,
@@ -264,8 +265,8 @@ const sec2Anim = anime
     targets: ["#cocha-svg-cocha", "#cocha-svg-cercado"],
     begin: (anim) => {
       mapCocha.classList.remove("no-stroke");
-      anime.set("#lag-cuellar", {
-        fill: invisible, // Due to weird bug?!
+      anime.set(["#lag-cuellar", "#caption-cercado"], {
+        opacity: 0,
       });
       Caption.updateAllPositions();
     },
@@ -289,7 +290,7 @@ const sec2Anim = anime
 const sec3Anim = anime({
   targets: "#cocha-svg-cercado",
   begin: () => {
-    anime.set([mapCocha, "#caption-cercado"], {
+    anime.set(mapCocha, {
       fill: invisible,
       scale: 1,
       translateX: "0%",
@@ -299,7 +300,13 @@ const sec3Anim = anime({
     anime.set(mapCercado, {
       opacity: 0,
     });
+    anime.set(["#cocha-svg-cercado", "#caption-cercado"], {
+      opacity: 1,
+    });
     Caption.updateAllPositions();
+  },
+  complete: () => {
+    anime.set(mapCocha, { fill: invisible });
   },
   fill: [lightblue, grey],
   easing: "linear",
@@ -331,15 +338,15 @@ const sec4Anim = anime({
         "#caption-quillacollo",
         "#caption-cuellar",
         "#caption-rocha",
+        "#caption-tamborada",
+        "#caption-cercado",
+        "#lag-sarco",
+        "#lag-cuellar",
       ],
       {
         opacity: 0,
       }
     );
-    anime.set(["#caption-cercado", "#lag-sarco"], {
-      opacity: 0,
-    });
-
     Caption.updateAllPositions();
   },
   scale: 12,
@@ -364,7 +371,6 @@ const sec5Anim = anime
     translateX: ["10%", "0%"],
     duration: 1000,
   })
-
   .add({
     targets: "#cercado-svg-rios path",
     begin: () => {
@@ -622,6 +628,7 @@ const sec10Anim = anime({
         "#caption-alalay",
         "#lag-albarrancho",
         "#caption-albarrancho",
+        "#caption-tamborada",
       ],
       {
         opacity: 0,
@@ -751,7 +758,7 @@ const endAnim = anime
       "#caption-tamborada",
     ],
     begin: () => {
-      anime.set(mapCercado, {
+      anime.set([mapCercado, "#cocha-svg-cercado"], {
         opacity: 0,
       });
     },
