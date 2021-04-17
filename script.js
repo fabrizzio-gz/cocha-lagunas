@@ -691,6 +691,12 @@ const sec10Prep = () => {
     translateX: "-5%",
     translateY: "0%",
   });
+  anime.set(["#heroinas", "#belzu"], { stroke: grey, strokeWidth: 0.75 });
+  anime.set("#campus-umss", {
+    stroke: grey,
+    strokeWidth: 0.3,
+    strokeDasharray: "1 1",
+  });
   Caption.updateAllPositions();
 };
 
