@@ -319,17 +319,10 @@ const sec4Anim = anime({
       stroke: grey,
       fill: white,
     });
-    anime.set(
-      [
-        "#cercado-svg-lagunas path",
-        "#cercado-svg-puentes path",
-        "#cercado-svg-rios path",
-      ],
-      {
-        stroke: invisible,
-        fill: invisible,
-      }
-    );
+    anime.set(["#cercado-svg-puentes path", "#cercado-svg-rios path"], {
+      stroke: invisible,
+      fill: invisible,
+    });
 
     anime.set(
       [
@@ -689,6 +682,9 @@ const conclusionAnim = anime
         }
       );
       anime.set(mapCercado, { opacity: 1 });
+      anime.set(["#lag-cona-cona", "#lag-alalay", "#lag-albarrancho"], {
+        fill: lightblue,
+      });
     },
     /*    complete: () => {
       Caption.updateAllPositions();
@@ -733,7 +729,6 @@ const conclusionAnim = anime
         { opacity: 1 }
       );
     },
-    fill: lightblue,
     opacity: [0, 1],
     duration: 2000,
     ease: "easeInCubic",

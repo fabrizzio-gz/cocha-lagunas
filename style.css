@@ -126,6 +126,10 @@ body {
   stroke: var(--color-orange);
 }
 
+#cercado-svg-lagunas path {
+  fill: var(--color-lightblue);
+}
+
 /*
 #cercado-map-container path {
   stroke: var(--color-grey);
