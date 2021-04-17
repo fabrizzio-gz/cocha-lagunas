@@ -651,10 +651,13 @@ const sec10Anim = anime({
     anime.set(mapCercado, {
       scale: 50,
       translateX: "-5%",
+      translateY: "0%",
     });
     Caption.updateAllPositions();
   },
   opacity: [1, 0],
+  easing: "easeInCubic",
+  duration: 2000,
   autoplay: false,
 });
 
