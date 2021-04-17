@@ -559,20 +559,34 @@ const sec9Anim = anime
         }
       );
     },
+
     keyframes: [
-      { scale: [50, 30], translateX: "0%", translateY: "0%" },
+      {
+        scale: [50, 30],
+        translateX: ["0%", "0%"],
+        translateY: ["10%", "0%"],
+        duration: 1500,
+      },
+      {
+        duration: 1000,
+      },
       {
         scale: [30, 50],
         translateX: ["0%", "-5%"],
+        duration: 1500,
       },
     ],
-    duration: 3000,
+    duration: 4000,
+    easing: "easeInCubic",
     autoplay: false,
   })
   .add({
-    targets: ["#lag-cuadras", "#caption-cuadras"],
+    targets: "#lag-cuadras",
     complete: () => {
       Caption.updateAllPositions();
+      anime.set("#caption-cuadras", {
+        opacity: 1,
+      });
     },
     opacity: [0, 1],
     autoplay: false,
@@ -584,17 +598,19 @@ const sec9Anim = anime
       "#heroinas",
       "#belzu",
       "#caption-quillacollo",
+      "#caption-campus-umss",
+      "#campus-umss",
     ],
-    complete: () => {
-      anime.set(["#caption-campus-umss", "#campus-umss"], {
-        stroke: grey,
-        strokeWidth: 0.3,
-        strokeDasharray: "1 1",
-        opacity: 1,
-      });
-    },
     stroke: grey,
-    strokeWidth: [0, 0.75],
+    strokeWidth: (el, i) => {
+      if (i >= 5) return 0.3;
+      return 0.75;
+    },
+    strokeDasharray: (el, i) => {
+      if (i >= 5) return ["1 1", "1 1"];
+      return ["", ""];
+    },
+    easing: "linear",
     opacity: 1,
   });
 
