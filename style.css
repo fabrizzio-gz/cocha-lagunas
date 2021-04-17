@@ -240,7 +240,7 @@ section > div {
   grid-area: p;
 }
 
-section p {
+section div p {
   padding: 1em 0.8em;
   /*  border: solid 2px var(--color-grey); */
   background: rgba(255, 255, 255, 0.9);
@@ -262,7 +262,7 @@ section figure {
   margin-left: 5%;
 }
 
-section figcaption {
+section figure div figcaption {
   transform: translateY(-120%);
   font-family: "Zilla Slab Highlight", "Trebuchet MS";
   color: black;
@@ -279,15 +279,28 @@ section blockquote {
   font-style: italic;
 }
 
+section blockquote p:before {
+  content: "“";
+}
+
+section blockquote p:after {
+  content: "”";
+}
+
+section blockquote figcaption:before {
+  content: "—";
+}
+
+section blockquote figcaption {
+  font-style: normal;
+}
+
 section img {
   max-width: 450px;
   max-height: 300px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   filter: grayscale(1);
-}
-
-section figcaption {
 }
 
 .box {
@@ -301,18 +314,6 @@ section figcaption {
   border: 2px solid $color-alpha;
   padding: 40px;
 }*/
-
-blockquote:before {
-  content: "“";
-}
-
-blockquote:after {
-  content: "”";
-}
-
-blockquote figcaption {
-  display: none;
-}
 
 #end-div {
   width: 100%;
