@@ -485,6 +485,7 @@ const sec7Prep = () => {
       "#caption-america",
       "#melchor-perez",
       "#caption-melchor-perez",
+      "#lag-cuellar",
     ],
     {
       opacity: 0,
