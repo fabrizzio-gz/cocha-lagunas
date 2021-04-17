@@ -261,37 +261,29 @@ const introAnim = anime({
   autoplay: true,
 });
 
-const sec1Anim = anime
-  .timeline({
-    targets: "#cocha-svg-caption-cercado",
-    begin: () => {
-      mapCocha.classList.add("no-stroke");
-      anime.set("#caption-cercado", { opacity: 0 });
-    },
-    opacity: 0,
-    autoplay: false,
-  })
-  .add({
-    targets: "#cocha-svg-cercado",
-    stroke: invisible,
-  })
-  .add({
-    targets: "#cocha-svg-cocha",
+const sec1Prep = () => {
+  mapCocha.classList.add("no-stroke");
+  anime.set("#caption-cercado", { opacity: 0 });
+  anime.set("#cocha-svg-cercado", { stroke: invisible, opacity: 0 });
+  anime.set("#cocha-svg-cocha", { fill: lightblue });
+};
 
-    fill: lightblue,
+const sec1Anim = {
+  play: () => {},
+};
+
+const sec2Prep = () => {
+  mapCocha.classList.remove("no-stroke");
+  anime.set(["#lag-cuellar", "#caption-cercado"], {
+    opacity: 0,
   });
+  anime.set("#cocha-svg-cercado", { opacity: 1 });
+  Caption.updateAllPositions();
+};
 
 const sec2Anim = anime
   .timeline({
     targets: ["#cocha-svg-cocha", "#cocha-svg-cercado"],
-    begin: (anim) => {
-      mapCocha.classList.remove("no-stroke");
-      anime.set(["#lag-cuellar", "#caption-cercado"], {
-        opacity: 0,
-      });
-      Caption.updateAllPositions();
-    },
-
     fill: (el, i) => {
       if (i == 0) return white;
       return lightblue;
@@ -308,24 +300,28 @@ const sec2Anim = anime
     autoplay: false,
   });
 
+const sec3Prep = () => {
+  anime.set(mapCocha, {
+    fill: invisible,
+    scale: 1,
+    translateX: "0%",
+    translateY: "0%",
+    opacity: 1,
+  });
+  anime.set("#cocha-svg-cocha", {
+    fill: white,
+  });
+  anime.set(mapCercado, {
+    opacity: 0,
+  });
+  anime.set(["#cocha-svg-cercado", "#caption-cercado"], {
+    opacity: 1,
+  });
+  Caption.updateAllPositions();
+};
+
 const sec3Anim = anime({
   targets: "#cocha-svg-cercado",
-  begin: () => {
-    anime.set(mapCocha, {
-      fill: invisible,
-      scale: 1,
-      translateX: "0%",
-      translateY: "0%",
-      opacity: 1,
-    });
-    anime.set(mapCercado, {
-      opacity: 0,
-    });
-    anime.set(["#cocha-svg-cercado", "#caption-cercado"], {
-      opacity: 1,
-    });
-    Caption.updateAllPositions();
-  },
   complete: () => {
     anime.set(mapCocha, { fill: invisible });
   },
@@ -335,41 +331,42 @@ const sec3Anim = anime({
   duration: 2000,
 });
 
+const sec4Prep = () => {
+  anime.set("#cocha-svg-cercado", {
+    stroke: invisible,
+    fill: invisible,
+  });
+  anime.set("#cercado-svg-cercado", {
+    opacity: 1,
+    strokeWidth: 1,
+    stroke: grey,
+    fill: white,
+  });
+  anime.set(["#cercado-svg-puentes path", "#cercado-svg-rios path"], {
+    stroke: invisible,
+    fill: invisible,
+  });
+
+  anime.set(
+    [
+      "#caption-recoleta",
+      "#caption-quillacollo",
+      "#caption-cuellar",
+      "#caption-rocha",
+      "#caption-tamborada",
+      "#caption-cercado",
+      "#lag-sarco",
+      "#lag-cuellar",
+    ],
+    {
+      opacity: 0,
+    }
+  );
+  Caption.updateAllPositions();
+};
+
 const sec4Anim = anime({
   targets: [mapCocha, mapCercado],
-  begin: () => {
-    anime.set("#cocha-svg-cercado", {
-      stroke: invisible,
-      fill: invisible,
-    });
-    anime.set("#cercado-svg-cercado", {
-      opacity: 1,
-      strokeWidth: 1,
-      stroke: grey,
-      fill: white,
-    });
-    anime.set(["#cercado-svg-puentes path", "#cercado-svg-rios path"], {
-      stroke: invisible,
-      fill: invisible,
-    });
-
-    anime.set(
-      [
-        "#caption-recoleta",
-        "#caption-quillacollo",
-        "#caption-cuellar",
-        "#caption-rocha",
-        "#caption-tamborada",
-        "#caption-cercado",
-        "#lag-sarco",
-        "#lag-cuellar",
-      ],
-      {
-        opacity: 0,
-      }
-    );
-    Caption.updateAllPositions();
-  },
   scale: 12,
   translateX: "10%",
   translateY: "0%",
@@ -814,24 +811,28 @@ document.addEventListener("scroll", function (e) {
   window.requestAnimationFrame(() => {
     if (yPos < windowY) introScroll();
 
-    const callAnimation = (index, animation) => {
-      if (currentSection != index) animation.play();
-      currentSection = index;
+    const callAnimation = (index, animation, prepFunction) => {
+      if (currentSection != index) {
+        anime.running.forEach((animation) => animation.pause());
+        prepFunction();
+        animation.play();
+        currentSection = index;
+      }
     };
 
     const section = Math.ceil((positionMid - inicioSize) / sectionSize);
     switch (section) {
       case 1:
-        callAnimation(1, sec1Anim);
+        callAnimation(1, sec1Anim, sec1Prep);
         break;
       case 2:
-        callAnimation(2, sec2Anim);
+        callAnimation(2, sec2Anim, sec2Prep);
         break;
       case 3:
-        callAnimation(3, sec3Anim);
+        callAnimation(3, sec3Anim, sec3Prep);
         break;
       case 4:
-        callAnimation(4, sec4Anim);
+        callAnimation(4, sec4Anim, sec4Prep);
         break;
       case 5:
         callAnimation(5, sec5Anim);
