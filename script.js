@@ -270,6 +270,8 @@ const sec1Prep = () => {
 
 const sec1Anim = {
   play: () => {},
+  restart: () => {},
+  seek: () => {},
 };
 
 const sec2Prep = () => {
@@ -378,10 +380,13 @@ const sec4Anim = anime({
   duration: 2000,
 });
 
-const sec5Prep = () =>
+const sec5Prep = () => {
   anime.set("#cercado-svg-rios path", {
     stroke: lightblue,
   });
+  anime.set(mapCocha, { opacity: 0 });
+  anime.set(mapCercado, { opacity: 1 });
+};
 
 const sec5Anim = anime
   .timeline({
@@ -821,6 +826,7 @@ document.addEventListener("scroll", function (e) {
       if (currentSection != index) {
         anime.running.forEach((animation) => animation.pause());
         prepFunction();
+        animation.restart();
         animation.play();
         currentSection = index;
       }
