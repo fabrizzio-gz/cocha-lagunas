@@ -192,7 +192,8 @@ body {
 
 .avenida {
   font-family: "Nunito Sans", "Times New Roman";
-  font-size: 1em;
+  font-size: 1.1em;
+  font-style: bold;
   color: var(--color-strong);
 }
 
@@ -212,7 +213,7 @@ section {
   border-bottom: solid 3px black;
   /* background: lightyellow; */
   height: calc(var(--section-size) * 100vh);
-  grid-template-columns: 60% 20% 20%;
+  grid-template-columns: 60% 25% 15%;
   grid-template-rows: auto 25vh auto 25vh auto;
   grid-template-areas:
     ". . ."
@@ -246,6 +247,7 @@ section div p {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 1.25em;
 }
 
 strong {
