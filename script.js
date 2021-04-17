@@ -530,6 +530,7 @@ const sec8Prep = () => {
   anime.set(mapCercado, {
     translateY: "10%",
     translateX: "0%",
+    scale: 50,
   });
   anime.set(
     [
@@ -546,6 +547,9 @@ const sec8Prep = () => {
       opacity: 0,
     }
   );
+  anime.set(["#caption-america", "#caption-melchor-perez"], {
+    opacity: 1,
+  });
   anime.set(
     [
       "#america",
@@ -555,6 +559,8 @@ const sec8Prep = () => {
     ],
     {
       opacity: 1,
+      strokeWidth: 0.75,
+      stroke: grey,
     }
   );
   Caption.updateAllPositions();
