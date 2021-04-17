@@ -839,6 +839,7 @@ const sec12Anim = anime
     scale: [12, 1],
     translateX: ["10%", "0%"],
     opacity: [0, 1],
+    easing: "easeOutQuad",
     autoplay: false,
   });
 
