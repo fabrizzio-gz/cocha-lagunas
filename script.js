@@ -198,10 +198,15 @@ const getSectionSizes = () => {
       "--inicio-size"
     ) * windowY
   );
-  const sectionSize = Math.round(
+  const sectionSize = Math.max(
+    Math.round(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        "--section-size"
+      ) * windowY
+    ),
     getComputedStyle(document.documentElement).getPropertyValue(
-      "--section-size"
-    ) * windowY
+      "--min-section-size"
+    )
   );
 
   return { inicioSize, sectionSize };

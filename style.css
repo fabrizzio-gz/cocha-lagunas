@@ -5,6 +5,7 @@
 :root {
   --inicio-size: 1; /* Fraction of vh*/
   --section-size: 1.2; /* Fraction of vh */
+  --min-section-size: 960; /* px */
   --color-lightblue: #00dbfc;
   --color-grey: #3b4749;
   --color-orange: #ff7a00;
@@ -212,7 +213,10 @@ section {
   border-top: solid 3px black;
   border-bottom: solid 3px black;
   /* background: lightyellow; */
-  height: calc(var(--section-size) * 100vh);
+  height: max(
+    calc(var(--section-size) * 100vh),
+    calc(var(--min-section-size) * 1px)
+  );
   grid-template-columns: 60% 25% 15%;
   grid-template-rows: auto 25vh auto 25vh auto;
   grid-template-areas:
