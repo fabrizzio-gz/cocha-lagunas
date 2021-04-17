@@ -677,59 +677,62 @@ const conclusionAnim = anime
           "#caption-belzu",
           "#campus-umss",
           "#caption-campus-umss",
+          "#caption-recoleta",
+          "#caption-alalay",
+          "#caption-cona-cona",
+          "#caption-albarrancho",
+          "#caption-quillacollo",
+          "#cocha-svg",
         ],
         {
           opacity: 0,
         }
       );
+      anime.set(mapCercado, { opacity: 1 });
     },
+    /*    complete: () => {
+      Caption.updateAllPositions();
+    },*/
+    scale: [50, 30],
+    translateX: ["-5%", "0%"],
+    translateY: ["0%", "0%"],
+    easing: "easeInCubic",
+    duration: 2000,
+    autoplay: false,
+  })
+  .add({
+    targets: ["#lag-alalay"],
     complete: () => {
       Caption.updateAllPositions();
     },
-    scale: [50, 30],
-    translateX: "0%",
-    translateY: "0%",
+    opacity: [0, 1],
+    duration: 2000,
+    ease: "easeInCubic",
     autoplay: false,
   })
   .add({
-    targets: "#caption-alalay",
-    begin: () => {
+    targets: "#lag-albarrancho",
+    opacity: [0, 1],
+    duration: 2000,
+    ease: "easeInCubic",
+    autoplay: false,
+  })
+  .add({
+    targets: "#lag-cona-cona",
+    complete: () => {
       anime.set(
         [
-          mapCercado,
-          "#caption-rocha",
-          "#caption-recoleta",
+          "#caption-alalay",
+          "#caption-cona-cona",
+          "#caption-albarrancho",
           "#caption-quillacollo",
+          "#caption-tamborada",
+          "#caption-recoleta",
+          "#caption-rocha",
         ],
         { opacity: 1 }
       );
-      anime.set("#cocha-svg", { opacity: 0 });
-      Caption.updateAllPositions();
     },
-    fill: lightblue,
-    opacity: [0, 1],
-    duration: 2000,
-    ease: "easeInCubic",
-    autoplay: false,
-  })
-  .add({
-    targets: "#lag-alalay",
-    fill: lightblue,
-    opacity: [0, 1],
-    duration: 2000,
-    ease: "easeInCubic",
-    autoplay: false,
-  })
-  .add({
-    targets: ["#lag-albarrancho", "#caption-albarrancho"],
-    fill: lightblue,
-    opacity: [0, 1],
-    duration: 2000,
-    ease: "easeInCubic",
-    autoplay: false,
-  })
-  .add({
-    targets: ["#lag-cona-cona", "#caption-cona-cona"],
     fill: lightblue,
     opacity: [0, 1],
     duration: 2000,
