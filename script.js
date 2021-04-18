@@ -928,10 +928,15 @@ const scrollCallback = (e) => {
   });
 };
 
+const scrollCallbackMobile = (e) => {
+  e.preventDefault();
+  scrollCallback(e);
+};
+
 /* https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser */
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-if (isMobile) document.addEventListener("ontouchmove", scrollCallback);
+if (isMobile) document.addEventListener("ontouchmove", scrollCallbackMobile);
 else document.addEventListener("scroll", scrollCallback);
 
 window.onbeforeunload = () => {
