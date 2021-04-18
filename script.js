@@ -859,7 +859,7 @@ let currentSection = -1;
 const { yTitle, yCont, mapIntroPos } = init();
 const { inicioSize, sectionSize } = getSectionSizes();
 
-document.addEventListener("scroll", function (e) {
+const scrollCallback = (e) => {
   const yPos = Math.round(window.scrollY);
   const positionMid = yPos + Math.round(windowY / 2);
 
@@ -926,7 +926,13 @@ document.addEventListener("scroll", function (e) {
         break;
     }
   });
-});
+};
+
+/* https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser */
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) document.addEventListener("ontouchmove", scrollCallback);
+else document.addEventListener("scroll", scrollCallback);
 
 window.onbeforeunload = () => {
   window.scrollTo(0, 0);
