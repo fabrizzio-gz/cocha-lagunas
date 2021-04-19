@@ -24,7 +24,6 @@ const getSectionSizes = () => {
 };
 
 let currentSection = -1;
-init();
 const { inicioSize, sectionSize } = getSectionSizes();
 
 const scrollCallback = (e) => {
@@ -105,3 +104,6 @@ window.onbeforeunload = () => {
 };
 window.onresize = Caption.updateAllPositions;
 document.addEventListener("scroll", scrollCallback);
+
+/* Page init */
+init();
