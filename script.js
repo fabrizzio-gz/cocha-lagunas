@@ -23,34 +23,27 @@ const getSectionSizes = () => {
   return { inicioSize, sectionSize };
 };
 
-let currentSection = -1;
 const { inicioSize, sectionSize } = getSectionSizes();
+let currentSection = -1;
 
 const scrollCallback = (e) => {
   const yPos = Math.round(window.scrollY);
   const positionMid = yPos + Math.round(windowY / 2);
 
+  const callAnimation = (index, animation, prepFunction) => {
+    if (currentSection != index) {
+      anime.running.forEach((animation) => animation.pause());
+      prepFunction();
+      animation.restart();
+      animation.play();
+      currentSection = index;
+    }
+  };
+
   if (yPos == 0) introAnim.play();
   else introAnim.pause();
 
-  const introScroll = () => {
-    titulo.style.top = Math.round(((yTitle - yPos) / windowY) * 100) + "%";
-    continuar.style.top = Math.round(((yCont + yPos) / windowY) * 100) + "%";
-  };
-
   window.requestAnimationFrame(() => {
-    // if (yPos < windowY) introScroll();
-
-    const callAnimation = (index, animation, prepFunction) => {
-      if (currentSection != index) {
-        anime.running.forEach((animation) => animation.pause());
-        prepFunction();
-        animation.restart();
-        animation.play();
-        currentSection = index;
-      }
-    };
-
     const section = Math.ceil((positionMid - inicioSize) / sectionSize);
     switch (section) {
       case 0:
@@ -105,5 +98,4 @@ window.onbeforeunload = () => {
 window.onresize = Caption.updateAllPositions;
 document.addEventListener("scroll", scrollCallback);
 
-/* Page init */
 init();
