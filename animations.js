@@ -9,6 +9,26 @@ const lightgrey = "#f9fafa";
 const invisible = "rgba(0,0,0,0)";
 const white = "#fff";
 
+/* Helper functions */
+const wrapper = () => {
+  const elements = new Map();
+
+  const show = (id) => {
+    if (!elements.has(id)) elements.set(id, document.getElementById(id));
+    elements.get(id).classList.remove("hidden");
+    elements.get(id).style.opacity = 1;
+  };
+
+  const hide = (id) => {
+    if (!elements.has(id)) elements.set(id, document.getElementById(id));
+    elements.get(id).classList.add("hidden");
+  };
+
+  return { hide, show };
+};
+
+const { hide, show } = wrapper();
+
 const introAnim = anime({
   targets: mapCocha,
   scale: 1.05,
