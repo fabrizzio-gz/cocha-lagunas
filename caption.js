@@ -26,6 +26,7 @@ class Caption {
     else this.captionId = "caption-" + this.captionId;
     this.div.setAttribute("id", this.captionId);
     this.div.classList.add("caption");
+    this.div.classList.add("hidden");
     if (this.isAvenida) this.div.classList.add("avenida");
     this.setPosition(x, y, width, height, this.isAvenida);
     this.div.appendChild(document.createTextNode(text));
