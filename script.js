@@ -1,11 +1,4 @@
 const init = () => {
-  anime.set("#cercado-map-container path", {
-    stroke: invisible,
-    fill: invisible,
-  });
-
-  sec0Prep();
-
   Caption.init();
 };
 
