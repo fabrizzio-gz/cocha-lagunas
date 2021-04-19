@@ -62,6 +62,14 @@ class Caption {
     document.body.appendChild(this.div);
   }
 
+  show() {
+    this.div.classList.remove("hidden");
+  }
+
+  hide() {
+    this.div.classList.add("hidden");
+  }
+
   static purge() {
     Caption.list.forEach((caption) => caption.div.remove());
     Caption.list = new Map();
@@ -71,6 +79,24 @@ class Caption {
     Caption.list.forEach((caption) => {
       const { x, y } = caption.getElementPosition(caption.elementId);
       caption.setPosition(x, y);
+    });
+  }
+
+  static getCaption(captionId) {
+    if (!Caption.list.has(captionId))
+      console.error(`Caption id ${captionId} does not exist`);
+    return Caption.list.get(captionId);
+  }
+
+  static hideAllCaptions() {
+    Caption.list.forEach((caption) => {
+      caption.div.classList.add("hidden");
+    });
+  }
+
+  static showAllCaptions() {
+    Caption.list.forEach((caption) => {
+      caption.div.classList.remove("hidden");
     });
   }
 
