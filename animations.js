@@ -1,10 +1,6 @@
 const mapCocha = document.getElementById("cocha-svg");
 const mapCercado = document.getElementById("cercado-svg");
 const windowY = document.documentElement.clientHeight;
-const titulo = document.getElementById("titulo");
-const continuar = document.getElementById("continuar");
-const mapIntro = document.getElementById("cocha-map-container");
-const rioRocha = document.getElementById("rio-rocha");
 
 const lightblue = "#00dbfc";
 const orange = "#ff7a00";
