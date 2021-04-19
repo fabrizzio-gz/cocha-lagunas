@@ -7,7 +7,7 @@ class Caption {
     this.isAvenida = isAvenida;
     let x, y, width, height;
     if (elementId)
-      ({ x, y, width, height } = this.getElementPosition(
+      ({ right: x, bottom: y, width, height } = this.getElementPosition(
         elementId,
         this.isAvenida
       ));
