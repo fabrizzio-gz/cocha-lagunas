@@ -57,6 +57,10 @@ strong {
   align-items: center;
 }
 
+.hidden {
+  display: none;
+}
+
 .italic {
   font-style: italic;
 }
