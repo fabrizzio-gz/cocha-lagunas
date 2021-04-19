@@ -1,21 +1,4 @@
 const init = () => {
-  const posTitle = titulo.getBoundingClientRect();
-  const yTitle = posTitle.y;
-  const heightTitle = posTitle.height;
-  const posCont = continuar.getBoundingClientRect();
-  const yCont = posCont.y;
-  const heightCont = posCont.height;
-  titulo.style.transform = "translate(-50%,0)";
-  continuar.style.transform = "translate(-50%,0)";
-
-  titulo.style.top = yTitle + "px";
-  continuar.style.top = yCont + "px";
-
-  // px
-  const { top, height } = mapIntro.getBoundingClientRect();
-
-  const mapIntroPos = window.scrollY + top + Math.round((height - windowY) / 2);
-
   anime.set("#cercado-map-container path", {
     stroke: invisible,
     fill: invisible,
@@ -24,8 +7,6 @@ const init = () => {
   sec0Prep();
 
   Caption.init();
-
-  return { yTitle, yCont, mapIntroPos };
 };
 
 const getSectionSizes = () => {
@@ -49,7 +30,7 @@ const getSectionSizes = () => {
 };
 
 let currentSection = -1;
-const { yTitle, yCont, mapIntroPos } = init();
+init();
 const { inicioSize, sectionSize } = getSectionSizes();
 
 const scrollCallback = (e) => {
@@ -65,7 +46,7 @@ const scrollCallback = (e) => {
   };
 
   window.requestAnimationFrame(() => {
-    if (yPos < windowY) introScroll();
+    // if (yPos < windowY) introScroll();
 
     const callAnimation = (index, animation, prepFunction) => {
       if (currentSection != index) {

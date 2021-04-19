@@ -50,6 +50,7 @@ body {
  */
 
 #inicio {
+  flex-direction: column;
   height: calc(var(--inicio-size) * 100vh);
 }
 
@@ -58,10 +59,10 @@ body {
 }
 
 #titulo {
-  position: fixed;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%); */
   font-size: 2em;
   font-weight: bold;
   margin: 0;
@@ -72,10 +73,10 @@ body {
 }
 
 #continuar {
-  position: fixed;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 100%);
+  transform: translate(-50%, 100%); */
   font-size: 1.5rem;
 }
 
