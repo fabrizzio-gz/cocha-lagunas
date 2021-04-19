@@ -872,8 +872,6 @@ const scrollCallback = (e) => {
   };
 
   window.requestAnimationFrame(() => {
-    console.log("Hi");
-    console.log(windowY);
     if (yPos < windowY) introScroll();
 
     const callAnimation = (index, animation, prepFunction) => {
