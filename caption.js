@@ -1,5 +1,5 @@
 class Caption {
-  static list = [];
+  static list = new Map();
 
   constructor(text = "", elementId = "", isAvenida = false) {
     this.text = text;
@@ -31,7 +31,7 @@ class Caption {
     this.setPosition(x, y, width, height, this.isAvenida);
     this.div.appendChild(document.createTextNode(text));
     this.add();
-    Caption.list.push(this);
+    Caption.list.set(this.captionId, this);
   }
 
   getElementPosition(elementId, isAvenida) {
@@ -64,7 +64,7 @@ class Caption {
 
   static purge() {
     Caption.list.forEach((caption) => caption.div.remove());
-    Caption.list = [];
+    Caption.list = new Map();
   }
 
   static updateAllPositions() {
