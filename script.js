@@ -99,17 +99,9 @@ const scrollCallback = (e) => {
 /* https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser */
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-document.addEventListener("scroll", scrollCallback);
-
+/* Window callbacks and event listeners */
 window.onbeforeunload = () => {
   window.scrollTo(0, 0);
 };
-
 window.onresize = Caption.updateAllPositions;
-
-anime.set("#caption-cuellar", {
-  opacity: 0, // Fix due to opacity starting at 1
-});
-anime.set(["#cercado-svg-lagunas circle", mapCercado], {
-  opacity: 0, // Init lakes to invisible
-});
+document.addEventListener("scroll", scrollCallback);
