@@ -194,13 +194,14 @@ const sec5Prep = () => {
   });
 };
 
-const showCaptionsSec5 = () =>
-  showCaptions([
-    "caption-recoleta",
-    "caption-quillacollo",
-    "caption-cuellar",
-    "caption-rocha",
-  ]);
+const captionsSec5 = [
+  "caption-recoleta",
+  "caption-quillacollo",
+  "caption-cuellar",
+  "caption-rocha",
+];
+
+const showCaptionsSec5 = () => showCaptions(captionsSec5);
 
 const sec5Anim = anime
   .timeline({
@@ -253,8 +254,13 @@ const sec7Prep = () => {
   anime.set("#lag-cuellar", { opacity: 0 });
 };
 
-const showCaptionsSec7 = () =>
-  showCaptions(["caption-sarco", "caption-america", "caption-melchor-perez"]);
+const captionsSec7 = [
+  "caption-sarco",
+  "caption-america",
+  "caption-melchor-perez",
+].concat(captionsSec5.filter((captionId) => captionId != "caption-cuellar"));
+
+const showCaptionsSec7 = () => showCaptions(captionsSec7);
 
 const sec7Anim = anime
   .timeline({
