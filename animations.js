@@ -279,50 +279,22 @@ const sec7Anim = anime
   });
 
 const sec8Prep = () => {
+  sec7Prep();
   anime.set("#cercado-svg", {
-    translateY: "10%",
-    translateX: "0%",
-    scale: 50,
+    translateX: 0,
+    translateY: "40%",
+    scale: 4,
   });
-  anime.set(
-    [
-      "#lag-cuadras",
-      "#caption-cuadras",
-      "#heroinas",
-      "#caption-heroinas",
-      "#belzu",
-      "#caption-belzu",
-      "#campus-umss",
-      "#caption-campus-umss",
-      "#caption-quillacollo",
-    ],
-    {
-      opacity: 0,
-    }
-  );
-  anime.set(["#caption-america", "#caption-melchor-perez"], {
+  anime.set(["#melchor-perez", "#america", "#lag-sarco"], {
     opacity: 1,
   });
-  anime.set(
-    [
-      "#america",
-      "#caption-america",
-      "#melchor-perez",
-      "#caption-melchor-perez",
-    ],
-    {
-      opacity: 1,
-      strokeWidth: 0.75,
-      stroke: grey,
-    }
-  );
-  anime.set("#lag-sarco", { fill: invisible });
-  Caption.updateAllPositions();
+  showCaptionsSec7();
 };
 
 const sec8Anim = anime({
-  targets: ["#lag-sarco", "#caption-sarco"],
+  targets: "#lag-sarco",
   opacity: [1, 0],
+  complete: () => getCaption("caption-sarco").hide(),
   duration: 2000,
   easing: "easeInCubic",
   autoplay: false,
