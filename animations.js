@@ -45,7 +45,7 @@ const sec0Prep = () => {
   Caption.hideAllCaptions();
   hide("cercado-map-container");
   show("cocha-map-container");
-  anime.set("#cocha-svg", {
+  anime.set("#cocha-map-container", {
     scale: 1,
     translateX: "0%",
     translateY: "0%",
@@ -106,51 +106,19 @@ const sec3Anim = anime({
 const sec4Prep = () => {
   sec3Prep();
   anime.set("#cocha-svg-cercado", { fill: grey });
-  Caption.hideAllCaptions();
 
   document.getElementById("cercado-svg").style.transform =
     "translate( max( -14vw, -14vh ), min( 5.8vw, 5.8vh ) )" + " scale( 0.08 )";
   show("cercado-map-container");
   hide("cercado-svg-inner-elements");
-  // cercadoSvg.style.opacity = 0;
-
-  /*
-  anime.set("#cocha-svg-cercado", {
-    stroke: invisible,
-    fill: invisible,
-  });
-  anime.set("#cercado-svg-cercado", {
-    opacity: 1,
-    strokeWidth: 1,
-    stroke: grey,
-    fill: white,
-  });
-  anime.set(["#cercado-svg-puentes path", "#cercado-svg-rios path"], {
-    stroke: invisible,
-    fill: invisible,
-  });
-
-  anime.set(
-    [
-      "#caption-recoleta",
-      "#caption-quillacollo",
-      "#caption-cuellar",
-      "#caption-rocha",
-      "#caption-tamborada",
-      "#caption-cercado",
-      "#lag-sarco",
-      "#lag-cuellar",
-    ],
-    {
-      opacity: 0,
-    }
-  );
-  Caption.updateAllPositions(); */
+  Caption.hideAllCaptions();
 };
 
 const sec4Anim = anime({
-  targets: "#cercado-svg",
+  targets: ["#cercado-svg", "#cocha-map-container"],
+  begin: () => hide("cocha-svg-cercado"),
   translateX: (el, i) => {
+    if (i == 1) return [0, 0];
     // https://stackoverflow.com/questions/1248081/how-to-get-the-browser-viewport-dimensions
     const vw = Math.max(
       document.documentElement.clientWidth || 0,
@@ -162,7 +130,8 @@ const sec4Anim = anime({
     );
     return [Math.round(Math.max(vw * -0.14, vh * -0.14)), 0];
   },
-  translateY: () => {
+  translateY: (el, i) => {
+    if (i == 1) return [0, 0];
     const vw = Math.max(
       document.documentElement.clientWidth || 0,
       window.innerWidth || 0
@@ -173,7 +142,14 @@ const sec4Anim = anime({
     );
     return [Math.round(Math.min(vw, vh) * 0.058), 0];
   },
-  scale: [0.08, 1],
+  scale: (el, i) => {
+    if (i == 1) return [1, 12];
+    return [0.08, 1];
+  },
+  opacity: (el, i) => {
+    if (i == 1) return [1, 0];
+    return [1, 1];
+  },
   easing: "easeInQuart",
   autoplay: false,
   duration: 2000,
