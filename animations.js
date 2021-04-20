@@ -52,6 +52,7 @@ const prepCercadoMap = () => {
   setChildrenOpacityZero("cercado-svg-avenidas");
   setChildrenOpacityZero("cercado-svg-edificios");
   show("cercado-map-container");
+  anime.set("#cercado-svg", { opacity: 1 });
   show("cercado-svg-inner-elements");
 };
 
@@ -435,44 +436,39 @@ const sec11Anim = anime
   });
 
 const sec12Prep = () => {
-  anime.set(["#cocha-svg", "#cocha-svg-cercado"], {
-    opacity: 0,
-  });
-  anime.set("#cocha-svg-cocha", { fill: white });
-  anime.set(["#lag-cona-cona", "#lag-alalay", "#lag-albarrancho"], {
-    opacity: 1,
-  });
+  prepCercadoMap();
   anime.set("#cercado-svg", {
-    scale: 2.5,
-    translateX: "0%",
-    translateY: "0%",
+    translateX: "-10%",
+    translateY: 0,
+    scale: 2,
   });
-  Caption.updateAllPositions();
+  anime.set(
+    [
+      "#cercado-svg-rios path",
+      "#p-recoleta, #p-quillacollo",
+      "#lag-cona-cona",
+      "#lag-alalay",
+      "#lag-albarrancho",
+    ],
+    {
+      opacity: 1,
+    }
+  );
 };
 
-const sec12Anim = anime
-  .timeline({
-    targets: [
-      "#cercado-svg",
-      "#caption-alalay",
-      "#caption-albarrancho",
-      "#caption-rocha",
-      "#caption-recoleta",
-      "#caption-quillacollo",
-      "#caption-cona-cona",
-      "#caption-tamborada",
-    ],
-    opacity: [1, 0],
-    duration: 2000,
-    easing: "easeInCubic",
-    autoplay: false,
-  })
-  .add({
-    targets: "", //"#cocha-svg",
-    duration: 2000,
-    scale: [1, 0.08],
-    translateX: ["10%", "0%"],
-    opacity: 1,
-    easing: "easeOutQuad",
-    autoplay: false,
-  });
+const sec12Anim = anime({
+  targets: "#cercado-svg",
+  complete: () => {
+    hide("cercado-map-container");
+    anime.set("#cocha-svg-cocha", { fill: white });
+    anime.set("#cocha-map-container", { scale: 1 });
+    show("cocha-map-container");
+  },
+  opacity: [1, 0],
+  translateX: ["-10%", 0],
+  translateY: [0, 0],
+  scale: [2, 0.5],
+  duration: 2000,
+  easing: "easeInCubic",
+  autoplay: false,
+});
