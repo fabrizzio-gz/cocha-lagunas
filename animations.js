@@ -245,57 +245,32 @@ const sec6Anim = anime({
 });
 
 const sec7Prep = () => {
-  anime.set(
-    [
-      "#caption-recoleta",
-      "#caption-quillacollo",
-      "#caption-cuellar",
-      "#caption-rocha",
-      "#lag-sarco",
-      "#caption-sarco",
-      "#america",
-      "#caption-america",
-      "#melchor-perez",
-      "#caption-melchor-perez",
-      "#lag-cuellar",
-    ],
-    {
-      opacity: 0,
-    }
-  );
-  anime.set("#lag-sarco", { fill: invisible });
-  anime.set("#cercado-svg", {
-    translateX: "0%",
-  });
+  sec6Prep();
+  Caption.hideAllCaptions();
+  anime.set("#lag-cuellar", { opacity: 0 });
 };
 
 const sec7Anim = anime
   .timeline({
     targets: "#cercado-svg",
-    scale: [30, 50],
-    translateY: ["0%", "10%"],
-    translateX: ["0%", "0%"],
-    complete: () => {
-      Caption.updateAllPositions();
-    },
+    translateX: ["-10%", 0],
+    translateY: [0, "40%"],
+    scale: [2.5, 4],
     easing: "easeInCubic",
     duration: 1500,
     autoplay: false,
   })
   .add({
-    targets: "#lag-sarco",
-    opacity: [0, 1],
-  })
-  .add({
-    targets: ["#melchor-perez", "#america"],
-    stroke: grey,
+    targets: ["#melchor-perez", "#america", "#lag-sarco"],
     complete: () => {
-      anime.set(
-        ["#caption-sarco", "#caption-america", "#caption-melchor-perez"],
-        { opacity: 1 }
-      );
+      [
+        "caption-sarco",
+        "caption-america",
+        "caption-melchor-perez",
+      ].forEach((captionId) => getCaption(captionId).show());
+
+      Caption.updateAllPositions();
     },
-    strokeWidth: [0, 0.75],
     opacity: [0, 1],
   });
 
