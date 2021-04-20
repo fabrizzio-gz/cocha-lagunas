@@ -29,6 +29,8 @@ const wrapper = () => {
 
 const { hide, show } = wrapper();
 
+const getCaption = Caption.getCaption;
+
 const introAnim = anime({
   targets: mapCocha,
   scale: 1.05,
@@ -40,31 +42,16 @@ const introAnim = anime({
 });
 
 const sec0Prep = () => {
-  anime.set(
-    [
-      "#caption-alalay",
-      "#caption-albarrancho",
-      "#caption-rocha",
-      "#caption-recoleta",
-      "#caption-quillacollo",
-      "#caption-cona-cona",
-      "#caption-sarco",
-      "#caption-cuadras",
-      "#caption-tamborada",
-      "#america",
-      "#melchor-perez",
-      "#heorinas",
-      "#belzu",
-      "#campus-umss",
-      "#lag-sarco",
-      "#lag-cuadras",
-      "#cercado-svg",
-    ],
-    {
-      opacity: 0,
-    }
-  );
-  anime.set(mapCocha, { opacity: 1 });
+  Caption.hideAllCaptions();
+  hide("cercado-map-container");
+  show("cocha-map-container");
+  anime.set("#cocha-svg", {
+    scale: 1,
+    translateX: "0%",
+    translateY: "0%",
+  });
+  hide("cocha-svg-cercado");
+  anime.set("#cocha-svg-cocha", { fill: lightblue });
 };
 
 const sec0Anim = {
@@ -73,10 +60,7 @@ const sec0Anim = {
 };
 
 const sec1Prep = () => {
-  mapCocha.classList.add("no-stroke");
-  anime.set("#caption-cercado", { opacity: 0 });
-  anime.set("#cocha-svg-cercado", { stroke: invisible, opacity: 0 });
-  anime.set("#cocha-svg-cocha", { fill: lightblue });
+  sec0Prep();
 };
 
 const sec1Anim = {
@@ -86,58 +70,39 @@ const sec1Anim = {
 };
 
 const sec2Prep = () => {
-  mapCocha.classList.remove("no-stroke");
-  anime.set(["#lag-cuellar", "#caption-cercado"], {
-    opacity: 0,
+  sec0Prep();
+  show("cocha-svg-cercado");
+  anime.set("#cocha-svg-cercado", {
+    fill: lightblue,
   });
-  anime.set("#cocha-svg-cercado", { opacity: 1 });
   Caption.updateAllPositions();
 };
 
-const sec2Anim = anime
-  .timeline({
-    targets: ["#cocha-svg-cocha", "#cocha-svg-cercado"],
-    fill: (el, i) => {
-      if (i == 0) return white;
-      return lightblue;
-    },
-    stroke: grey,
-    strokeWidth: 1,
-    easing: "linear",
-    autoplay: false,
-  })
-  .add({
-    targets: "#caption-cercado",
-    opacity: [0, 1],
-    easing: "easeInCubic",
-    autoplay: false,
-  });
+const sec2Anim = anime({
+  targets: ["#cocha-svg-cocha", "#cocha-svg-cercado"],
+  fill: (el, i) => {
+    if (i == 0) return white;
+    return lightblue;
+  },
+  complete: () => {
+    getCaption("caption-cercado").show();
+  },
+  easing: "linear",
+  autoplay: false,
+});
 
 const sec3Prep = () => {
-  anime.set(mapCocha, {
-    fill: invisible,
-    scale: 1,
-    translateX: "0%",
-    translateY: "0%",
-    opacity: 1,
+  sec2Prep();
+  anime.set("#cocha-svg-cercado", {
+    fill: lightblue,
   });
-  anime.set("#cocha-svg-cocha", {
-    fill: white,
-  });
-  anime.set(mapCercado, {
-    opacity: 0,
-  });
-  anime.set(["#cocha-svg-cercado", "#caption-cercado"], {
-    opacity: 1,
-  });
+  anime.set("#cocha-svg-cocha", { fill: white });
   Caption.updateAllPositions();
+  getCaption("caption-cercado").show();
 };
 
 const sec3Anim = anime({
   targets: "#cocha-svg-cercado",
-  complete: () => {
-    anime.set(mapCocha, { fill: invisible });
-  },
   fill: [lightblue, grey],
   easing: "linear",
   autoplay: false,
@@ -544,7 +509,6 @@ const sec11Prep = () => {
       "#caption-quillacollo",
       "#caption-tamborada",
       "#caption-rocha",
-      "#cocha-svg",
     ],
     {
       opacity: 0,
@@ -645,7 +609,7 @@ const sec12Anim = anime
     autoplay: false,
   })
   .add({
-    targets: "#cocha-svg",
+    targets: "", //"#cocha-svg",
     duration: 2000,
     scale: [12, 1],
     translateX: ["10%", "0%"],
