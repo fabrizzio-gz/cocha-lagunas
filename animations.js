@@ -7,7 +7,10 @@ const lightgrey = "#f9fafa";
 const invisible = "rgba(0,0,0,0)";
 const white = "#fff";
 
-/* Helper functions */
+/*
+ * Helper functions
+ */
+
 const wrapper = () => {
   const elements = new Map();
 
@@ -32,7 +35,24 @@ const setChildrenOpacityZero = (elementId) => {
   for (let i = 0; i < children.length; i++) children[i].style.opacity = 0;
 };
 
+const prepCercadoMap = () => {
+  /* set scale and transformX, Y separately */
+  hide("cocha-map-container");
+  Caption.hideAllCaptions();
+  setChildrenOpacityZero("cercado-svg-lagunas");
+  setChildrenOpacityZero("cercado-svg-puentes");
+  setChildrenOpacityZero("cercado-svg-rios");
+  setChildrenOpacityZero("cercado-svg-avenidas");
+  setChildrenOpacityZero("cercado-svg-edificios");
+  show("cercado-map-container");
+  show("cercado-svg-inner-elements");
+};
+
 const getCaption = Caption.getCaption;
+
+/*
+ * Animations
+ */
 
 const introAnim = anime({
   targets: "#cocha-svg",
@@ -159,20 +179,12 @@ const sec4Anim = anime({
 });
 
 const sec5Prep = () => {
-  hide("cocha-map-container");
-  Caption.hideAllCaptions();
+  prepCercadoMap();
   anime.set("#cercado-svg", {
     scale: 1,
     translateX: 0,
     translateY: 0,
   });
-  setChildrenOpacityZero("cercado-svg-lagunas");
-  setChildrenOpacityZero("cercado-svg-puentes");
-  setChildrenOpacityZero("cercado-svg-rios");
-  setChildrenOpacityZero("cercado-svg-avenidas");
-  setChildrenOpacityZero("cercado-svg-edificios");
-  show("cercado-map-container");
-  show("cercado-svg-inner-elements");
 };
 
 const sec5Anim = anime
