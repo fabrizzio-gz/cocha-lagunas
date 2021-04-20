@@ -271,15 +271,6 @@ section img {
   width: 100%;
 }
 
-#cercado-map-container {
-  /* Move to position in cbb map */
-  transform: translate(
-      calc(min(100vw, 100vh) * -0.14),
-      calc(min(100vw, 100vh) * 0.058)
-    )
-    scale(0.08);
-}
-
 #cercado-svg-lagunas circle {
   stroke-dasharray: 2, 2;
   stroke: var(--color-orange);
