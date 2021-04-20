@@ -35,6 +35,13 @@ const setChildrenOpacityZero = (elementId) => {
   for (let i = 0; i < children.length; i++) children[i].style.opacity = 0;
 };
 
+const showCaptions = (captionIdList) => {
+  captionIdList.forEach((captionId) => {
+    getCaption(captionId).show();
+  });
+  Caption.updateAllPositions();
+};
+
 const prepCercadoMap = () => {
   /* set scale and transformX, Y separately */
   hide("cocha-map-container");
@@ -187,17 +194,13 @@ const sec5Prep = () => {
   });
 };
 
-const showCaptionsSec5 = () => {
-  [
+const showCaptionsSec5 = () =>
+  showCaptions([
     "caption-recoleta",
     "caption-quillacollo",
     "caption-cuellar",
     "caption-rocha",
-  ].forEach((captionId) => {
-    getCaption(captionId).show();
-  });
-  Caption.updateAllPositions();
-};
+  ]);
 
 const sec5Anim = anime
   .timeline({
@@ -250,6 +253,9 @@ const sec7Prep = () => {
   anime.set("#lag-cuellar", { opacity: 0 });
 };
 
+const showCaptionsSec7 = () =>
+  showCaptions(["caption-sarco", "caption-america", "caption-melchor-perez"]);
+
 const sec7Anim = anime
   .timeline({
     targets: "#cercado-svg",
@@ -262,15 +268,7 @@ const sec7Anim = anime
   })
   .add({
     targets: ["#melchor-perez", "#america", "#lag-sarco"],
-    complete: () => {
-      [
-        "caption-sarco",
-        "caption-america",
-        "caption-melchor-perez",
-      ].forEach((captionId) => getCaption(captionId).show());
-
-      Caption.updateAllPositions();
-    },
+    complete: showCaptionsSec7,
     opacity: [0, 1],
   });
 
