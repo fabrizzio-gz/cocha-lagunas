@@ -203,6 +203,8 @@ const sec5Anim = anime
   .timeline({
     targets: "#cercado-svg",
     scale: [1, 2.5],
+    translateX: [0, "-10%"],
+    translateY: [0, 0],
     duration: 1000,
     easing: "linear",
     autoplay: false,
@@ -218,47 +220,27 @@ const sec5Anim = anime
   });
 
 const sec6Prep = () => {
-  anime.set(
-    [
-      "#caption-sarco",
-      "#lag-sarco",
-      "#melchor-perez",
-      "#america",
-      "#caption-america",
-      "#caption-melchor-perez",
-    ],
-    {
-      opacity: 0,
-    }
-  );
+  prepCercadoMap();
   anime.set("#cercado-svg", {
-    scale: 30,
-    translateY: "0%",
-    translateX: "0%",
+    scale: 2.5,
+    translateX: "-10%",
+    translateY: 0,
   });
   anime.set(
-    [
-      "#caption-recoleta",
-      "#caption-quillacollo",
-      "#caption-cuellar",
-      "#caption-rocha",
-      "#p-quillacollo",
-      "#p-recoleta",
-    ],
+    ["#lag-cuellar", "#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"],
     {
       opacity: 1,
     }
   );
-  anime.set(["#cercado-svg-rios path"], { strokeWidth: 1 });
-  anime.set("#lag-cuellar", { fill: invisible });
-  Caption.updateAllPositions();
+  showCaptionsSec5();
 };
 
 const sec6Anim = anime({
-  targets: ["#lag-cuellar", "#caption-cuellar"],
+  targets: ["#lag-cuellar"],
   opacity: [1, 0],
   easing: "easeInOutCubic",
-  duration: 3000,
+  complete: () => getCaption("caption-cuellar").hide(),
+  duration: 2500,
   autoplay: false,
 });
 
