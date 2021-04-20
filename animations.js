@@ -465,10 +465,14 @@ const sec12Prep = () => {
 const sec12Anim = anime({
   targets: "#cercado-svg",
   complete: () => {
-    hide("cercado-map-container");
     anime.set("#cocha-svg-cocha", { fill: white });
-    anime.set("#cocha-map-container", { scale: 1 });
-    show("cocha-map-container");
+    anime.set("#cocha-map-container", {
+      translateX: 0,
+      translateY: 0,
+      scale: 1,
+    });
+    hide("cocha-svg-cercado");
+    prepCochaMap();
   },
   opacity: [1, 0],
   translateX: ["-10%", 0],
