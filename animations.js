@@ -387,89 +387,51 @@ const sec10Anim = anime({
 });
 
 const sec11Prep = () => {
-  anime.set(
-    [
-      "#lag-sarco",
-      "#caption-sarco",
-      "#lag-cuadras",
-      "#caption-cuadras",
-      "#heroinas",
-      "#caption-heroinas",
-      "#belzu",
-      "#caption-belzu",
-      "#campus-umss",
-      "#caption-campus-umss",
-      "#caption-recoleta",
-      "#caption-alalay",
-      "#caption-cona-cona",
-      "#caption-albarrancho",
-      "#caption-quillacollo",
-      "#caption-tamborada",
-      "#caption-rocha",
-    ],
-    {
-      opacity: 0,
-    }
-  );
-  anime.set(["#cercado-svg", "#p-quillacollo", "#p-recoleta"], {
-    opacity: 1,
-    fill: grey,
+  prepCercadoMap();
+  anime.set("#cercado-svg", {
+    translateX: "-30%",
+    translateY: "15%",
+    scale: 4,
   });
-  anime.set(["#lag-cona-cona", "#lag-alalay", "#lag-albarrancho"], {
-    fill: lightblue,
+  anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"], {
+    opacity: 1,
   });
 };
+
+const captionsSec11 = [
+  "caption-alalay",
+  "caption-cona-cona",
+  "caption-albarrancho",
+  "caption-quillacollo",
+  "caption-tamborada",
+  "caption-recoleta",
+  "caption-rocha",
+];
+
+const showCaptionsSec11 = () => showCaptions(captionsSec11);
 
 const sec11Anim = anime
   .timeline({
     targets: "#cercado-svg",
-    /*    complete: () => {
-      Caption.updateAllPositions();
-    },*/
-    scale: [4, 2.5],
-    translateX: ["-5%", "0%"],
-    translateY: ["0%", "0%"],
+    scale: [4, 2],
+    translateX: ["-30%", "-10%"],
+    translateY: ["15%", 0],
     easing: "easeInCubic",
     duration: 2000,
     autoplay: false,
   })
   .add({
-    targets: ["#lag-alalay"],
-    complete: () => {
-      Caption.updateAllPositions();
-    },
+    targets: "#lag-alalay",
     opacity: [0, 1],
-    duration: 2000,
-    ease: "easeInCubic",
-    autoplay: false,
   })
   .add({
     targets: "#lag-albarrancho",
     opacity: [0, 1],
-    duration: 2000,
-    ease: "easeInCubic",
-    autoplay: false,
   })
   .add({
     targets: "#lag-cona-cona",
-    complete: () => {
-      anime.set(
-        [
-          "#caption-alalay",
-          "#caption-cona-cona",
-          "#caption-albarrancho",
-          "#caption-quillacollo",
-          "#caption-tamborada",
-          "#caption-recoleta",
-          "#caption-rocha",
-        ],
-        { opacity: 1 }
-      );
-    },
+    complete: showCaptionsSec11,
     opacity: [0, 1],
-    duration: 2000,
-    ease: "easeInCubic",
-    autoplay: false,
   });
 
 const sec12Prep = () => {
