@@ -42,6 +42,14 @@ const showCaptions = (captionIdList) => {
   Caption.updateAllPositions();
 };
 
+const prepCochaMap = () => {
+  /* set scale and transformX, Y separately */
+  Caption.hideAllCaptions();
+  hide("cercado-map-container");
+  show("cocha-map-container");
+  anime.set("#cocha-map-container", { opacity: 1 });
+};
+
 const prepCercadoMap = () => {
   /* set scale and transformX, Y separately */
   hide("cocha-map-container");
@@ -73,16 +81,14 @@ const introAnim = anime({
 });
 
 const sec0Prep = () => {
-  Caption.hideAllCaptions();
-  hide("cercado-map-container");
-  show("cocha-map-container");
+  prepCochaMap();
   anime.set("#cocha-map-container", {
     translateX: 0,
     translateY: 0,
     scale: 1,
   });
-  hide("cocha-svg-cercado");
   anime.set("#cocha-svg-cocha", { fill: lightblue });
+  hide("cocha-svg-cercado");
 };
 
 const sec0Anim = {
