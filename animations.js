@@ -1,5 +1,3 @@
-const mapCocha = document.getElementById("cocha-svg");
-const mapCercado = document.getElementById("cercado-svg");
 const windowY = document.documentElement.clientHeight;
 
 const lightblue = "#00dbfc";
@@ -32,7 +30,7 @@ const { hide, show } = wrapper();
 const getCaption = Caption.getCaption;
 
 const introAnim = anime({
-  targets: mapCocha,
+  targets: "#cocha-svg",
   scale: 1.05,
   delay: 250,
   direction: "alternate",
@@ -159,8 +157,8 @@ const sec5Prep = () => {
   anime.set("#cercado-svg-rios path", {
     stroke: lightblue,
   });
-  anime.set(mapCocha, { opacity: 0 });
-  anime.set(mapCercado, { opacity: 1 });
+  anime.set("#cocha-svg", { opacity: 0 });
+  anime.set("#cercado-svg", { opacity: 1 });
   anime.set("#lag-cuellar", { fill: invisible });
 };
 
@@ -170,7 +168,7 @@ const sec5Anim = anime
     autoplay: false,
   })
   .add({
-    targets: mapCercado,
+    targets: "#cercado-svg",
     scale: [12, 30],
     translateX: ["10%", "0%"],
     duration: 1000,
@@ -218,7 +216,7 @@ const sec6Prep = () => {
       opacity: 0,
     }
   );
-  anime.set(mapCercado, {
+  anime.set("#cercado-svg", {
     scale: 30,
     translateY: "0%",
     translateX: "0%",
@@ -269,14 +267,14 @@ const sec7Prep = () => {
     }
   );
   anime.set("#lag-sarco", { fill: invisible });
-  anime.set(mapCercado, {
+  anime.set("#cercado-svg", {
     translateX: "0%",
   });
 };
 
 const sec7Anim = anime
   .timeline({
-    targets: mapCercado,
+    targets: "#cercado-svg",
     scale: [30, 50],
     translateY: ["0%", "10%"],
     translateX: ["0%", "0%"],
@@ -305,7 +303,7 @@ const sec7Anim = anime
   });
 
 const sec8Prep = () => {
-  anime.set(mapCercado, {
+  anime.set("#cercado-svg", {
     translateY: "10%",
     translateX: "0%",
     scale: 50,
@@ -376,7 +374,7 @@ const sec9Prep = () => {
 
 const sec9Anim = anime
   .timeline({
-    targets: mapCercado,
+    targets: "#cercado-svg",
     keyframes: [
       {
         scale: [50, 30],
@@ -466,7 +464,7 @@ const sec10Prep = () => {
     }
   );
   anime.set("#lag-cuadras", { fill: invisible });
-  anime.set(mapCercado, {
+  anime.set("#cercado-svg", {
     scale: 50,
     translateX: "-5%",
     translateY: "0%",
@@ -513,7 +511,7 @@ const sec11Prep = () => {
       opacity: 0,
     }
   );
-  anime.set([mapCercado, "#p-quillacollo", "#p-recoleta"], {
+  anime.set(["#cercado-svg", "#p-quillacollo", "#p-recoleta"], {
     opacity: 1,
     fill: grey,
   });
@@ -524,7 +522,7 @@ const sec11Prep = () => {
 
 const sec11Anim = anime
   .timeline({
-    targets: mapCercado,
+    targets: "#cercado-svg",
     /*    complete: () => {
       Caption.updateAllPositions();
     },*/
@@ -575,14 +573,14 @@ const sec11Anim = anime
   });
 
 const sec12Prep = () => {
-  anime.set([mapCocha, "#cocha-svg-cercado"], {
+  anime.set(["#cocha-svg", "#cocha-svg-cercado"], {
     opacity: 0,
   });
   anime.set("#cocha-svg-cocha", { fill: white });
   anime.set(["#lag-cona-cona", "#lag-alalay", "#lag-albarrancho"], {
     opacity: 1,
   });
-  anime.set(mapCercado, {
+  anime.set("#cercado-svg", {
     scale: 30,
     translateX: "0%",
     translateY: "0%",
@@ -593,7 +591,7 @@ const sec12Prep = () => {
 const sec12Anim = anime
   .timeline({
     targets: [
-      mapCercado,
+      "#cercado-svg",
       "#caption-alalay",
       "#caption-albarrancho",
       "#caption-rocha",
