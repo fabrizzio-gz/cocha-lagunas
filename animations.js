@@ -69,9 +69,9 @@ const sec0Prep = () => {
   hide("cercado-map-container");
   show("cocha-map-container");
   anime.set("#cocha-map-container", {
+    translateX: 0,
+    translateY: 0,
     scale: 1,
-    translateX: "0%",
-    translateY: "0%",
   });
   hide("cocha-svg-cercado");
   anime.set("#cocha-svg-cocha", { fill: lightblue });
@@ -181,9 +181,9 @@ const sec4Anim = anime({
 const sec5Prep = () => {
   prepCercadoMap();
   anime.set("#cercado-svg", {
-    scale: 1,
     translateX: 0,
     translateY: 0,
+    scale: 1,
   });
 };
 
@@ -202,9 +202,9 @@ const showCaptionsSec5 = () => {
 const sec5Anim = anime
   .timeline({
     targets: "#cercado-svg",
-    scale: [1, 2.5],
     translateX: [0, "-10%"],
     translateY: [0, 0],
+    scale: [1, 2.5],
     duration: 1000,
     easing: "linear",
     autoplay: false,
@@ -222,9 +222,9 @@ const sec5Anim = anime
 const sec6Prep = () => {
   prepCercadoMap();
   anime.set("#cercado-svg", {
-    scale: 2.5,
     translateX: "-10%",
     translateY: 0,
+    scale: 2.5,
   });
   anime.set(
     ["#lag-cuellar", "#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"],
