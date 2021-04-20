@@ -79,11 +79,8 @@ const sec2Prep = () => {
 };
 
 const sec2Anim = anime({
-  targets: ["#cocha-svg-cocha", "#cocha-svg-cercado"],
-  fill: (el, i) => {
-    if (i == 0) return white;
-    return lightblue;
-  },
+  targets: "#cocha-svg-cocha",
+  fill: white,
   complete: () => {
     getCaption("caption-cercado").show();
   },
@@ -93,9 +90,6 @@ const sec2Anim = anime({
 
 const sec3Prep = () => {
   sec2Prep();
-  anime.set("#cocha-svg-cercado", {
-    fill: lightblue,
-  });
   anime.set("#cocha-svg-cocha", { fill: white });
   Caption.updateAllPositions();
   getCaption("caption-cercado").show();
@@ -110,6 +104,17 @@ const sec3Anim = anime({
 });
 
 const sec4Prep = () => {
+  sec3Prep();
+  anime.set("#cocha-svg-cercado", { fill: grey });
+  Caption.hideAllCaptions();
+
+  document.getElementById("cercado-svg").style.transform =
+    "translate( max( -14vw, -14vh ), min( 5.8vw, 5.8vh ) )" + " scale( 0.08 )";
+  show("cercado-map-container");
+  hide("cercado-svg-inner-elements");
+  // cercadoSvg.style.opacity = 0;
+
+  /*
   anime.set("#cocha-svg-cercado", {
     stroke: invisible,
     fill: invisible,
@@ -140,17 +145,35 @@ const sec4Prep = () => {
       opacity: 0,
     }
   );
-  Caption.updateAllPositions();
+  Caption.updateAllPositions(); */
 };
 
 const sec4Anim = anime({
-  targets: [mapCocha, mapCercado],
-  scale: 12,
-  translateX: "10%",
-  translateY: "0%",
-  opacity: (el, i) => {
-    return i;
+  targets: "#cercado-svg",
+  translateX: (el, i) => {
+    // https://stackoverflow.com/questions/1248081/how-to-get-the-browser-viewport-dimensions
+    const vw = Math.max(
+      document.documentElement.clientWidth || 0,
+      window.innerWidth || 0
+    );
+    const vh = Math.max(
+      document.documentElement.clientHeight || 0,
+      window.innerHeight || 0
+    );
+    return [Math.round(Math.max(vw * -0.14, vh * -0.14)), 0];
   },
+  translateY: () => {
+    const vw = Math.max(
+      document.documentElement.clientWidth || 0,
+      window.innerWidth || 0
+    );
+    const vh = Math.max(
+      document.documentElement.clientHeight || 0,
+      window.innerHeight || 0
+    );
+    return [Math.round(Math.min(vw, vh) * 0.058), 0];
+  },
+  scale: [0.08, 1],
   easing: "easeInQuart",
   autoplay: false,
   duration: 2000,
