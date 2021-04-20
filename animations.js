@@ -187,6 +187,18 @@ const sec5Prep = () => {
   });
 };
 
+const showCaptionsSec5 = () => {
+  [
+    "caption-recoleta",
+    "caption-quillacollo",
+    "caption-cuellar",
+    "caption-rocha",
+  ].forEach((captionId) => {
+    getCaption(captionId).show();
+  });
+  Caption.updateAllPositions();
+};
+
 const sec5Anim = anime
   .timeline({
     targets: "#cercado-svg",
@@ -202,17 +214,7 @@ const sec5Anim = anime
       "#p-recoleta, #p-quillacollo",
     ],
     opacity: [0, 1],
-    complete: () => {
-      Caption.updateAllPositions();
-      [
-        "caption-recoleta",
-        "caption-quillacollo",
-        "caption-cuellar",
-        "caption-rocha",
-      ].forEach((captionId) => {
-        getCaption(captionId).show();
-      });
-    },
+    complete: showCaptionsSec5,
   });
 
 const sec6Prep = () => {
