@@ -301,80 +301,58 @@ const sec8Anim = anime({
 });
 
 const sec9Prep = () => {
-  anime.set(
-    [
-      "#lag-sarco",
-      "#lag-cuadras",
-      "#caption-cuadras",
-      "#caption-sarco",
-      "#melchor-perez",
-      "#caption-melchor-perez",
-      "#america",
-      "#caption-america",
-      "#campus-umss",
-      "#caption-campus-umss",
-    ],
-    {
-      opacity: 0,
-    }
-  );
+  prepCercadoMap();
+  anime.set("#cercado-svg", {
+    translateX: 0,
+    translateY: "40%",
+    scale: 4,
+  });
+  anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"], {
+    opacity: 1,
+  });
 };
+
+const captionsSec9 = [
+  "caption-cuadras",
+  "caption-heroinas",
+  "caption-belzu",
+  "caption-quillacollo",
+  "caption-campus-umss",
+];
+
+const showCaptionsSec9 = () => showCaptions(captionsSec9);
 
 const sec9Anim = anime
   .timeline({
     targets: "#cercado-svg",
     keyframes: [
       {
+        translateX: [0, "-10%"],
+        translateY: ["40%", 0],
         scale: [4, 2.5],
-        translateX: ["0%", "0%"],
-        translateY: ["10%", "0%"],
         duration: 1500,
       },
       {
         duration: 1000,
       },
       {
+        translateX: ["-10%", "-30%"],
+        translateY: [0, "15%"],
         scale: [2.5, 4],
-        translateX: ["0%", "-5%"],
         duration: 1500,
       },
     ],
+    delay: 0,
     duration: 4000,
     easing: "easeInCubic",
     autoplay: false,
   })
   .add({
-    targets: "#lag-cuadras",
-    complete: () => {
-      Caption.updateAllPositions();
-      anime.set("#caption-cuadras", {
-        opacity: 1,
-      });
-    },
+    targets: ["#lag-cuadras", "#heroinas", "#belzu", "#campus-umss"],
+    complete: showCaptionsSec9,
     opacity: [0, 1],
-    autoplay: false,
-  })
-  .add({
-    targets: [
-      "#caption-heroinas",
-      "#caption-belzu",
-      "#heroinas",
-      "#belzu",
-      "#caption-quillacollo",
-      "#caption-campus-umss",
-      "#campus-umss",
-    ],
-    stroke: grey,
-    strokeWidth: (el, i) => {
-      if (i >= 5) return 0.3;
-      return 0.75;
-    },
-    strokeDasharray: (el, i) => {
-      if (i >= 5) return ["1 1", "1 1"];
-      return ["", ""];
-    },
-    easing: "linear",
-    opacity: 1,
+    duratioon: 5000,
+    easing: "easeInQuint",
   });
 
 const sec10Prep = () => {
