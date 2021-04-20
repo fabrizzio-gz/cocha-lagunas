@@ -325,7 +325,7 @@ const sec9Anim = anime
     targets: "#cercado-svg",
     keyframes: [
       {
-        scale: [50, 30],
+        scale: [4, 2.5],
         translateX: ["0%", "0%"],
         translateY: ["10%", "0%"],
         duration: 1500,
@@ -334,7 +334,7 @@ const sec9Anim = anime
         duration: 1000,
       },
       {
-        scale: [30, 50],
+        scale: [2.5, 4],
         translateX: ["0%", "-5%"],
         duration: 1500,
       },
@@ -413,7 +413,7 @@ const sec10Prep = () => {
   );
   anime.set("#lag-cuadras", { fill: invisible });
   anime.set("#cercado-svg", {
-    scale: 50,
+    scale: 4,
     translateX: "-5%",
     translateY: "0%",
   });
@@ -474,7 +474,7 @@ const sec11Anim = anime
     /*    complete: () => {
       Caption.updateAllPositions();
     },*/
-    scale: [50, 30],
+    scale: [4, 2.5],
     translateX: ["-5%", "0%"],
     translateY: ["0%", "0%"],
     easing: "easeInCubic",
@@ -529,7 +529,7 @@ const sec12Prep = () => {
     opacity: 1,
   });
   anime.set("#cercado-svg", {
-    scale: 30,
+    scale: 2.5,
     translateX: "0%",
     translateY: "0%",
   });
@@ -556,9 +556,9 @@ const sec12Anim = anime
   .add({
     targets: "", //"#cocha-svg",
     duration: 2000,
-    scale: [12, 1],
+    scale: [1, 0.08],
     translateX: ["10%", "0%"],
-    opacity: [0, 1],
+    opacity: 1,
     easing: "easeOutQuad",
     autoplay: false,
   });
