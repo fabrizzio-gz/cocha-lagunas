@@ -27,6 +27,11 @@ const wrapper = () => {
 
 const { hide, show } = wrapper();
 
+const setChildrenOpacityZero = (elementId) => {
+  const children = document.getElementById(elementId).children;
+  for (let i = 0; i < children.length; i++) children[i].style.opacity = 0;
+};
+
 const getCaption = Caption.getCaption;
 
 const introAnim = anime({
