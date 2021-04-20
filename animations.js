@@ -159,52 +159,48 @@ const sec4Anim = anime({
 });
 
 const sec5Prep = () => {
-  anime.set("#cercado-svg-rios path", {
-    stroke: lightblue,
+  hide("cocha-map-container");
+  Caption.hideAllCaptions();
+  anime.set("#cercado-svg", {
+    scale: 1,
+    translateX: 0,
+    translateY: 0,
   });
-  anime.set("#cocha-svg", { opacity: 0 });
-  anime.set("#cercado-svg", { opacity: 1 });
-  anime.set("#lag-cuellar", { fill: invisible });
+  setChildrenOpacityZero("cercado-svg-lagunas");
+  setChildrenOpacityZero("cercado-svg-puentes");
+  setChildrenOpacityZero("cercado-svg-rios");
+  setChildrenOpacityZero("cercado-svg-avenidas");
+  setChildrenOpacityZero("cercado-svg-edificios");
+  show("cercado-map-container");
+  show("cercado-svg-inner-elements");
 };
 
 const sec5Anim = anime
   .timeline({
+    targets: "#cercado-svg",
+    scale: [1, 2.5],
+    duration: 1000,
     easing: "linear",
     autoplay: false,
   })
   .add({
-    targets: "#cercado-svg",
-    scale: [12, 30],
-    translateX: ["10%", "0%"],
-    duration: 1000,
-  })
-  .add({
-    targets: "#cercado-svg-rios path",
-    strokeWidth: ["0", "1"],
-    easing: "linear",
-  })
-  .add({
-    targets: "#lag-cuellar",
-    opacity: [0, 1],
-    duration: 1000,
-  })
-  .add({
     targets: [
+      "#lag-cuellar",
+      "#cercado-svg-rios path",
       "#p-recoleta, #p-quillacollo",
-      "#caption-recoleta",
-      "#caption-quillacollo",
-      "#caption-cuellar",
-      "#caption-rocha",
     ],
-    begin: () => {
-      anime.set(["#p-recoleta, #p-quillacollo"], {
-        fill: invisible,
-      });
+    opacity: [0, 1],
+    complete: () => {
       Caption.updateAllPositions();
+      [
+        "caption-recoleta",
+        "caption-quillacollo",
+        "caption-cuellar",
+        "caption-rocha",
+      ].forEach((captionId) => {
+        getCaption(captionId).show();
+      });
     },
-    fill: grey,
-    easing: "linear",
-    opacity: 1,
   });
 
 const sec6Prep = () => {
