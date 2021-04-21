@@ -268,28 +268,50 @@ section img {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
+  background-color: rgba(0, 0, 0, 0.9);
   visibility: hidden;
   transform: scale(1.1);
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  z-index: 2;
 }
 .modal-content {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.close-button {
+
+#slideshow img {
+  max-height: 95%;
+  max-width: 95%;
+}
+
+#slideshow figcaption {
+  font-size: 1.3rem;
+  font-family: "Zilla Slab Highlight", "Trebuchet MS";
+  color: black;
+  background: white;
+  margin: 2rem;
+}
+
+.close-modal-button {
   position: fixed;
-  top: 5%;
-  left: 95%;
-  height: 1.5rem;
-  width: 1.5rem;
-  line-height: 1.5rem;
+  top: 3%;
+  left: 98%;
+  transform: translateX(-100%);
+  height: 2rem;
+  width: 2rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
   text-align: center;
   cursor: pointer;
-  border-radius: 0.75rem;
+  border-radius: 1rem;
   background-color: white;
   color: black;
 }
-.close-button:hover {
+.close-modal-button:hover {
   background-color: black;
   color: white;
 }
