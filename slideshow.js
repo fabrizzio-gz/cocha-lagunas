@@ -10,26 +10,42 @@ class SlideShowDirector {
     this.cite = document.querySelector("#slideshow cite");
     this.index = 0;
     this.imgContainer = document.querySelector("#image-container");
+    this.prev = document.querySelector(".side-arrow.prev");
     this.img = document.querySelector("#image-container img");
+    this.next = document.querySelector(".side-arrow.next");
+    this.slideShowList = [];
   }
 
-  /* https://stackoverflow.com/questions/46399223/async-await-in-image-loading */
-  async loadImg(src) {
-    return new Promise((resolve, reject) => {
-      let img = new Image();
-      img.onload = () => resolve(img);
-      img.onerror = reject;
-      img.src = src;
-    });
+  async startSlideShow(slideShowList) {
+    this.index = 0;
+    this.slideShowList = slideShowList;
+    const { src, title = "", credits = "" } = slideShowList[this.index];
+    this.resetSlideShowContent();
+    this.showArrows();
+    this.modal.classList.add("show-modal");
+    await this.showSingleImg(src, title, credits);
   }
 
   resetSlideShowContent() {
     this.figcaption.textContent = "";
     this.cite.textContent = "";
+    this.prev.classList.remove("hidden");
+    this.next.classList.remove("hidden");
     if (this.img !== this.imgList.get("default")) {
       this.imgContainer.replaceChild(this.imgList.get("default"), this.img);
       this.img = this.imgList.get("default");
     }
+  }
+
+  showArrows() {
+    if (this.index == 0) this.prev.classList.add("hidden");
+    if (
+      !(
+        this.slideShowList.length > 1 &&
+        this.index < this.slideShowList.length - 1
+      )
+    )
+      this.next.classList.add("hidden");
   }
 
   async showSingleImg(src, title, credits) {
@@ -49,12 +65,14 @@ class SlideShowDirector {
     if (credits) this.cite.appendChild(document.createTextNode(credits));
   }
 
-  async startSlideShow(slideShowList) {
-    this.index = 0;
-    const { src, title = "", credits = "" } = slideShowList[0];
-    this.resetSlideShowContent();
-    this.modal.classList.add("show-modal");
-    await this.showSingleImg(src, title, credits);
+  /* https://stackoverflow.com/questions/46399223/async-await-in-image-loading */
+  async loadImg(src) {
+    return new Promise((resolve, reject) => {
+      let img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = reject;
+      img.src = src;
+    });
   }
 
   stopSlideShow() {
