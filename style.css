@@ -148,6 +148,8 @@ section > div {
   position: relative;
   grid-area: p;
   z-index: 1;
+  /* To be able to click map below it */
+  pointer-events: none;
 }
 
 section div p {
