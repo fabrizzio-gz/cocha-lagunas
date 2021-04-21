@@ -13,14 +13,29 @@ const closeModal = () => {
 };
 
 const createSlideShow = async (imgList) => {
+  const { src, title = "", credits = "" } = imgList[0];
   document.querySelector(".modal").classList.add("show-modal");
   const figure = document.getElementById("slideshow");
-  const img = await loadImg(imgList[0]);
-  figure.removeChild(figure.getElementsByTagName("img")[0]);
+  while (figure.firstChild) {
+    figure.removeChild(figure.lastChild);
+  }
+  if (title) {
+    const figcaption = document.createElement("figcaption");
+    figcaption.appendChild(document.createTextNode(title));
+    figure.appendChild(figcaption);
+  }
+  let img;
+  if (src) img = await loadImg(src);
+  else {
+    img = document.createElement("img");
+    img.setAttribute("alt", "No se tiene ninguna imagen de esta laguna");
+  }
   figure.appendChild(img);
-  const cite = document.createElement("cite");
-  cite.appendChild(document.createTextNode("Fotografía por Torrico"));
-  figure.appendChild(cite);
+  if (credits) {
+    const cite = document.createElement("cite");
+    cite.appendChild(document.createTextNode(credits));
+    figure.appendChild(cite);
+  }
 };
 
 document.querySelector(".modal").addEventListener("click", (e) => {

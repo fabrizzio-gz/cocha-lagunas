@@ -6,7 +6,13 @@ const init = () => {
 const getImage = (e) => {
   switch (e.target.id) {
     case "lag-cuellar":
-      createSlideShow(["media/cuellar-1.jpg"]);
+      createSlideShow([
+        {
+          src: "media/cuellar-1.jpg",
+          title: "Los cisnes de la Laguna Cuellar",
+          credits: 'Revista "Ahora: Historias y Leyendas de Cochabamba"',
+        },
+      ]);
       break;
     case "lag-sarco":
       createSlideShow(["media/sarco-1.jpg"]);
