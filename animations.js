@@ -344,7 +344,7 @@ const sec9Anim = anime
       },
       {
         translateX: ["-10%", "-30%"],
-        translateY: [0, "15%"],
+        translateY: [0, 0],
         scale: [2.5, 4],
         duration: 1500,
       },
@@ -366,7 +366,7 @@ const sec10Prep = () => {
   prepCercadoMap();
   anime.set("#cercado-svg", {
     translateX: "-30%",
-    translateY: "15%",
+    translateY: 0,
     scale: 4,
   });
   anime.set(
@@ -397,7 +397,7 @@ const sec11Prep = () => {
   prepCercadoMap();
   anime.set("#cercado-svg", {
     translateX: "-30%",
-    translateY: "15%",
+    translateY: 0,
     scale: 4,
   });
   anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"], {
@@ -422,7 +422,7 @@ const sec11Anim = anime
     targets: "#cercado-svg",
     scale: [4, 2],
     translateX: ["-30%", "-10%"],
-    translateY: ["15%", 0],
+    translateY: [0, 0],
     easing: "easeInCubic",
     duration: 2000,
     autoplay: false,
