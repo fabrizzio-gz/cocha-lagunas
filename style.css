@@ -440,4 +440,43 @@ section img {
 
 #cercado-svg-lagunas path {
   fill: var(--color-lightblue);
+  animation: grow 2s linear alternate infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes grow {
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+#rio-rocha {
+  stroke-dasharray: 310;
+  stroke-dashoffset: 310;
+  animation: paint-rocha 10s linear forwards;
+}
+
+@keyframes paint-rocha {
+  0% {
+    stroke-dashoffset: 310;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+#rio-tamborada {
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+  animation: paint-tamborada 10s linear forwards;
+}
+
+@keyframes paint-tamborada {
+  0% {
+    stroke-dashoffset: 310;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
