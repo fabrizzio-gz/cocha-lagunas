@@ -284,23 +284,50 @@ section img {
 }
 
 #slideshow {
+  display: grid;
   width: 100%;
   height: 100%;
-}
-
-#slideshow img {
-  max-height: 60%;
-  max-width: 100%;
-  color: white;
+  grid-template-columns: auto 5% auto 5% auto;
+  grid-template-rows: auto 10% auto 10% auto;
+  grid-template-areas:
+    ". . . . ."
+    "t t t t t"
+    ". p i n ."
+    "c c c c c"
+    ". . . . .";
+  justify-items: center;
+  align-item: center;
 }
 
 #slideshow figcaption,
-#slideshow cite {
+#slideshow cite,
+#slideshow img {
   font-size: 1.3rem;
   font-family: serif;
   color: white;
   margin: 2rem;
   text-align: center;
+}
+
+#slideshow figcaption {
+  grid-area: t;
+}
+
+#slideshow .prev {
+  grid-area: p;
+}
+#slideshow img {
+  grid-area: i;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#slideshow .next {
+  grid-area: n;
+}
+
+#slideshow cite {
+  grid-area: c;
 }
 
 #slideshow cite:before {
@@ -327,9 +354,9 @@ section img {
   color: white;
 }
 
-#image-container {
+/*#image-container {
   flex-direction: row;
-}
+}*/
 
 /* https://codepen.io/reacraf/pen/ZPqRKV */
 .side-arrow::before {

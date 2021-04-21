@@ -1,17 +1,17 @@
 class SlideShowDirector {
   constructor() {
     this.imgList = new Map();
-    this.imgList.set("default", document.querySelector("#image-container img"));
+    this.imgList.set("default", document.querySelector("#slideshow img"));
     const noSrc = document.createElement("img");
     noSrc.alt = "No se tienen imagenes de esta laguna";
     this.imgList.set("noSrc", noSrc);
     this.modal = document.querySelector(".modal");
+    this.slideshow = document.querySelector("#slideshow");
     this.figcaption = document.querySelector("#slideshow figcaption");
     this.cite = document.querySelector("#slideshow cite");
     this.index = 0;
-    this.imgContainer = document.querySelector("#image-container");
     this.prev = document.querySelector(".side-arrow.prev");
-    this.img = document.querySelector("#image-container img");
+    this.img = document.querySelector("#slideshow img");
     this.next = document.querySelector(".side-arrow.next");
     this.slideShowList = [];
   }
@@ -28,7 +28,7 @@ class SlideShowDirector {
     this.figcaption.textContent = "";
     this.cite.textContent = "";
     if (this.img !== this.imgList.get("default")) {
-      this.imgContainer.replaceChild(this.imgList.get("default"), this.img);
+      this.slideshow.replaceChild(this.imgList.get("default"), this.img);
       this.img = this.imgList.get("default");
     }
   }
@@ -53,10 +53,10 @@ class SlideShowDirector {
       if (!this.imgList.has(src)) {
         this.imgList.set(src, await this.loadImg(src));
       } else this.imgList.get(src);
-      this.imgContainer.replaceChild(this.imgList.get(src), this.img);
+      this.slideshow.replaceChild(this.imgList.get(src), this.img);
       this.img = this.imgList.get(src);
     } else {
-      this.imgContainer.replaceChild(this.imgList.get("noSrc"), this.img);
+      this.slideshow.replaceChild(this.imgList.get("noSrc"), this.img);
       this.img = this.imgList.get("noSrc");
     }
 
