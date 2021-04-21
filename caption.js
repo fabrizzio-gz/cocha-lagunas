@@ -104,9 +104,21 @@ class Caption {
         text: "Laguna Cuellar",
         translate: "translate(-50%, -280%)",
       },
-      { id: "cercado-svg-caption-quenamari", text: "Laguna Quenamari" },
-      { id: "cercado-svg-caption-alalay", text: "Laguna Alalay" },
-      { id: "cercado-svg-caption-cona-cona", text: "Laguna Coña Coña" },
+      {
+        id: "cercado-svg-caption-quenamari",
+        text: "Laguna Quenamari",
+        translate: "translate(-50%, -80%)",
+      },
+      {
+        id: "cercado-svg-caption-alalay",
+        text: "Laguna Alalay",
+        translate: "translate(-50%, -80%)",
+      },
+      {
+        id: "cercado-svg-caption-cona-cona",
+        text: "Laguna Coña Coña",
+        translate: "translate(-50%, -150%)",
+      },
       {
         id: "cercado-svg-caption-quillacollo",
         text: "Puente Quillacollo",
