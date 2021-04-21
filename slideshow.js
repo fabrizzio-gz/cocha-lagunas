@@ -13,10 +13,6 @@ class SlideShowDirector {
     this.img = document.querySelector("#image-container img");
   }
 
-  closeModal() {
-    this.modal.classList.remove("show-modal");
-  }
-
   /* https://stackoverflow.com/questions/46399223/async-await-in-image-loading */
   async loadImg(src) {
     return new Promise((resolve, reject) => {
@@ -30,7 +26,6 @@ class SlideShowDirector {
   resetSlideShowContent() {
     this.figcaption.textContent = "";
     this.cite.textContent = "";
-    //const img = document.querySelector("#image-container img");
     if (this.img !== this.imgList.get("default")) {
       this.imgContainer.replaceChild(this.imgList.get("default"), this.img);
       this.img = this.imgList.get("default");
@@ -54,16 +49,16 @@ class SlideShowDirector {
     if (credits) this.cite.appendChild(document.createTextNode(credits));
   }
 
-  async createSlideShow(slideShowList) {
+  async startSlideShow(slideShowList) {
+    this.index = 0;
     const { src, title = "", credits = "" } = slideShowList[0];
     this.resetSlideShowContent();
     this.modal.classList.add("show-modal");
-    // const figure = document.getElementById("slideshow");
-
-    /*while (figure.firstChild) {
-      figure.removeChild(figure.lastChild);
-      }*/
     await this.showSingleImg(src, title, credits);
+  }
+
+  stopSlideShow() {
+    this.modal.classList.remove("show-modal");
   }
 }
 
@@ -71,9 +66,9 @@ const slideShowDirector = new SlideShowDirector();
 
 document.querySelector(".modal").addEventListener("click", (e) => {
   if (e.target === document.querySelector("#slideshow"))
-    slideShowDirector.closeModal();
+    slideShowDirector.stopSlideShow();
 });
 
 document
   .querySelector(".close-modal-button")
-  .addEventListener("click", () => slideShowDirector.closeModal());
+  .addEventListener("click", () => slideShowDirector.stopSlideShow());

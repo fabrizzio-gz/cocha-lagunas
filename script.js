@@ -6,7 +6,7 @@ const init = () => {
 const getImage = (e) => {
   switch (e.target.id) {
     case "lag-cuellar":
-      slideShowDirector.createSlideShow([
+      slideShowDirector.startSlideShow([
         {
           src: "media/cuellar-1.jpg",
           title: "Los cisnes de la Laguna Cuellar",
@@ -15,7 +15,7 @@ const getImage = (e) => {
       ]);
       break;
     case "lag-sarco":
-      slideShowDirector.createSlideShow([
+      slideShowDirector.startSlideShow([
         {
           src: "media/sarco-1.jpg",
           title: "El espejo de la Laguna Sarco",
@@ -24,7 +24,7 @@ const getImage = (e) => {
       ]);
       break;
     case "lag-cuadras":
-      slideShowDirector.createSlideShow([{ src: "" }]);
+      slideShowDirector.startSlideShow([{ src: "" }]);
       break;
   }
 };
