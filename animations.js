@@ -273,7 +273,7 @@ const sec7Anim = anime
   .timeline({
     targets: "#cercado-svg",
     translateX: ["-10%", 0],
-    translateY: [0, "40%"],
+    translateY: [0, "20%"],
     scale: [2.5, 4],
     easing: "easeInCubic",
     duration: 1500,
@@ -289,7 +289,7 @@ const sec8Prep = () => {
   sec7Prep();
   anime.set("#cercado-svg", {
     translateX: 0,
-    translateY: "40%",
+    translateY: "20%",
     scale: 4,
   });
   anime.set(["#melchor-perez", "#america", "#lag-sarco"], {
@@ -311,7 +311,7 @@ const sec9Prep = () => {
   prepCercadoMap();
   anime.set("#cercado-svg", {
     translateX: 0,
-    translateY: "40%",
+    translateY: "20%",
     scale: 4,
   });
   anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"], {
@@ -335,7 +335,7 @@ const sec9Anim = anime
     keyframes: [
       {
         translateX: [0, "-10%"],
-        translateY: ["40%", 0],
+        translateY: ["20%", 0],
         scale: [4, 2.5],
         duration: 1500,
       },
