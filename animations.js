@@ -408,7 +408,7 @@ const sec11Prep = () => {
 const captionsSec11 = [
   "caption-alalay",
   "caption-cona-cona",
-  "caption-albarrancho",
+  "caption-quenamari",
   "caption-quillacollo",
   "caption-tamborada",
   "caption-recoleta",
@@ -432,7 +432,7 @@ const sec11Anim = anime
     opacity: [0, 1],
   })
   .add({
-    targets: "#lag-albarrancho",
+    targets: "#lag-quenamari",
     opacity: [0, 1],
   })
   .add({
@@ -454,7 +454,7 @@ const sec12Prep = () => {
       "#p-recoleta, #p-quillacollo",
       "#lag-cona-cona",
       "#lag-alalay",
-      "#lag-albarrancho",
+      "#lag-quenamari",
     ],
     {
       opacity: 1,

@@ -121,7 +121,7 @@ class Caption {
         text: "Laguna Cuellar",
         translate: "translate(-50%, -240%)",
       },
-      { id: "cercado-svg-caption-albarrancho", text: "Laguna Albarrancho" },
+      { id: "cercado-svg-caption-quenamari", text: "Laguna Quenamari" },
       { id: "cercado-svg-caption-alalay", text: "Laguna Alalay" },
       { id: "cercado-svg-caption-cona-cona", text: "Laguna Coña Coña" },
       {
