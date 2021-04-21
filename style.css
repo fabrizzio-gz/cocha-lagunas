@@ -288,12 +288,17 @@ section img {
   max-width: 95%;
 }
 
-#slideshow figcaption {
+#slideshow figcaption,
+#slideshow cite {
   font-size: 1.3rem;
   font-family: serif;
   color: white;
   margin: 2rem;
   text-align: center;
+}
+
+#slideshow cite:before {
+  content: "—";
 }
 
 .close-modal-button {

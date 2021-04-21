@@ -18,6 +18,9 @@ const createSlideShow = async (imgList) => {
   const img = await loadImg(imgList[0]);
   figure.removeChild(figure.getElementsByTagName("img")[0]);
   figure.appendChild(img);
+  const cite = document.createElement("cite");
+  cite.appendChild(document.createTextNode("Fotografía por Torrico"));
+  figure.appendChild(cite);
 };
 
 document.querySelector(".modal").addEventListener("click", (e) => {
