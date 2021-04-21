@@ -15,10 +15,16 @@ const getImage = (e) => {
       ]);
       break;
     case "lag-sarco":
-      createSlideShow(["media/sarco-1.jpg"]);
+      createSlideShow([
+        {
+          src: "media/sarco-1.jpg",
+          title: "El espejo de la Laguna Sarco",
+          credits: "Rodolfo Torrico Zamudio (ca. 1940-1950)",
+        },
+      ]);
       break;
     case "lag-cuadras":
-      console.log([]);
+      createSlideShow([{ src: "" }]);
       break;
   }
 };
