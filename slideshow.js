@@ -3,7 +3,7 @@ class SlideShowDirector {
     this.imgList = new Map();
     this.imgList.set("default", document.querySelector("#image-container img"));
     const noSrc = document.createElement("img");
-    noSrc.alt = "No se tienen imagenes de esa laguna";
+    noSrc.alt = "No se tienen imagenes de esta laguna";
     this.imgList.set("noSrc", noSrc);
     this.modal = document.querySelector(".modal");
     this.figcaption = document.querySelector("#slideshow figcaption");
@@ -19,7 +19,6 @@ class SlideShowDirector {
   async startSlideShow(slideShowList) {
     this.index = 0;
     this.slideShowList = slideShowList;
-    this.resetSlideShowContent();
     this.showArrows();
     this.modal.classList.add("show-modal");
     await this.showSingleImg();
@@ -28,8 +27,6 @@ class SlideShowDirector {
   resetSlideShowContent() {
     this.figcaption.textContent = "";
     this.cite.textContent = "";
-    this.prev.classList.remove("hidden");
-    this.next.classList.remove("hidden");
     if (this.img !== this.imgList.get("default")) {
       this.imgContainer.replaceChild(this.imgList.get("default"), this.img);
       this.img = this.imgList.get("default");
@@ -38,16 +35,17 @@ class SlideShowDirector {
 
   showArrows() {
     if (this.index == 0) this.prev.classList.add("hidden");
+    else this.prev.classList.remove("hidden");
     if (
-      !(
-        this.slideShowList.length > 1 &&
-        this.index < this.slideShowList.length - 1
-      )
+      this.slideShowList.length > 1 &&
+      this.index < this.slideShowList.length - 1
     )
-      this.next.classList.add("hidden");
+      this.next.classList.remove("hidden");
+    else this.next.classList.add("hidden");
   }
 
   async showSingleImg() {
+    this.resetSlideShowContent();
     const { src, title, credits } = this.slideShowList[this.index];
     if (title) this.figcaption.appendChild(document.createTextNode(title));
 
@@ -78,6 +76,18 @@ class SlideShowDirector {
   stopSlideShow() {
     this.modal.classList.remove("show-modal");
   }
+
+  async nextImg() {
+    this.index++;
+    this.showArrows();
+    await this.showSingleImg();
+  }
+
+  async prevImg() {
+    this.index--;
+    this.showArrows();
+    await this.showSingleImg();
+  }
 }
 
 const slideShowDirector = new SlideShowDirector();
@@ -90,3 +100,11 @@ document.querySelector(".modal").addEventListener("click", (e) => {
 document
   .querySelector(".close-modal-button")
   .addEventListener("click", () => slideShowDirector.stopSlideShow());
+
+document
+  .querySelector(".side-arrow.prev")
+  .addEventListener("click", () => slideShowDirector.prevImg());
+
+document
+  .querySelector(".side-arrow.next")
+  .addEventListener("click", () => slideShowDirector.nextImg());
