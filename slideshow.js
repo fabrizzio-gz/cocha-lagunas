@@ -40,7 +40,7 @@ const createSlideShow = async (imgList) => {
 
 document.querySelector(".modal").addEventListener("click", (e) => {
   console.log(e.target);
-  if (e.target === document.querySelector(".modal-content")) closeModal();
+  if (e.target === document.querySelector("#slideshow")) closeModal();
 });
 
 document
