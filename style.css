@@ -326,6 +326,31 @@ section img {
   background-color: black;
   color: white;
 }
+
+#image-container {
+  flex-direction: row;
+}
+
+/* https://codepen.io/reacraf/pen/ZPqRKV */
+.side-arrow::before {
+  content: " ";
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  cursor: pointer;
+  display: block;
+}
+
+.prev::before {
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.next::before {
+  border-right: 2px solid white;
+  border-top: 2px solid white;
+}
+
 .show-modal {
   display: initial;
   visibility: visible;
