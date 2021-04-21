@@ -290,10 +290,10 @@ section img {
 
 #slideshow figcaption {
   font-size: 1.3rem;
-  font-family: "Zilla Slab Highlight", "Trebuchet MS";
-  color: black;
-  background: white;
+  font-family: serif;
+  color: white;
   margin: 2rem;
+  text-align: center;
 }
 
 .close-modal-button {
