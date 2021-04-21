@@ -96,13 +96,13 @@ class Caption {
       {
         id: "cercado-svg-caption-rocha",
         text: "Río Rocha",
-        translate: "translate(30%, -80%)",
+        translate: "translate(-40%, -170%)",
       },
       { id: "cercado-svg-caption-tamborada", text: "La Tamborada" },
       {
         id: "cercado-svg-caption-cuellar",
         text: "Laguna Cuellar",
-        translate: "translate(-50%, -240%)",
+        translate: "translate(-50%, -280%)",
       },
       { id: "cercado-svg-caption-quenamari", text: "Laguna Quenamari" },
       { id: "cercado-svg-caption-alalay", text: "Laguna Alalay" },
@@ -110,13 +110,13 @@ class Caption {
       {
         id: "cercado-svg-caption-quillacollo",
         text: "Puente Quillacollo",
-        translate: "translate(-50%, -50%)",
+        translate: "translate(-50%, -70%)",
       },
       { id: "cercado-svg-caption-recoleta", text: "Recoleta" },
       {
         id: "cercado-svg-caption-cuadras",
         text: "Laguna Cuadras",
-        translate: "translate(-100%,-200%)",
+        translate: "translate(-50%,-200%)",
       },
       {
         id: "cercado-svg-caption-sarco",
@@ -127,7 +127,7 @@ class Caption {
         id: "america",
         text: "Av. América",
         translate:
-          "translate(100%, -30%)  rotate(3deg)" /*"translate(120%, 0%) rotate(3deg)",*/,
+          "translate(100%, -130%)  rotate(3deg)" /*"translate(120%, 0%) rotate(3deg)",*/,
         isAvenida: true,
       },
       {
