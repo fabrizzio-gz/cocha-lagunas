@@ -19,11 +19,10 @@ class SlideShowDirector {
   async startSlideShow(slideShowList) {
     this.index = 0;
     this.slideShowList = slideShowList;
-    const { src, title = "", credits = "" } = slideShowList[this.index];
     this.resetSlideShowContent();
     this.showArrows();
     this.modal.classList.add("show-modal");
-    await this.showSingleImg(src, title, credits);
+    await this.showSingleImg();
   }
 
   resetSlideShowContent() {
@@ -48,7 +47,8 @@ class SlideShowDirector {
       this.next.classList.add("hidden");
   }
 
-  async showSingleImg(src, title, credits) {
+  async showSingleImg() {
+    const { src, title, credits } = this.slideShowList[this.index];
     if (title) this.figcaption.appendChild(document.createTextNode(title));
 
     if (src) {
