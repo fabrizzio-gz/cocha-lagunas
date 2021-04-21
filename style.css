@@ -301,13 +301,6 @@ section img {
   transition: visibility 0s linear 0s, transform 0.25s;
 }
 
-.center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 /*
  * svg
  */
