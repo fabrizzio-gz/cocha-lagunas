@@ -292,7 +292,7 @@ section img {
 }
 
 #cercado-svg-lagunas circle:hover {
-  fill: red;
+  transform: scale(1.4);
 }
 
 /* Fix to hover on "laguna cuadras" */
