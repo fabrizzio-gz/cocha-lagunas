@@ -53,6 +53,7 @@ strong {
 
 .center {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -71,7 +72,6 @@ strong {
 
 #inicio {
   position: relative;
-  flex-direction: column;
   height: calc(var(--inicio-size) * 100vh);
   z-index: 1;
 }
@@ -222,7 +222,6 @@ section img {
 @media (max-width: 768px) {
   section figure {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     margin-left: 0%;
   }
