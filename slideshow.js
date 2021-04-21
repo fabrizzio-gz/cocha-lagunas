@@ -75,7 +75,6 @@ const createSlideShow = async (slideShowList) => {
 };
 
 document.querySelector(".modal").addEventListener("click", (e) => {
-  console.log(e.target);
   if (e.target === document.querySelector("#slideshow")) closeModal();
 });
 
