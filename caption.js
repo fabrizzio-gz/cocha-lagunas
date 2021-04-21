@@ -5,16 +5,8 @@ class Caption {
     this.text = text;
     this.elementId = elementId;
     this.isAvenida = isAvenida;
-    let x, y, width, height;
-    if (elementId)
-      ({ right: x, bottom: y, width, height } = this.getElementPosition(
-        elementId,
-        this.isAvenida
-      ));
-    else {
-      x = 0;
-      y = 0;
-    }
+    let x, y;
+    ({ x, y } = this.getElementPosition(elementId, this.isAvenida));
 
     this.div = document.createElement("div");
 
@@ -28,7 +20,7 @@ class Caption {
     this.div.classList.add("caption");
     this.div.classList.add("hidden");
     if (this.isAvenida) this.div.classList.add("avenida");
-    this.setPosition(x, y, width, height, this.isAvenida);
+    this.setPosition(x, y, this.isAvenida);
     this.div.appendChild(document.createTextNode(text));
     this.add();
     Caption.list.set(this.captionId, this);
@@ -36,24 +28,15 @@ class Caption {
 
   getElementPosition(elementId, isAvenida) {
     const element = document.getElementById(elementId);
-    let x,
-      y,
-      right,
-      bottom,
-      width = 0,
-      height = 0;
-    ({ x, y, right, bottom, width, height } = element.getBoundingClientRect());
-    if (isAvenida) return { right, bottom, width, height };
-    return { x, y, width, height };
+    let x, y, right, bottom;
+    ({ x, y, right, bottom } = element.getBoundingClientRect());
+    if (isAvenida) return { x: right, y: bottom };
+    return { x, y };
   }
 
-  setPosition(posX, posY, width = 0, height = 0, isAvenida) {
+  setPosition(posX, posY, isAvenida) {
     this.posX = posX;
     this.posY = posY;
-    if (isAvenida) {
-      this.div.style.width = width;
-      this.div.style.height = height;
-    }
     this.div.style.left = this.posX + "px";
     this.div.style.top = this.posY + "px";
   }
