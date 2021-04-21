@@ -4,7 +4,17 @@ const init = () => {
 };
 
 const getImage = (e) => {
-  console.log(e.target.id);
+  switch (e.target.id) {
+    case "lag-cuellar":
+      createSlideShow(["media/cuellar-1.jpg"]);
+      break;
+    case "lag-sarco":
+      createSlideShow(["media/sarco-1.jpg"]);
+      break;
+    case "lag-cuadras":
+      console.log([]);
+      break;
+  }
 };
 
 const getSectionSizes = () => {
@@ -99,6 +109,7 @@ const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 window.onbeforeunload = () => {
   //window.scrollTo(0, 0);
 };
+
 window.onresize = Caption.updateAllPositions;
 document.addEventListener("scroll", scrollCallback);
 
