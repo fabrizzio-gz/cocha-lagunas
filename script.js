@@ -3,6 +3,10 @@ const init = () => {
   Caption.init();
 };
 
+const getImage = (e) => {
+  console.log(e.target.id);
+};
+
 const getSectionSizes = () => {
   const inicioSize = Math.round(
     getComputedStyle(document.documentElement).getPropertyValue(
@@ -97,5 +101,9 @@ window.onbeforeunload = () => {
 };
 window.onresize = Caption.updateAllPositions;
 document.addEventListener("scroll", scrollCallback);
+
+document
+  .querySelectorAll("#cercado-svg-lagunas circle")
+  .forEach((e) => e.addEventListener("click", getImage));
 
 init();
