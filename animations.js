@@ -283,7 +283,7 @@ const sec7Anim = anime
         duration: 1500,
       },
       {
-        duration: 500,
+        duration: 1000,
       },
       {
         translateX: [0, 0],
@@ -328,8 +328,8 @@ const sec9Prep = () => {
   prepCercadoMap();
   anime.set("#cercado-svg", {
     translateX: 0,
-    translateY: "20%",
-    scale: 4,
+    translateY: "40%",
+    scale: 6,
   });
   anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"], {
     opacity: 1,
@@ -352,17 +352,17 @@ const sec9Anim = anime
     keyframes: [
       {
         translateX: [0, "-10%"],
-        translateY: ["20%", 0],
-        scale: [4, 2.5],
+        translateY: ["40%", 0],
+        scale: [6, 2.5],
         duration: 1500,
       },
       {
         duration: 1000,
       },
       {
-        translateX: ["-10%", "-30%"],
+        translateX: ["-10%", "-40%"],
         translateY: [0, 0],
-        scale: [2.5, 4],
+        scale: [2.5, 6],
         duration: 1500,
       },
     ],
@@ -382,9 +382,9 @@ const sec9Anim = anime
 const sec10Prep = () => {
   prepCercadoMap();
   anime.set("#cercado-svg", {
-    translateX: "-30%",
+    translateX: "-40%",
     translateY: 0,
-    scale: 4,
+    scale: 6,
   });
   anime.set(
     [
@@ -413,9 +413,9 @@ const sec10Anim = anime({
 const sec11Prep = () => {
   prepCercadoMap();
   anime.set("#cercado-svg", {
-    translateX: "-30%",
+    translateX: "-40%",
     translateY: 0,
-    scale: 4,
+    scale: 6,
   });
   anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"], {
     opacity: 1,
