@@ -220,6 +220,8 @@ const captionsSec5 = [
   "caption-cuellar",
   "caption-rocha",
   "caption-tamborada",
+  "caption-libertadores",
+  "caption-juan-rosa",
 ];
 
 const showCaptionsSec5 = () => showCaptions(captionsSec5);
@@ -266,7 +268,7 @@ const sec6Prep = () => {
     }
   );
   show("lag-cuellar");
-  getCaption("caption-sarco").setText("Laguna Sarco");
+  getCaption("caption-cuellar").setText("Laguna Cuellar");
   showCaptionsSec5();
 };
 
@@ -299,7 +301,11 @@ const captionsSec7 = [
   "caption-sarco",
   "caption-america",
   "caption-melchor-perez",
-].concat(captionsSec5.filter((captionId) => captionId != "caption-cuellar"));
+  "caption-recoleta",
+  "caption-quillacollo",
+  "caption-rocha",
+  "caption-tamborada",
+];
 
 const showCaptionsSec7 = () => showCaptions(captionsSec7);
 

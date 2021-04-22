@@ -113,7 +113,7 @@ class Caption {
       {
         id: "cercado-svg-caption-cuellar",
         text: "Laguna Cuellar",
-        translate: "translate(-50%, -280%)",
+        translate: "translate(0, 120%)",
       },
       {
         id: "cercado-svg-caption-quenamari",
@@ -147,10 +147,21 @@ class Caption {
         translate: "translate(-70%, -200%)",
       },
       {
+        id: "libertadores",
+        text: "Av. Libertadores",
+        translate: "translate(-40%, -100%)  rotate(75deg)",
+        isAvenida: true,
+      },
+      {
+        id: "juan-rosa",
+        text: "Av. Juan de la Rosa",
+        translate: "translate(-80%, -120%)  rotate(28deg)",
+        isAvenida: true,
+      },
+      {
         id: "america",
         text: "Av. América",
-        translate:
-          "translate(100%, -130%)  rotate(3deg)" /*"translate(120%, 0%) rotate(3deg)",*/,
+        translate: "translate(100%, -130%)  rotate(3deg)",
         isAvenida: true,
       },
       {
