@@ -201,6 +201,7 @@ const sec5Prep = () => {
     translateY: 0,
     scale: 1,
   });
+  getCaption("caption-cuellar").setText("Laguna Cuellar");
 };
 
 const captionsSec5 = [
@@ -254,17 +255,24 @@ const sec6Prep = () => {
       opacity: 1,
     }
   );
+  getCaption("caption-cuellar").setText("Laguna Cuellar");
   showCaptionsSec5();
 };
 
-const sec6Anim = anime({
-  targets: ["#lag-cuellar"],
-  opacity: [1, 0],
-  easing: "easeInOutCubic",
-  complete: () => getCaption("caption-cuellar").hide(),
-  duration: 2500,
-  autoplay: false,
-});
+const sec6Anim = anime
+  .timeline({
+    targets: "#lag-cuellar",
+    opacity: [1, 0],
+    easing: "easeInOutCubic",
+    duration: 1500,
+    autoplay: false,
+  })
+  .add({
+    targets: "#estadio",
+    opacity: [0, 1],
+    complete: () =>
+      getCaption("caption-cuellar").setText("Estadio Félix Capriles"),
+  });
 
 const sec7Prep = () => {
   sec6Prep();
