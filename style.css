@@ -161,23 +161,10 @@ section div p {
   font-size: 1.25em;
 }
 
-section blockquote,
-section figure {
+section blockquote {
   position: relative;
   grid-area: q;
   z-index: 1;
-}
-
-section figure {
-  margin-left: 5%;
-}
-
-section figure div figcaption {
-  transform: translateY(-120%);
-  font-family: "Zilla Slab Highlight", "Trebuchet MS";
-  color: black;
-  background-color: white;
-  display: inline-block;
 }
 
 section blockquote {
@@ -219,14 +206,6 @@ section img {
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   filter: grayscale(1);
-}
-
-@media (max-width: 768px) {
-  section figure {
-    display: flex;
-    justify-content: center;
-    margin-left: 0%;
-  }
 }
 
 #end-div {
