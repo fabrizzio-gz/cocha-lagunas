@@ -252,8 +252,9 @@ section img {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-.avenida {
-  font-family: "Nunito Sans", "Times New Roman";
+.avenida,
+.edificio {
+  font-family: "Nunito Sans", serif;
   font-size: 1.1em;
   font-weight: bold;
   color: var(--color-strong);
@@ -261,11 +262,17 @@ section img {
   vertical-align: middle;
 }
 
+.edificio {
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+}
+
 @media (max-width: 768px) {
   .caption {
     font-size: 1em;
   }
-  .avenida {
+  .avenida,
+  .edificio {
     font-size: 0.8em;
   }
 }

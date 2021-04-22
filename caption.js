@@ -1,10 +1,16 @@
 class Caption {
   static list = new Map();
 
-  constructor(text = "", elementId = "", isAvenida = false) {
+  constructor(
+    text = "",
+    elementId = "",
+    isAvenida = false,
+    isEdificio = false
+  ) {
     this.text = text;
     this.elementId = elementId;
     this.isAvenida = isAvenida;
+    this.isEdificio = isEdificio;
     let x, y;
     ({ x, y } = this.getElementPosition(elementId, this.isAvenida));
 
@@ -20,6 +26,7 @@ class Caption {
     this.div.classList.add("caption");
     this.div.classList.add("hidden");
     if (this.isAvenida) this.div.classList.add("avenida");
+    if (isEdificio) this.div.classList.add("edificio");
     this.setPosition(x, y, this.isAvenida);
     this.div.appendChild(document.createTextNode(text));
     this.add();
@@ -168,19 +175,19 @@ class Caption {
         text: "UMSS",
         translate:
           "translate(0%, -60%) rotate(-10deg)" /*"translate(20%, -30%) rotate(-10deg)",*/,
-        isAvenida: true,
+        isEdificio: true,
       },
     ];
 
     captionCochaSvg.forEach(
-      ({ id, text, translate = "", isAvenida = false }) => {
-        const caption = new Caption(text, id);
+      ({ id, text, translate = "", isAvenida = false, isEdificio = false }) => {
+        const caption = new Caption(text, id, isAvenida, isEdificio);
         if (translate) caption.div.style.transform = translate;
       }
     );
     captionCercadoSvg.forEach(
-      ({ id, text, translate = "", isAvenida = false }) => {
-        const caption = new Caption(text, id, isAvenida);
+      ({ id, text, translate = "", isAvenida = false, isEdificio = false }) => {
+        const caption = new Caption(text, id, isAvenida, isEdificio);
         if (translate) caption.div.style.transform = translate;
       }
     );
