@@ -91,7 +91,6 @@ const introAnim = anime({
 });
 
 const sec0Prep = () => {
-  console.log("prep0");
   prepCochaMap();
   anime.set("#cocha-map-container", {
     translateX: 0,
@@ -107,7 +106,6 @@ const sec0Anim = anime({
 });
 
 const sec1Prep = () => {
-  console.log("prep1");
   sec0Prep();
   document.querySelector(".arrow").classList.add("hidden");
 };
@@ -119,7 +117,6 @@ const sec1Anim = {
 };
 
 const sec2Prep = () => {
-  console.log("prep2");
   sec0Prep();
   show("cocha-svg-cercado");
   anime.set("#cocha-svg-cercado", {
