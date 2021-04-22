@@ -255,7 +255,7 @@ section img {
 .avenida {
   font-family: "Nunito Sans", "Times New Roman";
   font-size: 1.1em;
-  font-style: bold;
+  font-weight: bold;
   color: var(--color-strong);
   text-align: center;
   vertical-align: middle;
