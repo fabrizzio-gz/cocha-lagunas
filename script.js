@@ -66,14 +66,18 @@ const scrollCallback = (e) => {
     }
   };
 
-  if (yPos == 0) introAnim.play();
-  else introAnim.pause();
+  /* if (yPos == 0) introAnim.play();
+  else introAnim.pause(); */
 
   window.requestAnimationFrame(() => {
     const section = Math.ceil((positionMid - inicioSize) / sectionSize);
     switch (section) {
       case 0:
-        callAnimation(0, sec0Anim, sec0Prep);
+        callAnimation(0, sec0Anim, () => {
+          document.querySelector(".arrow").classList.remove("hidden");
+          sec0Prep();
+        });
+        break;
       case 1:
         callAnimation(1, sec1Anim, sec1Prep);
         break;
