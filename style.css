@@ -451,10 +451,10 @@ section img {
   }
 }
 
-#rio-rocha {
+.draw-rocha {
   stroke-dasharray: 310;
   stroke-dashoffset: 310;
-  animation: paint-rocha 10s linear forwards;
+  animation: paint-rocha 7s linear forwards;
 }
 
 @keyframes paint-rocha {
@@ -466,15 +466,15 @@ section img {
   }
 }
 
-#rio-tamborada {
+.draw-tamborada {
   stroke-dasharray: 260;
   stroke-dashoffset: 260;
-  animation: paint-tamborada 10s linear forwards;
+  animation: paint-tamborada 5s 5s linear forwards;
 }
 
 @keyframes paint-tamborada {
   0% {
-    stroke-dashoffset: 310;
+    stroke-dashoffset: 260;
   }
   100% {
     stroke-dashoffset: 0;

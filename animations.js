@@ -213,6 +213,10 @@ const showCaptionsSec5 = () => showCaptions(captionsSec5);
 const sec5Anim = anime
   .timeline({
     targets: "#cercado-svg",
+    begin: () => {
+      document.querySelector("#rio-rocha").classList.add("draw-rocha");
+      document.querySelector("#rio-tamborada").classList.add("draw-tamborada");
+    },
     translateX: [0, "-10%"],
     translateY: [0, 0],
     scale: [1, 2.5],
@@ -243,6 +247,8 @@ const sec6Prep = () => {
       opacity: 1,
     }
   );
+  document.querySelector("#rio-rocha").classList.remove("draw-rocha");
+  document.querySelector("#rio-tamborada").classList.remove("draw-tamborada");
   showCaptionsSec5();
 };
 
@@ -429,6 +435,10 @@ const sec11Anim = anime
   })
   .add({
     targets: "#lag-alalay",
+    begin: () => {
+      document.querySelector("#rio-rocha").classList.add("draw-rocha");
+      document.querySelector("#rio-tamborada").classList.add("draw-tamborada");
+    },
     opacity: [0, 1],
   })
   .add({
