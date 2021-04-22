@@ -228,6 +228,8 @@ const sec5Anim = anime
       "#lag-cuellar",
       "#cercado-svg-rios path",
       "#p-recoleta, #p-quillacollo",
+      "#libertadores",
+      "#juan-rosa",
     ],
     opacity: [0, 1],
     complete: showCaptionsSec5,
@@ -241,7 +243,13 @@ const sec6Prep = () => {
     scale: 6,
   });
   anime.set(
-    ["#lag-cuellar", "#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"],
+    [
+      "#lag-cuellar",
+      "#cercado-svg-rios path",
+      "#p-recoleta, #p-quillacollo",
+      "#libertadores",
+      "#juan-rosa",
+    ],
     {
       opacity: 1,
     }
@@ -261,7 +269,7 @@ const sec6Anim = anime({
 const sec7Prep = () => {
   sec6Prep();
   Caption.hideAllCaptions();
-  anime.set("#lag-cuellar", { opacity: 0 });
+  anime.set(["#lag-cuellar", "#libertadores", "#juan-rosa"], { opacity: 0 });
 };
 
 const captionsSec7 = [
