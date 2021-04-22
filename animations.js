@@ -216,9 +216,9 @@ const showCaptionsSec5 = () => showCaptions(captionsSec5);
 const sec5Anim = anime
   .timeline({
     targets: "#cercado-svg",
-    translateX: [0, "-10%"],
-    translateY: [0, 0],
-    scale: [1, 2.5],
+    translateX: [0, "-20%"],
+    translateY: [0, "30%"],
+    scale: [1, 6],
     duration: 1000,
     easing: "linear",
     autoplay: false,
@@ -236,9 +236,9 @@ const sec5Anim = anime
 const sec6Prep = () => {
   prepCercadoMap();
   anime.set("#cercado-svg", {
-    translateX: "-10%",
-    translateY: 0,
-    scale: 2.5,
+    translateX: "-20%",
+    translateY: "30%",
+    scale: 6,
   });
   anime.set(
     ["#lag-cuellar", "#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"],
@@ -246,8 +246,6 @@ const sec6Prep = () => {
       opacity: 1,
     }
   );
-  document.querySelector("#rio-rocha").classList.remove("draw-rocha");
-  document.querySelector("#rio-tamborada").classList.remove("draw-tamborada");
   showCaptionsSec5();
 };
 
