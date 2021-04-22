@@ -255,7 +255,7 @@ const sec6Prep = () => {
       opacity: 1,
     }
   );
-  getCaption("caption-cuellar").setText("Laguna Cuellar");
+  getCaption("caption-sarco").setText("Laguna Sarco");
   showCaptionsSec5();
 };
 
@@ -328,17 +328,24 @@ const sec8Prep = () => {
   anime.set(["#melchor-perez", "#america", "#lag-sarco"], {
     opacity: 1,
   });
+  getCaption("caption-sarco").setText("Laguna Sarco");
   showCaptionsSec7();
 };
 
-const sec8Anim = anime({
-  targets: "#lag-sarco",
-  opacity: [1, 0],
-  complete: () => getCaption("caption-sarco").hide(),
-  duration: 2000,
-  easing: "easeInCubic",
-  autoplay: false,
-});
+const sec8Anim = anime
+  .timeline({
+    targets: "#lag-sarco",
+    opacity: [1, 0],
+    duration: 1500,
+    easing: "easeInCubic",
+    autoplay: false,
+  })
+  .add({
+    targets: "#complejo-sarco",
+    opacity: [0, 1],
+    complete: () =>
+      getCaption("caption-sarco").setText("Complejo Deportivo Sarco"),
+  });
 
 const sec9Prep = () => {
   prepCercadoMap();
@@ -350,6 +357,7 @@ const sec9Prep = () => {
   anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"], {
     opacity: 1,
   });
+  getCaption("caption-sarco").setText("Laguna Sarco");
 };
 
 const captionsSec9 = [
