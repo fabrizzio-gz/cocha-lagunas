@@ -309,7 +309,7 @@ const sec7Anim = anime
       },
     ],
     easing: "easeInCubic",
-    duration: 3500,
+    duration: 4000,
     autoplay: false,
   })
   .add({
