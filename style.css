@@ -420,12 +420,17 @@ section img {
 }
 
 #estadio,
-#complejo-sarco {
+#complejo-sarco,
+#estacion-teleferico {
   stroke: var(--color-strong);
   fill: none;
   stroke-dasharray: 1, 1;
   stroke-width: 0.5;
   transform: translate(-0.1%, 0.1%);
+}
+
+#estacion-teleferico {
+  transform: translate(0.1%, -0.1%);
 }
 
 /* Fix to hover on "laguna cuadras" */

@@ -357,6 +357,7 @@ const sec9Prep = () => {
   anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"], {
     opacity: 1,
   });
+  getCaption("caption-cuadras").setText("Laguna Cuadras");
   getCaption("caption-sarco").setText("Laguna Sarco");
 };
 
@@ -422,17 +423,24 @@ const sec10Prep = () => {
       opacity: 1,
     }
   );
+  getCaption("caption-cuadras").setText("Laguna Cuadras");
   showCaptionsSec9();
 };
 
-const sec10Anim = anime({
-  targets: ["#lag-cuadras"],
-  opacity: [1, 0],
-  complete: () => getCaption("caption-cuadras").hide(),
-  easing: "easeInCubic",
-  duration: 2000,
-  autoplay: false,
-});
+const sec10Anim = anime
+  .timeline({
+    targets: "#lag-cuadras",
+    opacity: [1, 0],
+    easing: "easeInCubic",
+    duration: 2000,
+    autoplay: false,
+  })
+  .add({
+    targets: "#estacion-teleferico",
+    opacity: [0, 1],
+    complete: () =>
+      getCaption("caption-cuadras").setText("Estación Parque Teleférico"),
+  });
 
 const sec11Prep = () => {
   prepCercadoMap();
