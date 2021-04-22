@@ -48,6 +48,10 @@ class Caption {
     this.div.style.top = this.posY + "px";
   }
 
+  setText(text) {
+    this.div.textContent = text;
+  }
+
   add() {
     document.body.appendChild(this.div);
   }
