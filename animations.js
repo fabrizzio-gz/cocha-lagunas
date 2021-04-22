@@ -61,11 +61,15 @@ const prepCercadoMap = () => {
   setChildrenOpacityZero("cercado-svg-avenidas");
   setChildrenOpacityZero("cercado-svg-edificios");
   show("cercado-map-container");
+  anime.set("#cercado-svg", { opacity: 1 });
+  show("cercado-svg-inner-elements");
+  /* To avoid having animations running */
   hide("lag-cuellar");
   hide("lag-sarco");
   hide("lag-cuadras");
-  anime.set("#cercado-svg", { opacity: 1 });
-  show("cercado-svg-inner-elements");
+  hide("lag-alalay");
+  hide("lag-cona-cona");
+  hide("lag-quenamari");
   document.querySelector("#rio-rocha").classList.remove("draw-rocha");
   document.querySelector("#rio-tamborada").classList.remove("draw-tamborada");
 };
@@ -464,11 +468,15 @@ const sec10Anim = anime
 
 const sec11Prep = () => {
   prepCercadoMap();
+  show("lag-alalay");
+  show("lag-cona-cona");
+  show("lag-quenamari");
   anime.set("#cercado-svg", {
     translateX: "-40%",
     translateY: 0,
     scale: 6,
   });
+
   anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"], {
     opacity: 1,
   });
@@ -516,6 +524,9 @@ const sec11Anim = anime
 
 const sec12Prep = () => {
   prepCercadoMap();
+  show("lag-alalay");
+  show("lag-cona-cona");
+  show("lag-quenamari");
   anime.set("#cercado-svg", {
     translateX: "-10%",
     translateY: 0,
