@@ -58,10 +58,6 @@ strong {
   align-items: center;
 }
 
-.hidden {
-  display: none;
-}
-
 .italic {
   font-style: italic;
 }
@@ -479,4 +475,9 @@ section img {
   100% {
     stroke-dashoffset: 0;
   }
+}
+
+/* special class, apply last */
+.hidden {
+  display: none;
 }

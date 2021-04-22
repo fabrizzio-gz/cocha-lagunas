@@ -53,6 +53,7 @@ const prepCochaMap = () => {
 const prepCercadoMap = () => {
   /* set scale and transformX, Y separately */
   hide("cocha-map-container");
+  document.querySelector(".arrow").classList.add("hidden");
   Caption.hideAllCaptions();
   setChildrenOpacityZero("cercado-svg-lagunas");
   setChildrenOpacityZero("cercado-svg-puentes");
@@ -86,6 +87,7 @@ const introAnim = anime({
 });
 
 const sec0Prep = () => {
+  console.log("prep0");
   prepCochaMap();
   anime.set("#cocha-map-container", {
     translateX: 0,
@@ -96,13 +98,14 @@ const sec0Prep = () => {
   hide("cocha-svg-cercado");
 };
 
-const sec0Anim = {
-  play: () => {},
-  restart: () => {},
-};
+const sec0Anim = anime({
+  autoplay: false,
+});
 
 const sec1Prep = () => {
+  console.log("prep1");
   sec0Prep();
+  document.querySelector(".arrow").classList.add("hidden");
 };
 
 const sec1Anim = {
@@ -112,6 +115,7 @@ const sec1Anim = {
 };
 
 const sec2Prep = () => {
+  console.log("prep2");
   sec0Prep();
   show("cocha-svg-cercado");
   anime.set("#cocha-svg-cercado", {
