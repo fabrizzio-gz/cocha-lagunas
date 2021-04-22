@@ -403,7 +403,7 @@ section img {
 
 #cercado-svg-lagunas circle {
   stroke-dasharray: 2, 3;
-  stroke: var(--color-orange);
+  stroke: var(--color-strong);
   animation: spin 10s linear infinite;
   transform-box: fill-box;
   transform-origin: center;
