@@ -62,6 +62,8 @@ const prepCercadoMap = () => {
   show("cercado-map-container");
   anime.set("#cercado-svg", { opacity: 1 });
   show("cercado-svg-inner-elements");
+  document.querySelector("#rio-rocha").classList.remove("draw-rocha");
+  document.querySelector("#rio-tamborada").classList.remove("draw-tamborada");
 };
 
 const getCaption = Caption.getCaption;
@@ -214,10 +216,6 @@ const showCaptionsSec5 = () => showCaptions(captionsSec5);
 const sec5Anim = anime
   .timeline({
     targets: "#cercado-svg",
-    begin: () => {
-      document.querySelector("#rio-rocha").classList.add("draw-rocha");
-      document.querySelector("#rio-tamborada").classList.add("draw-tamborada");
-    },
     translateX: [0, "-10%"],
     translateY: [0, 0],
     scale: [1, 2.5],
