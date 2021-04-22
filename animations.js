@@ -275,11 +275,25 @@ const showCaptionsSec7 = () => showCaptions(captionsSec7);
 const sec7Anim = anime
   .timeline({
     targets: "#cercado-svg",
-    translateX: ["-10%", 0],
-    translateY: [0, "20%"],
-    scale: [2.5, 4],
+    keyframes: [
+      {
+        translateX: ["-20%", 0],
+        translateY: ["30%", 0],
+        scale: [6, 2.5],
+        duration: 1500,
+      },
+      {
+        duration: 500,
+      },
+      {
+        translateX: [0, 0],
+        translateY: [0, "40%"],
+        scale: [2.5, 6],
+        duration: 1500,
+      },
+    ],
     easing: "easeInCubic",
-    duration: 1500,
+    duration: 3500,
     autoplay: false,
   })
   .add({
@@ -292,8 +306,8 @@ const sec8Prep = () => {
   sec7Prep();
   anime.set("#cercado-svg", {
     translateX: 0,
-    translateY: "20%",
-    scale: 4,
+    translateY: "40%",
+    scale: 6,
   });
   anime.set(["#melchor-perez", "#america", "#lag-sarco"], {
     opacity: 1,
