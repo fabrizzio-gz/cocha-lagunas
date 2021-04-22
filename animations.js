@@ -60,6 +60,9 @@ const prepCercadoMap = () => {
   setChildrenOpacityZero("cercado-svg-avenidas");
   setChildrenOpacityZero("cercado-svg-edificios");
   show("cercado-map-container");
+  hide("lag-cuellar");
+  hide("lag-sarco");
+  hide("lag-cuadras");
   anime.set("#cercado-svg", { opacity: 1 });
   show("cercado-svg-inner-elements");
   document.querySelector("#rio-rocha").classList.remove("draw-rocha");
@@ -201,6 +204,8 @@ const sec5Prep = () => {
     translateY: 0,
     scale: 1,
   });
+  show("lag-cuellar");
+  anime.set("#lag-cuellar", { opacity: 0 });
   getCaption("caption-cuellar").setText("Laguna Cuellar");
 };
 
@@ -255,6 +260,7 @@ const sec6Prep = () => {
       opacity: 1,
     }
   );
+  show("lag-cuellar");
   getCaption("caption-sarco").setText("Laguna Sarco");
   showCaptionsSec5();
 };
@@ -270,12 +276,16 @@ const sec6Anim = anime
   .add({
     targets: "#estadio",
     opacity: [0, 1],
-    complete: () =>
-      getCaption("caption-cuellar").setText("Estadio Félix Capriles"),
+    complete: () => {
+      getCaption("caption-cuellar").setText("Estadio Félix Capriles");
+      hide("lag-cuellar");
+    },
   });
 
 const sec7Prep = () => {
   sec6Prep();
+  hide("lag-cuellar");
+  show("lag-sarco");
   Caption.hideAllCaptions();
   anime.set(["#lag-cuellar", "#libertadores", "#juan-rosa"], { opacity: 0 });
 };
@@ -343,8 +353,10 @@ const sec8Anim = anime
   .add({
     targets: "#complejo-sarco",
     opacity: [0, 1],
-    complete: () =>
-      getCaption("caption-sarco").setText("Complejo Deportivo Sarco"),
+    complete: () => {
+      getCaption("caption-sarco").setText("Complejo Deportivo Sarco");
+      hide("lag-sarco");
+    },
   });
 
 const sec9Prep = () => {
@@ -357,6 +369,7 @@ const sec9Prep = () => {
   anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"], {
     opacity: 1,
   });
+  show("lag-cuadras");
   getCaption("caption-cuadras").setText("Laguna Cuadras");
   getCaption("caption-sarco").setText("Laguna Sarco");
 };
@@ -406,6 +419,7 @@ const sec9Anim = anime
 
 const sec10Prep = () => {
   prepCercadoMap();
+  show("lag-cuadras");
   anime.set("#cercado-svg", {
     translateX: "-40%",
     translateY: 0,
@@ -438,8 +452,10 @@ const sec10Anim = anime
   .add({
     targets: "#estacion-teleferico",
     opacity: [0, 1],
-    complete: () =>
-      getCaption("caption-cuadras").setText("Estación Parque Teleférico"),
+    complete: () => {
+      getCaption("caption-cuadras").setText("Estación Parque Teleférico");
+      hide("lag-cuadras");
+    },
   });
 
 const sec11Prep = () => {
