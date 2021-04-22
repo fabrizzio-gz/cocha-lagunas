@@ -206,6 +206,7 @@ const captionsSec5 = [
   "caption-quillacollo",
   "caption-cuellar",
   "caption-rocha",
+  "caption-tamborada",
 ];
 
 const showCaptionsSec5 = () => showCaptions(captionsSec5);
