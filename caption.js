@@ -187,8 +187,13 @@ class Caption {
       {
         id: "campus-umss",
         text: "UMSS",
-        translate:
-          "translate(0%, -60%) rotate(-10deg)" /*"translate(20%, -30%) rotate(-10deg)",*/,
+        translate: "translate(0%, -60%) rotate(-10deg)",
+        isEdificio: true,
+      },
+      {
+        id: "aeropuerto",
+        text: "Aeropuerto",
+        translate: "translate(10%, 80%) rotate(42deg)",
         isEdificio: true,
       },
     ];
