@@ -153,38 +153,32 @@ class Caption {
         isAvenida: true,
       },
       {
+        id: "cercado-svg-caption-campus-umss",
+        text: "UMSS",
+        translate: "translate(-50%, -50%) rotate(-10deg)",
+        isEdificio: true,
+      },
+      {
         id: "cercado-svg-caption-heroinas",
         text: "Av. Heroínas",
         translate: "translate(-50%, -50%) rotate(-10deg)",
-
         isAvenida: true,
       },
-
-      { id: "cercado-svg-caption-tamborada", text: "La Tamborada" },
-
       {
-        id: "cercado-svg-caption-quenamari",
-        text: "Laguna Quenamari",
+        id: "cercado-svg-caption-cuadras",
+        text: "Laguna Cuadras",
+      },
+      {
+        id: "cercado-svg-caption-cona-cona",
+        text: "Laguna Coña Coña",
       },
       {
         id: "cercado-svg-caption-alalay",
         text: "Laguna Alalay",
       },
       {
-        id: "cercado-svg-caption-cona-cona",
-        text: "Laguna Coña Coña",
-      },
-
-      {
-        id: "cercado-svg-caption-cuadras",
-        text: "Laguna Cuadras",
-      },
-
-      {
-        id: "campus-umss",
-        text: "UMSS",
-        translate: "translate(-50%, -50%) rotate(-10deg)",
-        isEdificio: true,
+        id: "cercado-svg-caption-quenamari",
+        text: "Laguna Quenamari",
       },
       {
         id: "cercado-svg-caption-aeropuerto",
@@ -192,6 +186,7 @@ class Caption {
         translate: "translate(-50%, -50%) rotate(42deg)",
         isEdificio: true,
       },
+      { id: "cercado-svg-caption-tamborada", text: "La Tamborada" },
     ];
 
     captionCochaSvg.forEach(
