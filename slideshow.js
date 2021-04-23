@@ -29,7 +29,6 @@ class Director {
     this.imgList.set("default", document.querySelector("#slideshow img"));
     this.modal = document.querySelector(".modal");
     this.slideshow = document.querySelector("#slideshow");
-    this.imgContainer = document.querySelector(".img-container");
     this.figcaption = document.querySelector("#slideshow figcaption");
     this.cite = document.querySelector("#slideshow cite");
     this.index = 0;
@@ -53,7 +52,7 @@ class Director {
     this.figcaption.textContent = "";
     this.cite.textContent = "";
     if (this.img !== this.imgList.get("default")) {
-      this.imgContainer.replaceChild(this.imgList.get("default"), this.img);
+      this.slideshow.replaceChild(this.imgList.get("default"), this.img);
       this.img = this.imgList.get("default");
     }
   }
@@ -78,10 +77,10 @@ class Director {
       if (!this.imgList.has(src)) {
         this.imgList.set(src, await this.loadImg(src));
       } else this.imgList.get(src);
-      this.imgContainer.replaceChild(this.imgList.get(src), this.img);
+      this.slideshow.replaceChild(this.imgList.get(src), this.img);
       this.img = this.imgList.get(src);
     } else {
-      this.imgContainer.replaceChild(this.imgList.get("default"), this.img);
+      this.slideshow.replaceChild(this.imgList.get("default"), this.img);
       this.img = this.imgList.get("default");
     }
 
@@ -119,7 +118,7 @@ class Director {
 const director = new Director();
 
 document.querySelector(".modal").addEventListener("click", (e) => {
-  if (e.target === document.querySelector(".modal-content")) director.stop();
+  if (e.target === document.querySelector("#slideshow")) director.stop();
 });
 
 document
