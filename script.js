@@ -41,6 +41,7 @@ const { inicioSize, sectionSize } = getSectionSizes();
 let currentSection = -1;
 
 const scrollCallback = (e) => {
+  if (director.isVisible) director.stop();
   const yPos = Math.round(window.scrollY);
   const positionMid = yPos + Math.round(windowY / 2);
 
