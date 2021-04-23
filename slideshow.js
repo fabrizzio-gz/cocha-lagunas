@@ -1,3 +1,21 @@
+const cuellarSlideShow = [
+  {
+    src: "media/cuellar-1.jpg",
+    title: "Los cisnes de la Laguna Cuellar",
+    credits: 'Revista "Ahora: Historias y Leyendas de Cochabamba"',
+  },
+];
+
+const sarcoSlideShow = [
+  {
+    src: "media/sarco-1.jpg",
+    title: "El espejo de la Laguna Sarco",
+    credits: "Rodolfo Torrico Zamudio (ca. 1940-1950)",
+  },
+];
+
+const cuadrasSlideShow = [{ src: "" }];
+
 class SlideShowDirector {
   constructor() {
     this.imgList = new Map();
@@ -108,3 +126,11 @@ document
 document
   .querySelector(".side-arrow.next")
   .addEventListener("click", () => slideShowDirector.nextImg());
+
+document.querySelector("#photos-cuellar").addEventListener("click", () => {
+  slideShowDirector.startSlideShow(cuellarSlideShow);
+});
+
+document.querySelector("#photos-sarco").addEventListener("click", () => {
+  slideShowDirector.startSlideShow(sarcoSlideShow);
+});

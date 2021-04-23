@@ -6,25 +6,13 @@ const init = () => {
 const getImage = (e) => {
   switch (e.target.id) {
     case "lag-cuellar":
-      slideShowDirector.startSlideShow([
-        {
-          src: "media/cuellar-1.jpg",
-          title: "Los cisnes de la Laguna Cuellar",
-          credits: 'Revista "Ahora: Historias y Leyendas de Cochabamba"',
-        },
-      ]);
+      slideShowDirector.startSlideShow(cuellarSlideShow);
       break;
     case "lag-sarco":
-      slideShowDirector.startSlideShow([
-        {
-          src: "media/sarco-1.jpg",
-          title: "El espejo de la Laguna Sarco",
-          credits: "Rodolfo Torrico Zamudio (ca. 1940-1950)",
-        },
-      ]);
+      slideShowDirector.startSlideShow(sarcoSlideShow);
       break;
     case "lag-cuadras":
-      slideShowDirector.startSlideShow([{ src: "" }]);
+      slideShowDirector.startSlideShow(cuadrasSlideShow);
       break;
   }
 };
