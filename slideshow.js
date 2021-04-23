@@ -119,7 +119,7 @@ class Director {
 const director = new Director();
 
 document.querySelector(".modal").addEventListener("click", (e) => {
-  if (e.target === document.querySelector("#slideshow")) director.stop();
+  if (e.target === document.querySelector(".modal-content")) director.stop();
 });
 
 document

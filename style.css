@@ -291,11 +291,13 @@ section img {
 #slideshow {
   max-height: 100%;
   justify-content: space-evenly;
+  pointer-events: none;
 }
 
 #slideshow figcaption,
 #slideshow cite,
 #slideshow div {
+  pointer-events: auto;
   box-sizing: border-box;
   font-size: 1.3rem;
   font-family: serif;
