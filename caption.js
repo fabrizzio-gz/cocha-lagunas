@@ -100,7 +100,7 @@ class Caption {
       {
         id: "cocha-svg-caption-cercado",
         text: "Cercado",
-        translate: "translate(-30%,-180%)",
+        translate: "translate(-50%,-50%)",
       },
     ];
     const captionCercadoSvg = [
@@ -191,9 +191,9 @@ class Caption {
         isEdificio: true,
       },
       {
-        id: "aeropuerto",
+        id: "cercado-svg-caption-aeropuerto",
         text: "Aeropuerto",
-        translate: "translate(10%, 80%) rotate(42deg)",
+        translate: "translate(-50%, -50%) rotate(42deg)",
         isEdificio: true,
       },
     ];
