@@ -520,7 +520,7 @@ const sec11Anim = anime
     opacity: [0, 1],
   })
   .add({
-    targets: "#lag-cona-cona",
+    targets: ["#lag-cona-cona", "#aeropuerto"],
     complete: showCaptionsSec11,
     opacity: [0, 1],
   });
@@ -535,9 +535,12 @@ const sec12Prep = () => {
     translateY: 0,
     scale: 2,
   });
-  anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"], {
-    opacity: 1,
-  });
+  anime.set(
+    ["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo", "#aeropuerto"],
+    {
+      opacity: 1,
+    }
+  );
 };
 
 const sec12Anim = anime({
@@ -561,9 +564,12 @@ const sec13Prep = () => {
     translateY: "-30%",
     scale: 2.5,
   });
-  anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"], {
-    opacity: 1,
-  });
+  anime.set(
+    ["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo", "#aeropuerto"],
+    {
+      opacity: 1,
+    }
+  );
 };
 
 const sec13Anim = anime({
