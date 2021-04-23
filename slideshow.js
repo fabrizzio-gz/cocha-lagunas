@@ -29,6 +29,7 @@ class Director {
     this.imgList.set("default", document.querySelector("#slideshow img"));
     this.modal = document.querySelector(".modal");
     this.slideshow = document.querySelector("#slideshow");
+    this.imgContainer = document.querySelector(".img-container");
     this.figcaption = document.querySelector("#slideshow figcaption");
     this.cite = document.querySelector("#slideshow cite");
     this.index = 0;
@@ -50,7 +51,7 @@ class Director {
     this.figcaption.textContent = "";
     this.cite.textContent = "";
     if (this.img !== this.imgList.get("default")) {
-      this.slideshow.replaceChild(this.imgList.get("default"), this.img);
+      this.imgContainer.replaceChild(this.imgList.get("default"), this.img);
       this.img = this.imgList.get("default");
     }
   }
@@ -75,10 +76,10 @@ class Director {
       if (!this.imgList.has(src)) {
         this.imgList.set(src, await this.loadImg(src));
       } else this.imgList.get(src);
-      this.slideshow.replaceChild(this.imgList.get(src), this.img);
+      this.imgContainer.replaceChild(this.imgList.get(src), this.img);
       this.img = this.imgList.get(src);
     } else {
-      this.slideshow.replaceChild(this.imgList.get("default"), this.img);
+      this.imgContainer.replaceChild(this.imgList.get("default"), this.img);
       this.img = this.imgList.get("default");
     }
 

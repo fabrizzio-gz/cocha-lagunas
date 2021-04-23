@@ -284,18 +284,14 @@ section img {
   z-index: 2;
 }
 .modal-content {
-  display: flex;
   height: 100%;
   width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 #slideshow {
-  display: grid;
   width: 100%;
   height: 100%;
+  /*display: grid;
   grid-template-columns: auto 5% auto 5% auto;
   grid-template-rows: auto 10% auto 10% auto;
   grid-template-areas:
@@ -305,30 +301,39 @@ section img {
     "c c c c c"
     ". . . . .";
   justify-items: center;
-  align-item: center;
+  align-items: center;*/
+}
+
+.img-container {
+  flex-direction: row;
 }
 
 #slideshow figcaption,
 #slideshow cite,
-#slideshow img {
+#slideshow div {
   font-size: 1.3rem;
   font-family: serif;
   color: white;
-  margin: 2rem;
+  padding: 2rem;
   text-align: center;
 }
 
+#slideshow figcaption,
+#slideshow cite {
+  min-height: 10%;
+}
+
+#slideshow div {
+  max-height: 90%;
+}
+
+/*
 #slideshow figcaption {
   grid-area: t;
 }
 
 #slideshow .prev {
   grid-area: p;
-}
-#slideshow img {
-  grid-area: i;
-  max-height: 100%;
-  max-width: 100%;
 }
 
 #slideshow .next {
@@ -337,6 +342,12 @@ section img {
 
 #slideshow cite {
   grid-area: c;
+}*/
+
+#slideshow img {
+  /* grid-area: i; */
+  max-height: 100%;
+  max-width: 100%;
 }
 
 #slideshow cite:before {
