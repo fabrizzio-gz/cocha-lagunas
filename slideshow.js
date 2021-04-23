@@ -16,7 +16,7 @@ const sarcoSlideShow = [
 
 const cuadrasSlideShow = [{ src: "" }];
 
-class SlideShowDirector {
+class Director {
   constructor() {
     this.imgList = new Map();
     this.imgList.set("default", document.querySelector("#slideshow img"));
@@ -108,29 +108,29 @@ class SlideShowDirector {
   }
 }
 
-const slideShowDirector = new SlideShowDirector();
+const director = new Director();
 
 document.querySelector(".modal").addEventListener("click", (e) => {
   if (e.target === document.querySelector("#slideshow"))
-    slideShowDirector.stopSlideShow();
+    director.stopSlideShow();
 });
 
 document
   .querySelector(".close-modal-button")
-  .addEventListener("click", () => slideShowDirector.stopSlideShow());
+  .addEventListener("click", () => director.stopSlideShow());
 
 document
   .querySelector(".side-arrow.prev")
-  .addEventListener("click", () => slideShowDirector.prevImg());
+  .addEventListener("click", () => director.prevImg());
 
 document
   .querySelector(".side-arrow.next")
-  .addEventListener("click", () => slideShowDirector.nextImg());
+  .addEventListener("click", () => director.nextImg());
 
 document.querySelector("#photos-cuellar").addEventListener("click", () => {
-  slideShowDirector.startSlideShow(cuellarSlideShow);
+  director.startSlideShow(cuellarSlideShow);
 });
 
 document.querySelector("#photos-sarco").addEventListener("click", () => {
-  slideShowDirector.startSlideShow(sarcoSlideShow);
+  director.startSlideShow(sarcoSlideShow);
 });

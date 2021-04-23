@@ -6,13 +6,13 @@ const init = () => {
 const getImage = (e) => {
   switch (e.target.id) {
     case "lag-cuellar":
-      slideShowDirector.startSlideShow(cuellarSlideShow);
+      director.startSlideShow(cuellarSlideShow);
       break;
     case "lag-sarco":
-      slideShowDirector.startSlideShow(sarcoSlideShow);
+      director.startSlideShow(sarcoSlideShow);
       break;
     case "lag-cuadras":
-      slideShowDirector.startSlideShow(cuadrasSlideShow);
+      director.startSlideShow(cuadrasSlideShow);
       break;
   }
 };
