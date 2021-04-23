@@ -229,7 +229,7 @@ section img {
 .caption {
   position: fixed;
   font-family: "Zilla Slab Highlight", "Trebuchet MS";
-  transform: translation(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 1.2em;
   z-index: 0;
   background-color: rgba(255, 255, 255, 0.4);
