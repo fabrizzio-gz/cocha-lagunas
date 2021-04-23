@@ -493,6 +493,7 @@ const captionsSec11 = [
   "caption-tamborada",
   "caption-recoleta",
   "caption-rocha",
+  "caption-aeropuerto",
 ];
 
 const showCaptionsSec11 = () => showCaptions(captionsSec11);
