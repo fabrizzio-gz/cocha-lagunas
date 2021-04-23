@@ -403,6 +403,7 @@ section img {
   animation: spin 10s linear infinite;
   transform-box: fill-box;
   transform-origin: center;
+  cursor: pointer;
 }
 
 @keyframes spin {
