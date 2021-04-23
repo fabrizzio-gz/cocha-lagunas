@@ -469,7 +469,7 @@ section img {
 .draw-rocha {
   stroke-dasharray: 310;
   stroke-dashoffset: 310;
-  animation: paint-rocha 7s linear forwards;
+  animation: paint-rocha 4.2s linear forwards;
 }
 
 @keyframes paint-rocha {
@@ -484,7 +484,7 @@ section img {
 .draw-tamborada {
   stroke-dasharray: 260;
   stroke-dashoffset: 260;
-  animation: paint-tamborada 5s 5s linear forwards;
+  animation: paint-tamborada 4.2s 3s linear forwards;
 }
 
 @keyframes paint-tamborada {
