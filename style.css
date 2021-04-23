@@ -447,6 +447,16 @@ section img {
   }
 }
 
+#cercado-svg-lagunas .shrink /* This lake isn't growing */ {
+  animation: shrink 3s 1s ease-in forwards;
+}
+
+@keyframes shrink {
+  100% {
+    transform: scale(0.4);
+  }
+}
+
 .draw-rocha {
   stroke-dasharray: 310;
   stroke-dashoffset: 310;

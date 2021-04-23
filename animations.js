@@ -471,6 +471,7 @@ const sec10Anim = anime
 
 const sec11Prep = () => {
   prepCercadoMap();
+  document.querySelector("#lag-quenamari").classList.remove("shrink");
   show("lag-alalay");
   show("lag-cona-cona");
   show("lag-quenamari");
@@ -528,9 +529,11 @@ const sec11Anim = anime
 
 const sec12Prep = () => {
   prepCercadoMap();
+  document.querySelector("#lag-quenamari").classList.remove("shrink");
   show("lag-alalay");
   show("lag-cona-cona");
   show("lag-quenamari");
+
   anime.set("#cercado-svg", {
     translateX: "-10%",
     translateY: 0,
@@ -546,7 +549,10 @@ const sec12Prep = () => {
 
 const sec12Anim = anime({
   targets: "#cercado-svg",
-  complete: showCaptionsSec11,
+  complete: () => {
+    showCaptionsSec11();
+    document.querySelector("#lag-quenamari").classList.add("shrink");
+  },
   translateX: ["-10%", "10%"],
   translateY: [0, "-30%"],
   scale: [2, 2.5],
