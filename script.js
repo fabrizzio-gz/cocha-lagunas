@@ -67,7 +67,10 @@ const scrollCallback = (e) => {
         });
         break;
       case 1:
-        callAnimation(1, sec1Anim, sec1Prep);
+        callAnimation(1, sec1Anim, () => {
+          document.querySelector(".arrow").classList.remove("hidden");
+          sec1Prep();
+        });
         break;
       case 2:
         callAnimation(2, sec2Anim, sec2Prep);

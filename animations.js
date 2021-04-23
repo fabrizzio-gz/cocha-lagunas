@@ -105,10 +105,7 @@ const sec0Anim = anime({
   autoplay: false,
 });
 
-const sec1Prep = () => {
-  sec0Prep();
-  document.querySelector(".arrow").classList.add("hidden");
-};
+const sec1Prep = sec0Prep;
 
 const sec1Anim = {
   play: () => {},
@@ -118,6 +115,7 @@ const sec1Anim = {
 
 const sec2Prep = () => {
   sec0Prep();
+  document.querySelector(".arrow").classList.add("hidden");
   show("cocha-svg-cercado");
   anime.set("#cocha-svg-cercado", {
     fill: lightblue,
