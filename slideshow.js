@@ -4,6 +4,11 @@ const cuellarSlideShow = [
     title: "Los cisnes de la Laguna Cuellar",
     credits: 'Revista "Ahora: Historias y Leyendas de Cochabamba"',
   },
+  {
+    src: "media/cuellar-2.jpg",
+    title: "Laguna Cuellar",
+    credits: "Cochabamba, 1925",
+  },
 ];
 
 const sarcoSlideShow = [
