@@ -14,15 +14,14 @@ const sarcoSlideShow = [
   },
 ];
 
-const cuadrasSlideShow = [{ src: "" }];
+const cuadrasSlideShow = [
+  { src: "", credits: "No se tienen fotos de la Laguna Cuadras" },
+];
 
 class Director {
   constructor() {
     this.imgList = new Map();
     this.imgList.set("default", document.querySelector("#slideshow img"));
-    const noSrc = document.createElement("img");
-    noSrc.alt = "No se tienen imagenes de esta laguna";
-    this.imgList.set("noSrc", noSrc);
     this.modal = document.querySelector(".modal");
     this.slideshow = document.querySelector("#slideshow");
     this.figcaption = document.querySelector("#slideshow figcaption");
@@ -74,8 +73,8 @@ class Director {
       this.slideshow.replaceChild(this.imgList.get(src), this.img);
       this.img = this.imgList.get(src);
     } else {
-      this.slideshow.replaceChild(this.imgList.get("noSrc"), this.img);
-      this.img = this.imgList.get("noSrc");
+      this.slideshow.replaceChild(this.imgList.get("default"), this.img);
+      this.img = this.imgList.get("default");
     }
 
     if (credits) this.cite.appendChild(document.createTextNode(credits));
