@@ -114,6 +114,9 @@ const scrollCallback = (e) => {
       case 12:
         callAnimation(12, sec12Anim, sec12Prep);
         break;
+      case 13:
+        callAnimation(13, sec13Anim, sec13Prep);
+        break;
     }
   });
 };
