@@ -2,12 +2,12 @@ const cuellarSlideShow = [
   {
     src: "media/cuellar-1.jpg",
     title: "Los cisnes de la Laguna Cuellar",
-    credits: 'Revista "Ahora: Historias y Leyendas de Cochabamba"',
+    credits: '—Revista "Ahora: Historias y Leyendas de Cochabamba"',
   },
   {
     src: "media/cuellar-2.jpg",
     title: "Laguna Cuellar",
-    credits: "Cochabamba, 1925",
+    credits: "—Cochabamba, 1925",
   },
 ];
 
@@ -15,12 +15,12 @@ const sarcoSlideShow = [
   {
     src: "media/sarco-1.jpg",
     title: "El espejo de la Laguna Sarco",
-    credits: "Rodolfo Torrico Zamudio (ca. 1940-1950)",
+    credits: "—Rodolfo Torrico Zamudio (ca. 1940-1950)",
   },
 ];
 
 const cuadrasSlideShow = [
-  { src: "", credits: "No se tienen fotos de la Laguna Cuadras" },
+  { src: "", credits: "—No se tienen fotos de la Laguna Cuadras" },
 ];
 
 class Director {

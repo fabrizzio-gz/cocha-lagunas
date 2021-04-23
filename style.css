@@ -283,75 +283,54 @@ section img {
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
   z-index: 2;
 }
+
 .modal-content {
   height: 100%;
-  width: 100%;
 }
 
 #slideshow {
-  width: 100%;
-  height: 100%;
-  /*display: grid;
-  grid-template-columns: auto 5% auto 5% auto;
-  grid-template-rows: auto 10% auto 10% auto;
-  grid-template-areas:
-    ". . . . ."
-    "t t t t t"
-    ". p i n ."
-    "c c c c c"
-    ". . . . .";
-  justify-items: center;
-  align-items: center;*/
-}
-
-.img-container {
-  flex-direction: row;
+  max-height: 100%;
+  justify-content: space-evenly;
 }
 
 #slideshow figcaption,
 #slideshow cite,
 #slideshow div {
+  box-sizing: border-box;
   font-size: 1.3rem;
   font-family: serif;
   color: white;
-  padding: 2rem;
+  padding: 0.5em 1em;
   text-align: center;
 }
 
 #slideshow figcaption,
 #slideshow cite {
-  min-height: 10%;
+  height: auto;
+  min-height: 15%;
 }
 
-#slideshow div {
-  max-height: 90%;
+.img-container {
+  max-height: 70vh;
+  flex-direction: row;
 }
 
-/*
-#slideshow figcaption {
-  grid-area: t;
+.prev {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
 }
-
-#slideshow .prev {
-  grid-area: p;
+.next {
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  transform: translate(-50%, -50%);
 }
-
-#slideshow .next {
-  grid-area: n;
-}
-
-#slideshow cite {
-  grid-area: c;
-}*/
 
 #slideshow img {
-  /* grid-area: i; */
   max-height: 100%;
-  max-width: 100%;
-}
-
-#slideshow cite:before {
-  content: "—";
+  max-width: 80%;
 }
 
 .close-modal-button {
@@ -374,10 +353,6 @@ section img {
   color: white;
 }
 
-/*#image-container {
-  flex-direction: row;
-}*/
-
 /* https://codepen.io/reacraf/pen/ZPqRKV */
 .side-arrow::before {
   content: " ";
@@ -389,13 +364,13 @@ section img {
 }
 
 .prev::before {
-  border-left: 2px solid white;
-  border-bottom: 2px solid white;
+  border-left: 4px solid white;
+  border-bottom: 4px solid white;
 }
 
 .next::before {
-  border-right: 2px solid white;
-  border-top: 2px solid white;
+  border-right: 4px solid white;
+  border-top: 4px solid white;
 }
 
 .show-modal {
