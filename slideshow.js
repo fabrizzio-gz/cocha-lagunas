@@ -132,3 +132,7 @@ document.querySelector("#photos-cuellar").addEventListener("click", () => {
 document.querySelector("#photos-sarco").addEventListener("click", () => {
   director.start(sarcoSlideShow);
 });
+
+document.querySelector("#photos-cuadras").addEventListener("click", () => {
+  director.start(cuadrasSlideShow);
+});
