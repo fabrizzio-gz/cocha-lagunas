@@ -187,7 +187,7 @@ class Caption {
       {
         id: "campus-umss",
         text: "UMSS",
-        translate: "translate(0%, -60%) rotate(-10deg)",
+        translate: "translate(20%, -40%) rotate(-10deg)",
         isEdificio: true,
       },
       {
