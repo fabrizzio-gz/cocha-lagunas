@@ -34,7 +34,7 @@ class Director {
     this.slideShowList = [];
   }
 
-  async startSlideShow(slideShowList) {
+  async start(slideShowList) {
     this.index = 0;
     this.slideShowList = slideShowList;
     this.showArrows();
@@ -42,7 +42,7 @@ class Director {
     await this.showSingleImg();
   }
 
-  resetSlideShowContent() {
+  reset() {
     this.figcaption.textContent = "";
     this.cite.textContent = "";
     if (this.img !== this.imgList.get("default")) {
@@ -63,7 +63,7 @@ class Director {
   }
 
   async showSingleImg() {
-    this.resetSlideShowContent();
+    this.reset();
     const { src, title, credits } = this.slideShowList[this.index];
     if (title) this.figcaption.appendChild(document.createTextNode(title));
 
@@ -91,7 +91,7 @@ class Director {
     });
   }
 
-  stopSlideShow() {
+  stop() {
     this.modal.classList.remove("show-modal");
   }
 
@@ -111,13 +111,13 @@ class Director {
 const director = new Director();
 
 document.querySelector(".modal").addEventListener("click", (e) => {
-  if (e.target === document.querySelector("#slideshow"))
-    director.stopSlideShow();
+  console.log(e.target);
+  if (e.target === document.querySelector("#slideshow")) director.stop();
 });
 
 document
   .querySelector(".close-modal-button")
-  .addEventListener("click", () => director.stopSlideShow());
+  .addEventListener("click", () => director.stop());
 
 document
   .querySelector(".side-arrow.prev")
@@ -128,9 +128,9 @@ document
   .addEventListener("click", () => director.nextImg());
 
 document.querySelector("#photos-cuellar").addEventListener("click", () => {
-  director.startSlideShow(cuellarSlideShow);
+  director.start(cuellarSlideShow);
 });
 
 document.querySelector("#photos-sarco").addEventListener("click", () => {
-  director.startSlideShow(sarcoSlideShow);
+  director.start(sarcoSlideShow);
 });
