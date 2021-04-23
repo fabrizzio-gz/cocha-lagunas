@@ -109,6 +109,36 @@ class Caption {
         text: "Río Rocha",
       },
       { id: "cercado-svg-caption-recoleta", text: "Recoleta" },
+      {
+        id: "cercado-svg-caption-libertadores",
+        text: "Av. Libertadores",
+        translate: "translate(-50%, -50%) rotate(75deg)",
+        isAvenida: true,
+      },
+      {
+        id: "cercado-svg-caption-juan-rosa",
+        text: "Av. Juan de la Rosa",
+        translate: "translate(-50%, -50%) rotate(28deg)",
+        isAvenida: true,
+      },
+      {
+        id: "cercado-svg-caption-quillacollo",
+        text: "Puente Quillacollo",
+      },
+      {
+        id: "cercado-svg-caption-america",
+        text: "Av. América",
+        translate: "translate(-50%, -50%) rotate(3deg)",
+        isAvenida: true,
+      },
+      {
+        id: "cercado-svg-caption-melchor-perez",
+        text: "Av. Melchor Pérez",
+        translate: "translate(-50%, -50%) rotate(-85deg)",
+
+        isAvenida: true,
+      },
+
       { id: "cercado-svg-caption-tamborada", text: "La Tamborada" },
       {
         id: "cercado-svg-caption-cuellar",
@@ -126,10 +156,6 @@ class Caption {
         id: "cercado-svg-caption-cona-cona",
         text: "Laguna Coña Coña",
       },
-      {
-        id: "cercado-svg-caption-quillacollo",
-        text: "Puente Quillacollo",
-      },
 
       {
         id: "cercado-svg-caption-cuadras",
@@ -139,31 +165,7 @@ class Caption {
         id: "cercado-svg-caption-sarco",
         text: "Laguna Sarco",
       },
-      {
-        id: "libertadores",
-        text: "Av. Libertadores",
-        translate: "translate(-50%, -50%) rotate(75deg)",
-        isAvenida: true,
-      },
-      {
-        id: "juan-rosa",
-        text: "Av. Juan de la Rosa",
-        translate: "translate(-50%, -50%) rotate(28deg)",
-        isAvenida: true,
-      },
-      {
-        id: "america",
-        text: "Av. América",
-        translate: "translate(-50%, -50%) rotate(3deg)",
-        isAvenida: true,
-      },
-      {
-        id: "melchor-perez",
-        text: "Av. Melchor Pérez",
-        translate: "translate(-50%, -50%) rotate(-85deg)",
 
-        isAvenida: true,
-      },
       {
         id: "heroinas",
         text: "Av. Heroínas",
