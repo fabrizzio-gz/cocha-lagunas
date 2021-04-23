@@ -122,6 +122,10 @@ class Caption {
         isAvenida: true,
       },
       {
+        id: "cercado-svg-caption-cuellar",
+        text: "Laguna Cuellar",
+      },
+      {
         id: "cercado-svg-caption-quillacollo",
         text: "Puente Quillacollo",
       },
@@ -138,12 +142,26 @@ class Caption {
 
         isAvenida: true,
       },
+      {
+        id: "cercado-svg-caption-sarco",
+        text: "Laguna Sarco",
+      },
+      {
+        id: "cercado-svg-caption-belzu",
+        text: "Av. Belzu",
+        translate: "translate(-50%, -50%) rotate(65deg)",
+        isAvenida: true,
+      },
+      {
+        id: "cercado-svg-caption-heroinas",
+        text: "Av. Heroínas",
+        translate: "translate(-50%, -50%) rotate(-10deg)",
+
+        isAvenida: true,
+      },
 
       { id: "cercado-svg-caption-tamborada", text: "La Tamborada" },
-      {
-        id: "cercado-svg-caption-cuellar",
-        text: "Laguna Cuellar",
-      },
+
       {
         id: "cercado-svg-caption-quenamari",
         text: "Laguna Quenamari",
@@ -161,24 +179,7 @@ class Caption {
         id: "cercado-svg-caption-cuadras",
         text: "Laguna Cuadras",
       },
-      {
-        id: "cercado-svg-caption-sarco",
-        text: "Laguna Sarco",
-      },
 
-      {
-        id: "heroinas",
-        text: "Av. Heroínas",
-        translate: "translate(-50%, -50%) rotate(-10deg)",
-
-        isAvenida: true,
-      },
-      {
-        id: "belzu",
-        text: "Av. Belzu",
-        translate: "translate(-50%, -50%) rotate(65deg)",
-        isAvenida: true,
-      },
       {
         id: "campus-umss",
         text: "UMSS",
