@@ -74,6 +74,11 @@ strong {
   height: calc(var(--inicio-size) * 100vh);
   z-index: 1;
   background-image: url("../img/cocha-lagunas-front-min.jpg");
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
   background-position: center;
   background-size: cover;
 }
