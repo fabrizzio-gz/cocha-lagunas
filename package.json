@@ -1,0 +1,24 @@
+{
+  "name": "cocha-lagunas",
+  "version": "1.0.0-alpha",
+  "description": "Historia gráfica de las lagunas perdidas en Cochabamba",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@babel/cli": "7.13.16",
+    "@babel/core": "7.13.16",
+    "@minify": "7.0.1",  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabrizzio-gz/cocha-lagunas.git"
+  },
+  "author": "Fabrizzio Gonzales",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/fabrizzio-gz/cocha-lagunas/issues"
+  },
+  "homepage": "https://github.com/fabrizzio-gz/cocha-lagunas#readme"
+}
