@@ -537,6 +537,7 @@ const sec12Prep = () => {
       opacity: 1,
     }
   );
+  anime.set("#final-message", { opacity: 0 });
 };
 
 const sec12Anim = anime({
@@ -569,6 +570,7 @@ const sec13Prep = () => {
       opacity: 1,
     }
   );
+  anime.set("#final-message", { opacity: 0 });
 };
 
 const sec13Anim = anime({
@@ -583,6 +585,7 @@ const sec13Anim = anime({
     hide("cocha-svg-cercado");
     prepCochaMap();
     showFooter();
+    anime.set("#final-message", { opacity: 1 });
   },
   opacity: [1, 0],
   translateX: ["10%", 0],
