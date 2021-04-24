@@ -1,5 +1,3 @@
-const windowY = document.documentElement.clientHeight;
-
 const lightblue = "#00dbfc";
 const orange = "#ff7a00";
 const grey = "#3b4749";
@@ -45,6 +43,7 @@ const showCaptions = (captionIdList) => {
 const prepCochaMap = () => {
   /* set scale and transformX, Y separately */
   Caption.hideAllCaptions();
+  document.querySelector("#cocha-map-container").classList.remove("bottom");
   hide("cercado-map-container");
   show("cocha-map-container");
   anime.set("#cocha-map-container", { opacity: 1 });
@@ -72,6 +71,10 @@ const prepCercadoMap = () => {
   hide("lag-quenamari");
   document.querySelector("#rio-rocha").classList.remove("draw-rocha");
   document.querySelector("#rio-tamborada").classList.remove("draw-tamborada");
+};
+
+const showFooter = () => {
+  document.querySelector("#cocha-map-container").classList.add("bottom");
 };
 
 const getCaption = Caption.getCaption;
@@ -588,6 +591,7 @@ const sec13Anim = anime({
     });
     hide("cocha-svg-cercado");
     prepCochaMap();
+    showFooter();
   },
   opacity: [1, 0],
   translateX: ["10%", 0],

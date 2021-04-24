@@ -1,3 +1,5 @@
+const windowY = document.documentElement.clientHeight;
+
 const init = () => {
   sec0Prep();
   Caption.init();

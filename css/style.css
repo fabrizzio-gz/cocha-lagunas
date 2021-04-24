@@ -121,6 +121,7 @@ strong {
 
 section {
   display: grid;
+  box-sizing: border-box;
   border-top: solid 3px black;
   border-bottom: solid 3px black;
   /* background: lightyellow; */
@@ -405,6 +406,18 @@ footer img {
   width: 100%;
   height: 100vh;
   z-index: 0;
+}
+
+/* To stop at footer */
+.bottom {
+  position: absolute;
+  top: calc(
+    100vh * var(--inicio-size) + 12 *
+      max(
+        calc(var(--section-size) * 100vh),
+        calc(var(--min-section-size) * 1px)
+      )
+  );
 }
 
 .map-container svg {
