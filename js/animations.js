@@ -83,16 +83,6 @@ const getCaption = Caption.getCaption;
  * Animations
  */
 
-const introAnim = anime({
-  targets: "#cocha-svg",
-  scale: 1.05,
-  delay: 250,
-  direction: "alternate",
-  loop: true,
-  easing: "linear",
-  autoplay: true,
-});
-
 const sec0Prep = () => {
   prepCochaMap();
   anime.set("#cocha-map-container", {
