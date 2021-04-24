@@ -408,6 +408,11 @@ footer img {
   z-index: 0;
 }
 
+.top {
+  position: absolute;
+  top: calc(100vh * var(--inicio-size));
+}
+
 /* To stop at footer */
 .bottom {
   position: absolute;

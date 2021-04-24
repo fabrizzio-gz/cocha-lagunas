@@ -74,6 +74,12 @@ const scrollCallback = (e) => {
           document.querySelector(".arrow").classList.remove("hidden");
           sec1Prep();
         });
+        if (yPos >= inicioSize)
+          document
+            .querySelector("#cocha-map-container")
+            .classList.remove("top");
+        else
+          document.querySelector("#cocha-map-container").classList.add("top");
         break;
       case 2:
         callAnimation(2, sec2Anim, sec2Prep);

@@ -119,6 +119,7 @@ const sec1Anim = {
 const sec2Prep = () => {
   sec0Prep();
   document.querySelector(".arrow").classList.add("hidden");
+  document.querySelector("#cocha-map-container").classList.remove("top");
   show("cocha-svg-cercado");
   anime.set("#cocha-svg-cercado", {
     fill: lightblue,
