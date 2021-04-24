@@ -276,7 +276,22 @@ footer {
 }
 
 footer > div > a {
-  margin: 0.5em;
+  width: 40px;
+  height: 40px;
+  margin: 1em 0.5em;
+  border-radius: 20px;
+}
+
+#share-facebook {
+  background: url(../img/facebook-logo.svg);
+}
+
+#share-twitter {
+  background: url(../img/twitter-logo.svg);
+}
+
+#share-whatsapp {
+  background: url(../img/whatsapp-logo.svg);
 }
 
 footer img {
