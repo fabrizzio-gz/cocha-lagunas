@@ -246,6 +246,10 @@ section img {
   z-index: 1;
 }
 
+#end-div h2 {
+  text-align: center;
+}
+
 /*
  * Footer
  */
