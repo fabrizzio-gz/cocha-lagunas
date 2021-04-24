@@ -1,25 +1,7 @@
-const windowY = document.documentElement.clientHeight;
+let windowY, inicioSize, sectionSize;
 
-const init = () => {
-  sec0Prep();
-  Caption.init();
-};
-
-const getImage = (e) => {
-  switch (e.target.id) {
-    case "lag-cuellar":
-      director.start(cuellarSlideShow);
-      break;
-    case "lag-sarco":
-      director.start(sarcoSlideShow);
-      break;
-    case "lag-cuadras":
-      director.start(cuadrasSlideShow);
-      break;
-  }
-};
-
-const getSectionSizes = () => {
+const getSizes = () => {
+  const windowY = document.documentElement.clientHeight;
   const inicioSize = Math.round(
     getComputedStyle(document.documentElement).getPropertyValue(
       "--inicio-size"
@@ -36,10 +18,29 @@ const getSectionSizes = () => {
     )
   );
 
-  return { inicioSize, sectionSize };
+  return { windowY, inicioSize, sectionSize };
 };
 
-const { inicioSize, sectionSize } = getSectionSizes();
+const init = () => {
+  sec0Prep();
+  Caption.init();
+  ({ windowY, inicioSize, sectionSize } = getSizes());
+};
+
+const getImage = (e) => {
+  switch (e.target.id) {
+    case "lag-cuellar":
+      director.start(cuellarSlideShow);
+      break;
+    case "lag-sarco":
+      director.start(sarcoSlideShow);
+      break;
+    case "lag-cuadras":
+      director.start(cuadrasSlideShow);
+      break;
+  }
+};
+
 let currentSection = -1;
 
 const scrollCallback = (e) => {
