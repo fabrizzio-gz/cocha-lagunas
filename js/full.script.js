@@ -202,7 +202,6 @@ class Caption {
 }
 
 _defineProperty(Caption, "list", new Map());
-const windowY = document.documentElement.clientHeight;
 const lightblue = "#00dbfc";
 const orange = "#ff7a00";
 const grey = "#3b4749";
@@ -254,6 +253,7 @@ const showCaptions = captionIdList => {
 const prepCochaMap = () => {
   /* set scale and transformX, Y separately */
   Caption.hideAllCaptions();
+  document.querySelector("#cocha-map-container").classList.remove("bottom");
   hide("cercado-map-container");
   show("cocha-map-container");
   anime.set("#cocha-map-container", {
@@ -286,6 +286,10 @@ const prepCercadoMap = () => {
   hide("lag-quenamari");
   document.querySelector("#rio-rocha").classList.remove("draw-rocha");
   document.querySelector("#rio-tamborada").classList.remove("draw-tamborada");
+};
+
+const showFooter = () => {
+  document.querySelector("#cocha-map-container").classList.add("bottom");
 };
 
 const getCaption = Caption.getCaption;
@@ -329,6 +333,7 @@ const sec1Anim = {
 const sec2Prep = () => {
   sec0Prep();
   document.querySelector(".arrow").classList.add("hidden");
+  document.querySelector("#cocha-map-container").classList.remove("top");
   show("cocha-svg-cercado");
   anime.set("#cocha-svg-cercado", {
     fill: lightblue
@@ -666,6 +671,9 @@ const sec12Prep = () => {
   anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo", "#aeropuerto"], {
     opacity: 1
   });
+  anime.set("#final-message", {
+    opacity: 0
+  });
 };
 
 const sec12Anim = anime({
@@ -695,6 +703,9 @@ const sec13Prep = () => {
   anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo", "#aeropuerto"], {
     opacity: 1
   });
+  anime.set("#final-message", {
+    opacity: 0
+  });
 };
 
 const sec13Anim = anime({
@@ -710,6 +721,10 @@ const sec13Anim = anime({
     });
     hide("cocha-svg-cercado");
     prepCochaMap();
+    showFooter();
+    anime.set("#final-message", {
+      opacity: 1
+    });
   },
   opacity: [1, 0],
   translateX: ["10%", 0],
@@ -850,6 +865,8 @@ document.querySelector("#photos-sarco").addEventListener("click", () => {
 document.querySelector("#photos-cuadras").addEventListener("click", () => {
   director.start(cuadrasSlideShow);
 });
+const windowY = document.documentElement.clientHeight;
+
 const init = () => {
   sec0Prep();
   Caption.init();
@@ -920,6 +937,7 @@ const scrollCallback = e => {
           document.querySelector(".arrow").classList.remove("hidden");
           sec1Prep();
         });
+        if (yPos >= inicioSize) document.querySelector("#cocha-map-container").classList.remove("top");else document.querySelector("#cocha-map-container").classList.add("top");
         break;
 
       case 2:
