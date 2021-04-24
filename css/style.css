@@ -36,7 +36,6 @@ h4,
 h5,
 h6 {
   font-family: "Zilla Slab Highlight", "Trebuchet MS";
-  margin: 1em 0.5em;
 }
 
 p {
@@ -74,13 +73,21 @@ strong {
   position: relative;
   height: calc(var(--inicio-size) * 100vh);
   z-index: 1;
+  background-image: url("../img/cocha-lagunas-front-min.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 #titulo {
   font-size: 1.5em;
   font-weight: bold;
-  margin: 0;
+  margin: 2em;
   text-align: center;
+  color: white;
+}
+
+#titulo h1 {
+  font-family: serif;
 }
 
 @media (max-width: 768px) {
