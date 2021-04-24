@@ -130,7 +130,11 @@ window.onbeforeunload = () => {
   //window.scrollTo(0, 0);
 };
 
-window.onresize = Caption.updateAllPositions;
+window.onresize = () => {
+  Caption.updateAllPositions();
+  ({ windowY, inicioSize, sectionSize } = getSizes());
+};
+
 document.addEventListener("scroll", scrollCallback);
 
 document
