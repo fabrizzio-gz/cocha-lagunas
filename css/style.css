@@ -129,9 +129,9 @@ strong {
 section {
   display: grid;
   box-sizing: border-box;
-  border-top: solid 3px black;
+  /*border-top: solid 3px black;
   border-bottom: solid 3px black;
-  /* background: lightyellow; */
+  background: lightyellow; */
   height: max(
     calc(var(--section-size) * 100vh),
     calc(var(--min-section-size) * 1px)
