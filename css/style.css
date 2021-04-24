@@ -58,6 +58,10 @@ strong {
   align-items: center;
 }
 
+.row {
+  flex-direction: row;
+}
+
 .italic {
   font-style: italic;
 }
@@ -227,6 +231,26 @@ section img {
   bottom: 0;
   right: 0;
   z-index: 1;
+}
+
+/*
+ * Footer
+ */
+
+footer {
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  font-size: 1.1em;
+  border-top: 2px solid var(--color-grey);
+}
+
+footer > div > a {
+  margin: 0.5em;
+}
+
+footer img {
+  height: 25px;
 }
 
 /*
