@@ -164,6 +164,19 @@ section {
   }
 }
 
+@media (max-width: 400px) {
+  section {
+    grid-template-columns: 12% 76% 12%;
+    grid-template-rows: auto 40vh auto 10vh auto;
+    grid-template-areas:
+      ". . ."
+      ". . ."
+      ". p ."
+      ". q ."
+      ". . .";
+  }
+}
+
 section > div {
   position: relative;
   grid-area: p;
