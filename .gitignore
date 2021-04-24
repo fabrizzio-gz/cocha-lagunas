@@ -1,9 +1,12 @@
+node_modules/
+pnpm-lock.yaml
 media/color-palette.png
 media/gray-scheme.psd
 media/intro-front.png
 media/catedral-cocha.jpg
 media/image-intro.jpg
 media/image-intro.png
+package-lock.json
 *.#*
 #*
 *#
