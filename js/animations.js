@@ -85,6 +85,7 @@ const getCaption = Caption.getCaption;
 
 const sec0Prep = () => {
   prepCochaMap();
+  document.querySelector("#cocha-map-container").classList.add("top");
   anime.set("#cocha-map-container", {
     translateX: 0,
     translateY: 0,
