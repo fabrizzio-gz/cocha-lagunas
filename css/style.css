@@ -83,6 +83,19 @@ strong {
   background-size: cover;
 }
 
+#logo {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  width: 90px;
+  height: 75px;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+  background-image: url("../img/labtecno-logo.svg");
+  background-size: 90px 75px;
+  background-color: white;
+}
+
 #titulo {
   font-size: 1.5em;
   font-weight: bold;
