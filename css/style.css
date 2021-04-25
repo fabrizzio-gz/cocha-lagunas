@@ -310,10 +310,16 @@ section img {
 
 footer {
   position: relative;
+  font-weight: bold;
   z-index: 1;
   background-color: white;
   font-size: 1.1em;
   border-top: 2px solid var(--color-grey);
+}
+
+.social-media {
+  position: absolute;
+  left: 0;
 }
 
 .buttons a {
@@ -321,6 +327,17 @@ footer {
   height: 40px;
   margin: 1em 0.5em;
   border-radius: 20px;
+}
+
+.meta a {
+  margin: 0.5em;
+  text-decoration: none;
+  color: var(--color-grey);
+}
+
+.code-div {
+  position: absolute;
+  right: 0;
 }
 
 #share-facebook {
@@ -338,6 +355,24 @@ footer {
 #github-code {
   background: url(../img/github-logo.svg);
   background-size: 40px 40px;
+}
+
+@media (max-width: 500px) {
+  .hide-small {
+    display: none;
+  }
+
+  .buttons a {
+    width: 30px;
+    height: 30px;
+    margin: 1em 0.2em;
+    border-radius: 15px;
+  }
+
+  #github-code {
+    margin-right: 0.5em;
+    background-size: 30px 30px;
+  }
 }
 
 /*
