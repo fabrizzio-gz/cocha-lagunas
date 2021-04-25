@@ -106,6 +106,17 @@ strong {
 
 #titulo h1 {
   font-family: serif;
+  text-shadow: 1px 1px 1px #000;
+}
+
+#titulo h1 strong {
+  display: block;
+  color: white;
+}
+
+#titulo h1 span {
+  display: block;
+  font-size: 70%;
 }
 
 @media (max-width: 768px) {
