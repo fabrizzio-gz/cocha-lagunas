@@ -1,8 +1,9 @@
 node_modules/
 pnpm-lock.yaml
-js/script.min.js
 css/style.min.css
+css/style.prefix.css
 js/full.script.js
+js/script.min.js
 media/color-palette.png
 media/gray-scheme.psd
 media/intro-front.png
