@@ -316,7 +316,7 @@ footer {
   border-top: 2px solid var(--color-grey);
 }
 
-footer > div > a {
+footer div a {
   width: 40px;
   height: 40px;
   margin: 1em 0.5em;
@@ -335,8 +335,9 @@ footer > div > a {
   background: url(../img/whatsapp-logo.svg);
 }
 
-footer img {
-  height: 25px;
+#github-code {
+  background: url(../img/github-logo.svg);
+  background-size: 40px 40px;
 }
 
 /*
