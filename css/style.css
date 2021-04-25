@@ -231,15 +231,16 @@ section blockquote {
   position: relative;
   grid-area: q;
   z-index: 1;
-}
-
-section blockquote {
   margin-left: 20%;
   font-size: 1.5rem;
   line-height: 1.5;
   font-weight: 700;
   font-family: serif;
   font-style: italic;
+}
+
+section blockquote div {
+  background: rgba(255, 255, 255, 0.8);
 }
 
 @media (max-width: 768px) {
