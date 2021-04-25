@@ -316,7 +316,7 @@ footer {
   border-top: 2px solid var(--color-grey);
 }
 
-footer div a {
+.buttons a {
   width: 40px;
   height: 40px;
   margin: 1em 0.5em;
