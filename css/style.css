@@ -569,18 +569,10 @@ footer {
 }
 
 #cercado-svg-lagunas circle {
-  stroke-dasharray: 2, 3;
-  stroke: var(--color-strong);
-  animation: spin 10s linear infinite;
   transform-box: fill-box;
   transform-origin: center;
   cursor: pointer;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
+  transition: 0.3s;
 }
 
 #cercado-svg-lagunas circle:hover {

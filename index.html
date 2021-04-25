@@ -341,6 +341,23 @@
         fill="rgba(0,0,0,0)"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <defs>
+          <pattern
+            id="cuellar-cover"
+            patternUnits="objectBoundingBox"
+            width="10"
+            height="10"
+          >
+            <image
+              href="img/cuellar-thumbnail.jpg"
+              x="0"
+              y="0"
+              width="10"
+              height="10"
+            />
+          </pattern>
+        </defs>
+
         <g id="cercado-svg-captions">
           <path id="cercado-svg-caption-rocha" d="M319 198V202" />
           <path
@@ -453,7 +470,7 @@
               cx="269"
               cy="214"
               r="5"
-              fill="rgba(0,0,0,0)"
+              fill="url(#cuellar-cover)"
             />
             <circle
               id="lag-sarco"
