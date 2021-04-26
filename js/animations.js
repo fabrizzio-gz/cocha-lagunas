@@ -72,6 +72,7 @@ const prepCercadoMap = () => {
   hide("lag-alalay");
   hide("lag-cona-cona");
   hide("lag-quenamari");
+  hide("lag-quenamari-circle");
   document.querySelector("#rio-rocha").classList.remove("draw-rocha");
   document.querySelector("#rio-tamborada").classList.remove("draw-tamborada");
 };
@@ -567,19 +568,30 @@ const sec12Prep = () => {
   anime.set("#final-message", { opacity: 0 });
 };
 
-const sec12Anim = anime({
-  targets: "#cercado-svg",
-  complete: () => {
-    showCaptionsSec11();
-    document.querySelector("#lag-quenamari").classList.add("shrink");
-  },
-  translateX: ["-10%", "10%"],
-  translateY: [0, "-30%"],
-  scale: [2, 2.5],
-  easing: "easeInCubic",
-  duration: 2000,
-  autoplay: false,
-});
+const sec12Anim = anime
+  .timeline({
+    targets: "#cercado-svg",
+
+    translateX: ["-10%", "10%"],
+    translateY: [0, "-30%"],
+    scale: [2, 2.5],
+    easing: "easeInCubic",
+    duration: 2000,
+    autoplay: false,
+  })
+  .add({
+    targets: "#lag-quenamari-circle",
+    begin: () => {
+      document
+        .querySelector("#lag-quenamari-circle")
+        .classList.remove("hidden");
+      document.querySelector("#lag-quenamari-circle").style.opacity = 0;
+    },
+    complete: showCaptionsSec11,
+    opacity: [0, 1],
+    duration: 2000,
+    ease: "linear",
+  });
 
 const sec13Prep = () => {
   prepCercadoMap();
