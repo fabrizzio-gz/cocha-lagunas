@@ -529,6 +529,33 @@ footer {
   z-index: 0;
 }
 
+.map-container img {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Fix to show top part of figure. Still buggy.
+ * 
+ */
+/*
+@media (min-width: 768px) {
+  .map-container {
+    overflow: visible;
+  }
+  .map-container img {
+    bottom: 0;
+    height: auto;
+    min-height: 100%;
+    width: auto;
+    min-width: 100%;
+    transform: translateY(37.5vw) translateY(-50vh);
+    clip: rect(0, 2000px, calc(37.5vw + 50vh), 0);
+  }
+}*/
+
 .top {
   position: absolute;
   top: calc(100vh * var(--inicio-size));
@@ -645,19 +672,6 @@ footer {
   100% {
     stroke-dashoffset: 0;
   }
-}
-
-.map-container img {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-  height: auto;
-  min-height: 100%;
-  width: aout;
-  min-width: 100%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
 }
 
 /* special class, apply last */
