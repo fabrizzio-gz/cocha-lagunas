@@ -281,7 +281,7 @@ section img {
 #final-message {
   position: absolute;
   bottom: 0;
-  padding: 1em 0.8em;
+  padding: 0.2em 0.8em;
   font-size: 1.25em;
   appearance: button;
   transform: translateY(-100%);
