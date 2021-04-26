@@ -252,6 +252,6 @@ document.querySelector("#photos-cuadras").addEventListener("click", () => {
   director.start(cuadrasSlideShow);
 });
 
-/*document.querySelector("#photos-quenamari").addEventListener("click", () => {
+document.querySelector("#photos-quenamari").addEventListener("click", () => {
   director.start(quenamariSlideShow);
-});*/
+});
