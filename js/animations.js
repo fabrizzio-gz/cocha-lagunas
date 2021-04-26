@@ -73,6 +73,32 @@ const prepCercadoMap = () => {
   document.querySelector("#rio-tamborada").classList.remove("draw-tamborada");
 };
 
+const changeCoverAnimation = ({
+  lake,
+  lakeSelector,
+  caption,
+  newText,
+  cssClass,
+}) =>
+  anime
+    .timeline({
+      targets: "",
+      begin: () => {
+        hide(lake);
+      },
+      duration: 1000,
+      autoplay: false,
+    })
+    .add({
+      targets: "",
+      complete: () => {
+        getCaption(caption).setText(newText);
+        document.querySelector(lakeSelector).classList.add(cssClass);
+        show(lake);
+      },
+      duration: 1000,
+    });
+
 const showFooter = () => {
   document.querySelector("#cocha-map-container").classList.add("bottom");
 };
@@ -267,24 +293,13 @@ const sec6Prep = () => {
   showCaptionsSec5();
 };
 
-const sec6Anim = anime
-  .timeline({
-    targets: "",
-    begin: () => {
-      hide("lag-cuellar");
-    },
-    duration: 1000,
-    autoplay: false,
-  })
-  .add({
-    targets: "",
-    complete: () => {
-      getCaption("caption-cuellar").setText("Estadio Félix Capriles");
-      document.querySelector("#lag-cuellar").classList.add("estadio-cover");
-      show("lag-cuellar");
-    },
-    duration: 1000,
-  });
+const sec6Anim = changeCoverAnimation({
+  lake: "lag-cuellar",
+  lakeSelector: "#lag-cuellar",
+  caption: "caption-cuellar",
+  newText: "Estadio Félix Capriles",
+  cssClass: "estadio-cover",
+});
 
 const sec7Prep = () => {
   sec6Prep();
