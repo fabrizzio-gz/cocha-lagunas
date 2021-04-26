@@ -468,6 +468,10 @@ footer {
   max-width: 80%;
 }
 
+#slideshow a {
+  color: var(--color-strong);
+}
+
 .prev {
   position: absolute;
   top: 50%;

@@ -64,21 +64,21 @@ const quenamariSlideShow = [
     title: "Laguna Quenamari",
     credits: "—Los Tiempos. Carlos López (2016)",
     figcaption:
-      "Ya en el 2015, se presentó un proyecto de Ley para hacer de la Laguna Quenamari un área protegida. No ha sido aprobado hasta la fecha.",
+      "Ya en el 2015, se presentó un <a href='https://lostiempos.com/actualidad/cochabamba/20171119/laguna-quenamari-esta-seca-vecinos-nivelan-tierra-sembrar' target='_blank'>proyecto de Ley</a> para hacer de la Laguna Quenamari un área protegida. No ha sido aprobado hasta la fecha.",
   },
   {
     src: "img/quenamari-2.jpg",
     title: "Laguna Quenamari",
     credits: "—Los Tiempos. José Rocha (2017)",
     figcaption:
-      "El agua que ingresaba a la laguna desde los rebalses del río Rocha y Tamborada ha sido desviado.",
+      "El agua que ingresaba a la laguna desde los rebalses del río Rocha y Tamborada ha sido <a href='https://www.lostiempos.com/actualidad/cochabamba/20171122/30-anos-ciudad-perdio-4-lagunas-urbanas-hay-3-riesgo' target='_blank'>desviado</a>.",
   },
   {
     src: "img/quenamari-3.jpg",
     title: "Laguna Quenamari avasallada",
     credits: "—Opinión (2019)",
     figcaption:
-      "Poco a poco, los terrenos de la laguna son rellenados para cultivar o incluso para construir.",
+      "Poco a poco, los terrenos de la laguna son <a href='https://www.opinion.com.bo/articulo/cochabamba/construcciones-invaden-laguna-quenamari-entes-buscan-frenar/20190321060800644802.html' target='_blank'>rellenados</a> para cultivar o incluso para construir.",
   },
 ];
 
