@@ -96,6 +96,14 @@ strong {
   background-color: white;
 }
 
+@media (max-width: 500px) {
+  #logo {
+    width: 60px;
+    height: 50px;
+    background-size: 60px 50px;
+  }
+}
+
 #titulo {
   font-size: 1.5em;
   font-weight: bold;
