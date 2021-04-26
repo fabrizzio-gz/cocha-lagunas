@@ -569,7 +569,22 @@ footer {
   fill: url(#complejo-sarco-cover);
 }
 
+/* For lake cuadras that has no background img */
+.dash-border {
+  stroke: var(--color-strong);
+  stroke-dasharray: 2, 3;
+  stroke-width: 0.75;
+  animation: rotation 10s linear normal infinite;
+}
+
+@keyframes rotation {
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .estacion-teleferico-cover {
+  stroke: none;
+  animation: none;
   fill: url(#estacion-teleferico-cover);
 }
 
