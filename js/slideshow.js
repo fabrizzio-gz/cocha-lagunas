@@ -81,12 +81,13 @@ class Director {
     this.imgList.set("default", document.querySelector("#slideshow img"));
     this.modal = document.querySelector(".modal");
     this.slideshow = document.querySelector("#slideshow");
-    this.figcaption = document.querySelector("#slideshow figcaption");
-    this.cite = document.querySelector("#slideshow cite");
+    this.title = document.querySelector("#slideshow h2");
     this.index = 0;
     this.prev = document.querySelector(".side-arrow.prev");
     this.img = document.querySelector("#slideshow img");
     this.next = document.querySelector(".side-arrow.next");
+    this.cite = document.querySelector("#slideshow cite");
+    this.figcaption = document.querySelector("#slideshow figcaption");
     this.slideShowList = [];
     this.isVisible = false;
   }
@@ -101,8 +102,9 @@ class Director {
   }
 
   reset() {
-    this.figcaption.textContent = "";
+    this.title.textContent = "";
     this.cite.textContent = "";
+    this.figcaption.innerHTML = "";
     if (this.img !== this.imgList.get("default")) {
       this.slideshow.replaceChild(this.imgList.get("default"), this.img);
       this.img = this.imgList.get("default");
@@ -122,8 +124,10 @@ class Director {
 
   async showSingleImg() {
     this.reset();
-    const { src, title, credits } = this.slideShowList[this.index];
-    if (title) this.figcaption.appendChild(document.createTextNode(title));
+    const { src, title, credits, figcaption = "" } = this.slideShowList[
+      this.index
+    ];
+    if (title) this.title.appendChild(document.createTextNode(title));
 
     if (src) {
       if (!this.imgList.has(src)) {
@@ -137,6 +141,8 @@ class Director {
     }
 
     if (credits) this.cite.appendChild(document.createTextNode(credits));
+
+    if (figcaption) this.figcaption.innerHTML = figcaption;
   }
 
   async showCollage() {

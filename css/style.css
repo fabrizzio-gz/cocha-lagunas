@@ -441,21 +441,26 @@ footer {
   height: 100%;
 }
 
-#slideshow figcaption,
+#slideshow h2,
 #slideshow cite,
-#slideshow img {
+#slideshow img,
+#slideshow figcaption {
   box-sizing: border-box;
-  font-size: 1.3rem;
   font-family: serif;
   color: white;
-  padding: 0.5em 1em;
   text-align: center;
+  padding: 0.5em;
+  font-size: 1em;
 }
 
-#slideshow figcaption,
-#slideshow cite {
+#slideshow h2 {
   height: auto;
-  min-height: 15%;
+  min-height: 10%;
+}
+
+#slideshow cite {
+  font-size: 0.9em;
+  padding: 0;
 }
 
 #slideshow img {
