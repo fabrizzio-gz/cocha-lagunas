@@ -8,6 +8,7 @@ const cuellarSlideShow = [
     src: "img/cuellar-2.jpg",
     title: "Laguna Cuellar",
     credits: "—Autor desconocido. Cochabamba, 1925",
+    figcaption: "Había una pequeña isla con un quiosco al medio de la laguna.",
   },
 ];
 
@@ -62,16 +63,22 @@ const quenamariSlideShow = [
     src: "img/quenamari-1.jpg",
     title: "Laguna Quenamari",
     credits: "—Los Tiempos. Carlos López (2016)",
+    figcaption:
+      "Ya en el 2015, se presentó un proyecto de Ley para hacer de la Laguna Quenamari un área protegida. No ha sido aprobado hasta la fecha.",
   },
   {
     src: "img/quenamari-2.jpg",
-    title: "Laguna Quenamari - Estación seca un año después",
+    title: "Laguna Quenamari",
     credits: "—Los Tiempos. José Rocha (2017)",
+    figcaption:
+      "El agua que ingresaba a la laguna desde los rebalses del río Rocha y Tamborada ha sido desviado.",
   },
   {
     src: "img/quenamari-3.jpg",
     title: "Laguna Quenamari avasallada",
     credits: "—Opinión (2019)",
+    figcaption:
+      "Poco a poco, los terrenos de la laguna son rellenados para cultivar o incluso para construir.",
   },
 ];
 
