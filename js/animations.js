@@ -52,7 +52,6 @@ const prepCochaMap = () => {
 const prepCercadoMap = () => {
   /* set scale and transformX, Y separately */
   hide("cocha-map-container");
-  document.querySelector(".arrow").classList.add("hidden");
   Caption.hideAllCaptions();
   setChildrenOpacityZero("cercado-svg-lagunas");
   setChildrenOpacityZero("cercado-svg-puentes");
@@ -135,7 +134,6 @@ const sec1Anim = {
 
 const sec2Prep = () => {
   sec0Prep();
-  document.querySelector(".arrow").classList.add("hidden");
   document.querySelector("#cocha-map-container").classList.remove("top");
   show("cocha-svg-cercado");
   anime.set("#cocha-svg-cercado", {

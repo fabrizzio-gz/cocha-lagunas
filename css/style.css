@@ -125,32 +125,6 @@ strong {
   }
 }
 
-#continuar {
-  font-size: 1.5rem;
-}
-
-#continuar p {
-  margin: 0;
-}
-
-.arrow {
-  border: solid var(--color-grey);
-  border-width: 0 6px 6px 0;
-  display: inline-block;
-  padding: 6px;
-  transform: rotate(45deg);
-  animation: 1s ease-in alternate infinite up-down;
-}
-
-@keyframes up-down {
-  from {
-    transform: rotate(45deg) translate(0, 0);
-  }
-  to {
-    transform: rotate(45deg) translate(-5px, -5px);
-  }
-}
-
 /*
  * Sections style
  */

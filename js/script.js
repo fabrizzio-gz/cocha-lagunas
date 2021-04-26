@@ -72,16 +72,10 @@ const scrollCallback = (e) => {
     const section = Math.ceil((positionMid - inicioSize) / sectionSize);
     switch (section) {
       case 0:
-        callAnimation(0, sec0Anim, () => {
-          document.querySelector(".arrow").classList.remove("hidden");
-          sec0Prep();
-        });
+        callAnimation(0, sec0Anim, sec0Prep);
         break;
       case 1:
-        callAnimation(1, sec1Anim, () => {
-          document.querySelector(".arrow").classList.remove("hidden");
-          sec1Prep();
-        });
+        callAnimation(1, sec1Anim, sec1Prep);
         if (yPos >= inicioSize)
           document
             .querySelector("#cocha-map-container")
