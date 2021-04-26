@@ -45,6 +45,9 @@ const getImage = (e) => {
         director.start(estacionTelefericoSlideShow);
       else director.start(cuadrasSlideShow);
       break;
+    case "lag-quenamari-circle":
+      director.start(quenamariSlideShow);
+      break;
   }
 };
 

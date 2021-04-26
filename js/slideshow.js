@@ -57,6 +57,24 @@ const estacionTelefericoSlideShow = [
   },
 ];
 
+const quenamariSlideShow = [
+  {
+    src: "img/quenamari-1.jpg",
+    title: "Laguna Quenamari",
+    credits: "—Los Tiempos. Carlos López (2016)",
+  },
+  {
+    src: "img/quenamari-2.jpg",
+    title: "Laguna Quenamari - Estación seca un año después",
+    credits: "—Los Tiempos. José Rocha (2017)",
+  },
+  {
+    src: "img/quenamari-3.jpg",
+    title: "Laguna Quenamari avasallada",
+    credits: "—Opinión (2019)",
+  },
+];
+
 class Director {
   constructor() {
     this.imgList = new Map();
