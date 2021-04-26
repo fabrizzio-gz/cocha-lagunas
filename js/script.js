@@ -27,30 +27,6 @@ const init = () => {
   ({ windowY, inicioSize, sectionSize } = getSizes());
 };
 
-const getImage = (e) => {
-  switch (e.target.id) {
-    case "lag-cuellar":
-      if (e.target.classList.contains("estadio-cover"))
-        director.start(estadioSlideShow);
-      else director.start(cuellarSlideShow);
-      break;
-    case "lag-sarco":
-      if (e.target.classList.contains("complejo-sarco-cover"))
-        director.start(complejoSarcoSlideShow);
-      else director.start(sarcoSlideShow);
-
-      break;
-    case "lag-cuadras":
-      if (e.target.classList.contains("estacion-teleferico-cover"))
-        director.start(estacionTelefericoSlideShow);
-      else director.start(cuadrasSlideShow);
-      break;
-    case "lag-quenamari-circle":
-      director.start(quenamariSlideShow);
-      break;
-  }
-};
-
 let currentSection = -1;
 
 const scrollCallback = (e) => {
@@ -136,9 +112,5 @@ window.onresize = () => {
 };
 
 document.addEventListener("scroll", scrollCallback);
-
-document
-  .querySelectorAll("#cercado-svg-lagunas circle")
-  .forEach((e) => e.addEventListener("click", getImage));
 
 init();

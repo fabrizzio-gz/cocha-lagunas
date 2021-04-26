@@ -196,6 +196,34 @@ class Director {
 
 const director = new Director();
 
+const getImage = (e) => {
+  switch (e.target.id) {
+    case "lag-cuellar":
+      if (e.target.classList.contains("estadio-cover"))
+        director.start(estadioSlideShow);
+      else director.start(cuellarSlideShow);
+      break;
+    case "lag-sarco":
+      if (e.target.classList.contains("complejo-sarco-cover"))
+        director.start(complejoSarcoSlideShow);
+      else director.start(sarcoSlideShow);
+
+      break;
+    case "lag-cuadras":
+      if (e.target.classList.contains("estacion-teleferico-cover"))
+        director.start(estacionTelefericoSlideShow);
+      else director.start(cuadrasSlideShow);
+      break;
+    case "lag-quenamari-circle":
+      director.start(quenamariSlideShow);
+      break;
+  }
+};
+
+document
+  .querySelectorAll("#cercado-svg-lagunas circle")
+  .forEach((e) => e.addEventListener("click", getImage));
+
 document.querySelector(".modal").addEventListener("click", (e) => {
   if (e.target === document.querySelector("#slideshow")) director.stop();
 });
@@ -223,3 +251,7 @@ document.querySelector("#photos-sarco").addEventListener("click", () => {
 document.querySelector("#photos-cuadras").addEventListener("click", () => {
   director.start(cuadrasSlideShow);
 });
+
+/*document.querySelector("#photos-quenamari").addEventListener("click", () => {
+  director.start(quenamariSlideShow);
+});*/
