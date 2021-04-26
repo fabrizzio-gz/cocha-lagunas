@@ -203,6 +203,7 @@ const sec5Prep = () => {
     scale: 1,
   });
   show("lag-cuellar");
+  document.querySelector("#lag-cuellar").classList.remove("estadio-cover");
   anime.set("#lag-cuellar", { opacity: 0 });
   getCaption("caption-cuellar").setText("Laguna Cuellar");
 };
@@ -262,24 +263,27 @@ const sec6Prep = () => {
   );
   show("lag-cuellar");
   getCaption("caption-cuellar").setText("Laguna Cuellar");
+  document.querySelector("#lag-cuellar").classList.remove("estadio-cover");
   showCaptionsSec5();
 };
 
 const sec6Anim = anime
   .timeline({
-    targets: "#lag-cuellar",
-    opacity: [1, 0],
-    easing: "easeInOutCubic",
-    duration: 1500,
+    targets: "",
+    begin: () => {
+      hide("lag-cuellar");
+    },
+    duration: 1000,
     autoplay: false,
   })
   .add({
-    targets: "#estadio",
-    opacity: [0, 1],
+    targets: "",
     complete: () => {
       getCaption("caption-cuellar").setText("Estadio Félix Capriles");
-      hide("lag-cuellar");
+      document.querySelector("#lag-cuellar").classList.add("estadio-cover");
+      show("lag-cuellar");
     },
+    duration: 1000,
   });
 
 const sec7Prep = () => {
