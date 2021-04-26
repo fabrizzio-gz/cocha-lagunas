@@ -80,7 +80,8 @@ const scrollCallback = (e) => {
           document
             .querySelector("#cocha-map-container")
             .classList.remove("top");
-
+        else
+          document.querySelector("#cocha-map-container").classList.add("top");
         break;
       case 2:
         callAnimation(2, sec2Anim, sec2Prep);
