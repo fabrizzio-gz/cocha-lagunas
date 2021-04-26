@@ -127,10 +127,6 @@ const scrollCallback = (e) => {
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 /* Window callbacks and event listeners */
-window.onbeforeunload = () => {
-  //window.scrollTo(0, 0);
-};
-
 window.onresize = () => {
   Caption.updateAllPositions();
   ({ windowY, inicioSize, sectionSize } = getSizes());
