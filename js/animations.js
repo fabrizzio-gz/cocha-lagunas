@@ -45,6 +45,7 @@ const prepCochaMap = () => {
   Caption.hideAllCaptions();
   document.querySelector("#cocha-map-container").classList.remove("bottom");
   hide("cercado-map-container");
+  hide("collage");
   show("cocha-map-container");
   anime.set("#cocha-map-container", { opacity: 1 });
 };
@@ -608,6 +609,7 @@ const sec13Anim = anime({
     hide("cocha-svg-cercado");
     prepCochaMap();
     showFooter();
+    show("collage");
     anime.set("#final-message", { opacity: 1 });
   },
   opacity: [1, 0],
