@@ -583,6 +583,14 @@ footer {
   fill: url(#estadio-cover);
 }
 
+.complejo-sarco-cover {
+  fill: url(#complejo-sarco-cover);
+}
+
+.estacion-teleferico-cover {
+  fill: url(#estacion-teleferico-cover);
+}
+
 #estadio,
 #complejo-sarco,
 #estacion-teleferico {
