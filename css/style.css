@@ -513,6 +513,7 @@ footer {
   transform: rotate(45deg);
   cursor: pointer;
   display: block;
+  padding: 0.5em;
 }
 
 .prev::before {
