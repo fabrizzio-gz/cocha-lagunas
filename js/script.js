@@ -30,13 +30,20 @@ const init = () => {
 const getImage = (e) => {
   switch (e.target.id) {
     case "lag-cuellar":
-      director.start(cuellarSlideShow);
+      if (e.target.classList.contains("estadio-cover"))
+        director.start(estadioSlideShow);
+      else director.start(cuellarSlideShow);
       break;
     case "lag-sarco":
-      director.start(sarcoSlideShow);
+      if (e.target.classList.contains("complejo-sarco-cover"))
+        director.start(complejoSarcoSlideShow);
+      else director.start(sarcoSlideShow);
+
       break;
     case "lag-cuadras":
-      director.start(cuadrasSlideShow);
+      if (e.target.classList.contains("estacion-teleferico-cover"))
+        director.start(estacionTelefericoSlideShow);
+      else director.start(cuadrasSlideShow);
       break;
   }
 };

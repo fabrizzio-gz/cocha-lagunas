@@ -7,7 +7,15 @@ const cuellarSlideShow = [
   {
     src: "img/cuellar-2.jpg",
     title: "Laguna Cuellar",
-    credits: "—Cochabamba, 1925",
+    credits: "—Autor desconocido. Cochabamba, 1925",
+  },
+];
+
+const estadioSlideShow = [
+  {
+    src: "img/estadio-1.jpg",
+    title: "Estadio Félix Capriles",
+    credits: '—Blog "Los Estadios del Mundo"',
   },
 ];
 
@@ -19,8 +27,34 @@ const sarcoSlideShow = [
   },
 ];
 
+const complejoSarcoSlideShow = [
+  {
+    src: "img/complejo-sarco-1.jpg",
+    title: "Gimnasio Polifuncional Sarco",
+    credits: "—Los Tiempos. Daniel James.",
+  },
+  {
+    src: "img/complejo-sarco-2.png",
+    title: "Gimnasio Polifuncional Sarco",
+    credits: "—Google maps (2015)",
+  },
+];
+
 const cuadrasSlideShow = [
   { src: "", credits: "—No se tienen fotos de la Laguna Cuadras" },
+];
+
+const estacionTelefericoSlideShow = [
+  {
+    src: "img/estacion-teleferico-1.png",
+    title: "Parque de la Autonomía",
+    credits: "—Google maps (2015)",
+  },
+  {
+    src: "img/estacion-teleferico-2.png",
+    title: "Estación Teleférico",
+    credits: "—Google maps (2015)",
+  },
 ];
 
 class Director {
