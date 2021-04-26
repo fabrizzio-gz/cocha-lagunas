@@ -373,22 +373,6 @@ const sec8Anim = changeCoverAnimation({
   newText: "Complejo Deportivo Sarco",
   cssClass: "complejo-sarco-cover",
 });
-/*anime
-  .timeline({
-    targets: "#lag-sarco",
-    opacity: [1, 0],
-    duration: 1500,
-    easing: "easeInCubic",
-    autoplay: false,
-  })
-  .add({
-    targets: "#complejo-sarco",
-    opacity: [0, 1],
-    complete: () => {
-      getCaption("caption-sarco").setText("Complejo Deportivo Sarco");
-      hide("lag-sarco");
-    },
-  });*/
 
 const sec9Prep = () => {
   prepCercadoMap();
@@ -400,6 +384,9 @@ const sec9Prep = () => {
   anime.set(["#cercado-svg-rios path", "#p-recoleta, #p-quillacollo"], {
     opacity: 1,
   });
+  document
+    .querySelector("#lag-cuadras")
+    .classList.remove("estacion-teleferico-cover");
   show("lag-cuadras");
   getCaption("caption-cuadras").setText("Laguna Cuadras");
   getCaption("caption-sarco").setText("Laguna Sarco");
@@ -450,6 +437,9 @@ const sec9Anim = anime
 
 const sec10Prep = () => {
   prepCercadoMap();
+  document
+    .querySelector("#lag-cuadras")
+    .classList.remove("estacion-teleferico-cover");
   show("lag-cuadras");
   anime.set("#cercado-svg", {
     translateX: "-40%",
@@ -472,7 +462,14 @@ const sec10Prep = () => {
   showCaptionsSec9();
 };
 
-const sec10Anim = anime
+const sec10Anim = changeCoverAnimation({
+  lake: "lag-cuadras",
+  lakeSelector: "#lag-cuadras",
+  caption: "caption-cuadras",
+  newText: "Estación Parque Teleférico",
+  cssClass: "estacion-teleferico-cover",
+});
+/*anime
   .timeline({
     targets: "#lag-cuadras",
     opacity: [1, 0],
@@ -487,7 +484,7 @@ const sec10Anim = anime
       getCaption("caption-cuadras").setText("Estación Parque Teleférico");
       hide("lag-cuadras");
     },
-  });
+  });*/
 
 const sec11Prep = () => {
   prepCercadoMap();
