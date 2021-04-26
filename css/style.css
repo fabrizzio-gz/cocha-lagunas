@@ -521,6 +521,7 @@ footer {
 
 .map-container {
   position: fixed;
+  overflow: hidden;
   top: 0;
   left: 0;
   width: 100%;
@@ -644,6 +645,19 @@ footer {
   100% {
     stroke-dashoffset: 0;
   }
+}
+
+.map-container img {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  height: auto;
+  min-height: 100%;
+  width: aout;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
 /* special class, apply last */
