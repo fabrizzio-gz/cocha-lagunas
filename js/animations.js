@@ -45,7 +45,10 @@ const prepCochaMap = () => {
   Caption.hideAllCaptions();
   document.querySelector("#cocha-map-container").classList.remove("bottom");
   hide("cercado-map-container");
-  hide("collage");
+  /* Can't use hide("collage") because conflict with
+   * previous "hide" element.
+   */
+  document.getElementById("collage").classList.add("hidden");
   show("cocha-map-container");
   anime.set("#cocha-map-container", { opacity: 1 });
 };
@@ -583,6 +586,8 @@ const sec13Prep = () => {
   show("lag-alalay");
   show("lag-cona-cona");
   show("lag-quenamari");
+  director.showCollage();
+  document.getElementById("collage").classList.add("hidden");
   anime.set("#cercado-svg", {
     translateX: "10%",
     translateY: "-30%",
@@ -609,7 +614,7 @@ const sec13Anim = anime({
     hide("cocha-svg-cercado");
     prepCochaMap();
     showFooter();
-    show("collage");
+    document.getElementById("collage").classList.remove("hidden");
     anime.set("#final-message", { opacity: 1 });
   },
   opacity: [1, 0],

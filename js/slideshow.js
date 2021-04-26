@@ -121,6 +121,20 @@ class Director {
     if (credits) this.cite.appendChild(document.createTextNode(credits));
   }
 
+  async showCollage() {
+    if (this.imgList.has("img/collage.jpg")) return;
+    const collageImg = await this.loadImg("img/collage.jpg");
+    collageImg.id = "collage";
+    collageImg.alt = "Aves en las lagunas Alalay, Coña Coña y Quenamari";
+    this.imgList.set("img/collage.jpg", collageImg);
+    document
+      .querySelector("#cocha-map-container")
+      .replaceChild(
+        collageImg,
+        document.querySelector("#cocha-map-container img")
+      );
+  }
+
   /* https://stackoverflow.com/questions/46399223/async-await-in-image-loading */
   async loadImg(src) {
     return new Promise((resolve, reject) => {
