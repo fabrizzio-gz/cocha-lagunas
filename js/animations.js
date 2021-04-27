@@ -1,9 +1,6 @@
-const lightblue = "#00dbfc";
-const orange = "#ff7a00";
-const grey = "#3b4749";
-const lightgrey = "#f9fafa";
-const invisible = "rgba(0,0,0,0)";
-const white = "#fff";
+const lightblue = "#5BC3EB";
+const grey = "#36382E";
+const mapColor = "#EDE6E3";
 
 /*
  * Helper functions
@@ -149,7 +146,7 @@ const sec2Prep = () => {
 
 const sec2Anim = anime({
   targets: "#cocha-svg-cocha",
-  fill: white,
+  fill: mapColor,
   complete: () => {
     getCaption("caption-cercado").show();
   },
@@ -159,7 +156,7 @@ const sec2Anim = anime({
 
 const sec3Prep = () => {
   sec2Prep();
-  anime.set("#cocha-svg-cocha", { fill: white });
+  anime.set("#cocha-svg-cocha", { fill: mapColor });
   Caption.updateAllPositions();
   getCaption("caption-cercado").show();
 };
@@ -617,7 +614,7 @@ const sec13Prep = () => {
 const sec13Anim = anime({
   targets: "#cercado-svg",
   complete: () => {
-    anime.set("#cocha-svg-cocha", { fill: white });
+    anime.set("#cocha-svg-cocha", { fill: mapColor });
     anime.set("#cocha-map-container", {
       translateX: 0,
       translateY: 0,

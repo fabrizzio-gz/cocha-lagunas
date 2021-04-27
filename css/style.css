@@ -6,12 +6,13 @@
   --inicio-size: 1; /* Fraction of vh*/
   --section-size: 1.2; /* Fraction of vh */
   --min-section-size: 960; /* px */
-  --color-lightblue: #00dbfc;
-  --color-grey: #3b4749;
+  --color-lightblue: #5bc3eb;
+  --color-grey: #36382e;
+  --color-map: #ede6e3;
   --color-orange: #ff7a00;
-  --color-lightgrey: #f7f6f3; /* #f9fafa;*/
-  --color-background: #f7f6f3;
-  --color-strong: #eb1000;
+  --color-background: #dadad9; /* NONE HTML*/
+  --color-body: #fff;
+  --color-strong: #eb1000; /* none HTML */
 }
 
 /*
@@ -24,7 +25,7 @@
 }
 
 body {
-  background-color: var(--color-background);
+  background-color: var(--color-body);
   font-family: "Nunito Sans", "Times New Roman";
   color: var(--color-grey);
 }
@@ -194,7 +195,7 @@ section > div {
 section > div p {
   padding: 1em 0.8em;
   /*  border: solid 2px var(--color-grey); */
-  background: rgba(255, 255, 255, 0.9);
+  background: #dadad9e6; /* --color-background 90%*/
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-size: 1.25em;
@@ -222,7 +223,8 @@ section blockquote {
 }
 
 section blockquote div {
-  background: rgba(255, 255, 255, 0.8);
+  background: #dadad9e6; /* --color-background 90% */
+  border-radius: 5px;
 }
 
 @media (max-width: 768px) {
@@ -310,7 +312,7 @@ footer {
   position: relative;
   font-weight: bold;
   z-index: 1;
-  background-color: white;
+  background-color: var(--color-background);
   font-size: 1.1em;
   border-top: 2px solid var(--color-grey);
 }
@@ -392,7 +394,7 @@ footer {
   transform: translate(-50%, -50%);
   font-size: 1.2em;
   z-index: 0;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: #ede6e366; /* --color-map */
 }
 
 .avenida,
@@ -406,7 +408,7 @@ footer {
 }
 
 .edificio {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: #36382e66; /* --color-grey */
   color: white;
 }
 
