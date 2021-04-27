@@ -96,7 +96,6 @@ class Director {
     this.cite = document.querySelector("#slideshow cite");
     this.figcaption = document.querySelector("#slideshow figcaption");
     this.slideShowList = [];
-    this.isVisible = false;
   }
 
   async start(slideShowList) {
@@ -104,7 +103,6 @@ class Director {
     this.slideShowList = slideShowList;
     this.showArrows();
     this.modal.classList.add("show-modal");
-    this.isVisible = true;
     await this.showSingleImg();
   }
 
@@ -178,7 +176,6 @@ class Director {
 
   stop() {
     this.modal.classList.remove("show-modal");
-    this.isVisible = false;
   }
 
   async nextImg() {
