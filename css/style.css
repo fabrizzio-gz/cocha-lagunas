@@ -643,25 +643,8 @@ footer {
 
 #cercado-svg-lagunas path {
   fill: var(--color-lightblue);
-  animation: grow 2s linear alternate infinite;
   transform-box: fill-box;
   transform-origin: center;
-}
-
-@keyframes grow {
-  100% {
-    transform: scale(1.1);
-  }
-}
-
-#cercado-svg-lagunas .shrink /* This lake isn't growing */ {
-  animation: shrink 3s 1s ease-in forwards;
-}
-
-@keyframes shrink {
-  100% {
-    transform: scale(0.4);
-  }
 }
 
 .draw-rocha {
