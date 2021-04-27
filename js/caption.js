@@ -183,7 +183,7 @@ class Caption {
       {
         id: "cercado-svg-caption-aeropuerto",
         text: "Aeropuerto",
-        translate: "translate(-50%, -50%) rotate(42deg)",
+        translate: "translate(-50%, -50%) rotate(40deg)",
         isEdificio: true,
       },
       { id: "cercado-svg-caption-tamborada", text: "La Tamborada" },
