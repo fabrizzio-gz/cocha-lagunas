@@ -268,7 +268,7 @@ section img {
 #end-div h2 {
   text-align: center;
   width: auto;
-  background-color: white;
+  background-color: #ede6e3b3;
 }
 
 @media (max-width: 400px) {
