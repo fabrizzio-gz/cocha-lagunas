@@ -488,7 +488,6 @@ const sec10Anim = changeCoverAnimation({
 
 const sec11Prep = () => {
   prepCercadoMap();
-  document.querySelector("#lag-quenamari").classList.remove("shrink");
   show("lag-alalay");
   show("lag-cona-cona");
   show("lag-quenamari");
@@ -546,7 +545,6 @@ const sec11Anim = anime
 
 const sec12Prep = () => {
   prepCercadoMap();
-  document.querySelector("#lag-quenamari").classList.remove("shrink");
   show("lag-alalay");
   show("lag-cona-cona");
   show("lag-quenamari");
