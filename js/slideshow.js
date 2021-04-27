@@ -64,7 +64,7 @@ const quenamariSlideShow = [
     title: "Laguna Quenamari",
     credits: "—Los Tiempos. Carlos López (2016)",
     figcaption:
-      "Ya en el 2015, se presentó un <a href='https://lostiempos.com/actualidad/cochabamba/20171119/laguna-quenamari-esta-seca-vecinos-nivelan-tierra-sembrar' target='_blank'>proyecto de Ley</a> para hacer de la Laguna Quenamari un área protegida. No ha sido aprobado hasta la fecha.",
+      "Ya en el 2015, se presentó un <a href='https://www.lostiempos.com/actualidad/cochabamba/20190504/tres-anos-no-hay-ley-proteccion-quenamari' target='_blank'>proyecto de Ley</a> para hacer de la Laguna Quenamari un área protegida. No ha sido aprobado hasta la fecha.",
   },
   {
     src: "img/quenamari-2.jpg",
