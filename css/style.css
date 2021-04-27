@@ -196,7 +196,6 @@ section > div {
 
 section > div p {
   padding: 1em 0.8em;
-  /*  border: solid 2px var(--color-grey); */
   background: #dadad9e6; /* --color-background 90%*/
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -252,15 +251,6 @@ section blockquote figcaption:before {
 section blockquote figcaption {
   font-style: normal;
 }
-
-section img {
-  max-width: 450px;
-  max-height: 300px;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  filter: grayscale(1);
-}
-
 #end-div {
   position: relative;
   width: 100%;
@@ -453,7 +443,6 @@ footer {
   color: var(--color-grey);
   text-align: center;
   padding: 0.5em;
-  /*  font-size: 1em;*/
 }
 
 #slideshow h2 {
@@ -561,25 +550,6 @@ footer {
   height: 100%;
   z-index: -1;
 }
-
-/* Fix to show top part of figure. Still buggy.
- * 
- */
-/*
-@media (min-width: 768px) {
-  .map-container {
-    overflow: visible;
-  }
-  .map-container img {
-    bottom: 0;
-    height: auto;
-    min-height: 100%;
-    width: auto;
-    min-width: 100%;
-    transform: translateY(37.5vw) translateY(-50vh);
-    clip: rect(0, 2000px, calc(37.5vw + 50vh), 0);
-  }
-}*/
 
 .top {
   position: absolute;
