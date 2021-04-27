@@ -614,7 +614,7 @@ const sec13Prep = () => {
 const sec13Anim = anime({
   targets: "#cercado-svg",
   complete: () => {
-    anime.set("#cocha-svg-cocha", { fill: mapColor });
+    anime.set("#cocha-svg-cocha", { fill: mapColor, opacity: 0.7 });
     anime.set("#cocha-map-container", {
       translateX: 0,
       translateY: 0,
