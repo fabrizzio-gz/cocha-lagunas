@@ -133,6 +133,10 @@ strong {
     font-size: 1.2em;
   }
 }
+#inicio + cite {
+  display: block;
+  text-align: right;
+}
 
 /*
  * Sections style
