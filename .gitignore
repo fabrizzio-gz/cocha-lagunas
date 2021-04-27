@@ -4,6 +4,7 @@ css/style.min.css
 css/style.prefix.css
 js/full.script.js
 js/script.min.js
+index.min.html
 package-lock.json
 *.#*
 #*
