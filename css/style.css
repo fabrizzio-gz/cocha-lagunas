@@ -134,8 +134,9 @@ strong {
   }
 }
 #inicio + cite {
-  display: block;
-  text-align: right;
+  position: absolute;
+  top: calc(var(--inicio-size) * 100vh);
+  right: 0;
 }
 
 /*
