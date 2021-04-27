@@ -1,6 +1,6 @@
 # cocha-lagunas
 
-Visual presentation of old lakes in the city of Cochabamba.
+Historia gráfica de las lagunas perdidas de Cochabamba.
 
 ---
 
