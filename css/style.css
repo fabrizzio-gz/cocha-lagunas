@@ -456,6 +456,12 @@ footer {
   box-shadow: 0 4px 8px 0 #36382e33, 0 6px 20px 0 #36382e30;
 }
 
+@media (max-width: 768px) {
+  #slideshow img {
+    max-height: 55%;
+  }
+}
+
 #slideshow cite {
   padding: 0;
 }
