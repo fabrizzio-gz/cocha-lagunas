@@ -80,6 +80,14 @@ const quenamariSlideShow = [
     figcaption:
       "Poco a poco, los terrenos de la laguna son <a href='https://www.opinion.com.bo/articulo/cochabamba/construcciones-invaden-laguna-quenamari-entes-buscan-frenar/20190321060800644802.html' target='_blank'>rellenados</a> para cultivar o incluso para construir.",
   },
+  {
+    src: "img/quenamari-4.jpg",
+    title: "Aves de la laguna Quenamari",
+    credits:
+      "—Captura de pantall del Documental 'La Laguna de Quenamari' (TVU-2014)",
+    figcaption:
+      "Más de 100 especes de aves podían encontrarse en la Laguna de Quenamari.",
+  },
 ];
 
 class Director {
