@@ -429,7 +429,7 @@ footer {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #ffffffe6; /* --color-map */
   visibility: hidden;
   transform: scale(1.1);
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
@@ -445,11 +445,10 @@ footer {
 #slideshow img,
 #slideshow figcaption {
   box-sizing: border-box;
-  /*  font-family: serif;*/
-  color: white;
+  color: var(--color-grey);
   text-align: center;
   padding: 0.5em;
-  font-size: 1em;
+  /*  font-size: 1em;*/
 }
 
 #slideshow h2 {
@@ -457,14 +456,18 @@ footer {
   min-height: 10%;
 }
 
-#slideshow cite {
-  font-size: 0.9em;
-  padding: 0;
-}
-
 #slideshow img {
   max-height: 70%;
   max-width: 80%;
+  box-shadow: 0 4px 8px 0 #36382e33, 0 6px 20px 0 #36382e30;
+}
+
+#slideshow cite {
+  padding: 0;
+}
+
+#slideshow figcaption {
+  font-size: 1.25em;
 }
 
 #slideshow a {
@@ -496,12 +499,12 @@ footer {
   text-align: center;
   cursor: pointer;
   border-radius: 1rem;
-  background-color: white;
-  color: black;
+  background-color: var(--color-grey);
+  color: #fff;
 }
 .close-modal-button:hover {
-  background-color: black;
-  color: white;
+  background-color: #fff;
+  color: var(--color-grey);
 }
 
 /* https://codepen.io/reacraf/pen/ZPqRKV */
@@ -516,13 +519,13 @@ footer {
 }
 
 .prev::before {
-  border-left: 4px solid white;
-  border-bottom: 4px solid white;
+  border-left: 4px solid var(--color-grey);
+  border-bottom: 4px solid var(--color-grey);
 }
 
 .next::before {
-  border-right: 4px solid white;
-  border-top: 4px solid white;
+  border-right: 4px solid var(--color-grey);
+  border-top: 4px solid var(--color-grey);
 }
 
 .show-modal {
