@@ -5,7 +5,6 @@ src/css/style.prefix.css
 src/js/full.script.js
 src/js/script.min.js
 src/index.min.html
-package-lock.json
 *.#*
 #*
 *#
