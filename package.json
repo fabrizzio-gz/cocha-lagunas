@@ -5,7 +5,7 @@
   "main": "src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx babel js/caption.js js/animations.js js/slideshow.js js/script.js -o js/full.script.js && npx minify js/full.script.js > js/script.min.js && npx postcss css/style.css --use autoprefixer --no-map -o css/style.prefix.css && npx minify css/style.prefix.css > css/style.min.css && npx minify index.html > index.min.html"
+    "build": "npx babel src/js/caption.js src/js/animations.js src/js/slideshow.js src/js/script.js -o src/js/full.script.js && npx minify src/js/full.script.js > src/js/script.min.js && npx postcss src/css/style.css --use autoprefixer --no-map -o src/css/style.prefix.css && npx minify src/css/style.prefix.css > src/css/style.min.css && npx minify src/index.html > src/index.min.html"
   },
   "repository": {
     "type": "git",

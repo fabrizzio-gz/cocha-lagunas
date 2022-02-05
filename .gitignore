@@ -1,10 +1,10 @@
 node_modules/
 pnpm-lock.yaml
-css/style.min.css
-css/style.prefix.css
-js/full.script.js
-js/script.min.js
-index.min.html
+src/css/style.min.css
+src/css/style.prefix.css
+src/js/full.script.js
+src/js/script.min.js
+src/index.min.html
 package-lock.json
 *.#*
 #*
